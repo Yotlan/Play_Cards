@@ -1,0 +1,79 @@
+{
+    "Chimaira" : {
+        "up" : 7,
+        "right" : 6,
+        "down" : 5,
+        "left" : 3,
+        "element" : "water"
+    },
+    "Ekarissor" : {
+        "up" : 6,
+        "right" : 5,
+        "down" : 6,
+        "left" : 5,
+        "element" : "normal"
+    },
+    "Griffon" : {
+        "up" : 7,
+        "right" : 2,
+        "down" : 7,
+        "left" : 4,
+        "element" : "fire"
+    },
+    "Kanibal" : {
+        "up" : 3,
+        "right" : 6,
+        "down" : 5,
+        "left" : 7,
+        "element" : "normal"
+    },
+    "KoyoK" : {
+        "up" : 3,
+        "right" : 10,
+        "down" : 2,
+        "left" : 1,
+        "element" : "normal"
+    },
+    "Pikasso" : {
+        "up" : 5,
+        "right" : 5,
+        "down" : 7,
+        "left" : 4,
+        "element" : "normal"
+    },
+    "Protesis" : {
+        "up" : 6,
+        "right" : 2,
+        "down" : 6,
+        "left" : 7,
+        "element" : "normal"
+    },
+    "Sulfor" : {
+        "up" : 5,
+        "right" : 3,
+        "down" : 7,
+        "left" : 6,
+        "element" : "normal"
+    },
+    "TomberrySenior" : {
+        "up" : 4,
+        "right" : 6,
+        "down" : 7,
+        "left" : 4,
+        "element" : "normal"
+    },
+    "WedgeBiggs" : {
+        "up" : 6,
+        "right" : 6,
+        "down" : 2,
+        "left" : 7,
+        "element" : "normal"
+    },
+    "Xylomid" : {
+        "up" : 7,
+        "right" : 7,
+        "down" : 4,
+        "left" : 2,
+        "element" : "poison"
+    }
+}

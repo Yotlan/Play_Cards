@@ -1,0 +1,79 @@
+{
+    "Cyanide" : {
+        "up" : 1,
+        "right" : 8,
+        "down" : 4,
+        "left" : 8,
+        "element" : "normal"
+    },
+    "Ecorche" : {
+        "up" : 1,
+        "right" : 8,
+        "down" : 8,
+        "left" : 3,
+        "element" : "poison"
+    },
+    "Flotix" : {
+        "up" : 4,
+        "right" : 8,
+        "down" : 5,
+        "left" : 6,
+        "element" : "normal"
+    },
+    "FujinRaijin" : {
+        "up" : 2,
+        "right" : 8,
+        "down" : 8,
+        "left" : 4,
+        "element" : "normal"
+    },
+    "Goliath" : {
+        "up" : 4,
+        "right" : 8,
+        "down" : 7,
+        "left" : 3,
+        "element" : "normal"
+    },
+    "Hornet" : {
+        "up" : 6,
+        "right" : 8,
+        "down" : 4,
+        "left" : 5,
+        "element" : "normal"
+    },
+    "Iguanor" : {
+        "up" : 8,
+        "right" : 2,
+        "down" : 8,
+        "left" : 2,
+        "element" : "normal"
+    },
+    "Krystal" : {
+        "up" : 7,
+        "right" : 5,
+        "down" : 8,
+        "left" : 1,
+        "element" : "normal"
+    },
+    "Lygus" : {
+        "up" : 7,
+        "right" : 2,
+        "down" : 8,
+        "left" : 5,
+        "element" : "normal"
+    },
+    "Shumi" : {
+        "up" : 6,
+        "right" : 5,
+        "down" : 8,
+        "left" : 4,
+        "element" : "normal"
+    },
+    "Sulfura" : {
+        "up" : 7,
+        "right" : 8,
+        "down" : 3,
+        "left" : 4,
+        "element" : "wind"
+    }
+}

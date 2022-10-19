@@ -1,0 +1,79 @@
+{
+    "Ao" : {
+        "up" : 4,
+        "right" : 5,
+        "down" : 5,
+        "left" : 6,
+        "element" : "earth"
+    },
+    "Cariatide" : {
+        "up" : 6,
+        "right" : 5,
+        "down" : 4,
+        "left" : 5,
+        "element" : "normal"
+    },
+    "Draconus" : {
+        "up" : 3,
+        "right" : 7,
+        "down" : 3,
+        "left" : 6,
+        "element" : "normal"
+    },
+    "Eiffel" : {
+        "up" : 2,
+        "right" : 3,
+        "down" : 6,
+        "left" : 7,
+        "element" : "normal"
+    },
+    "Marsupial" : {
+        "up" : 7,
+        "right" : 4,
+        "down" : 4,
+        "left" : 4,
+        "element" : "normal"
+    },
+    "Moloch" : {
+        "up" : 6,
+        "right" : 2,
+        "down" : 7,
+        "left" : 3,
+        "element" : "poison"
+    },
+    "Polyphage" : {
+        "up" : 7,
+        "right" : 5,
+        "down" : 4,
+        "left" : 3,
+        "element" : "fire"
+    },
+    "Succube" : {
+        "up" : 2,
+        "right" : 7,
+        "down" : 6,
+        "left" : 3,
+        "element" : "fire"
+    },
+    "Tikal" : {
+        "up" : 1,
+        "right" : 6,
+        "down" : 4,
+        "left" : 7,
+        "element" : "thunder"
+    },
+    "TRex" : {
+        "up" : 4,
+        "right" : 6,
+        "down" : 2,
+        "left" : 7,
+        "element" : "normal"
+    },
+    "Wendigo" : {
+        "up" : 7,
+        "right" : 3,
+        "down" : 1,
+        "left" : 6,
+        "element" : "normal"
+    }
+}

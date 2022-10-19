@@ -1,0 +1,79 @@
+{
+    "Ahuri" : {
+        "up" : 8,
+        "right" : 4,
+        "down" : 10,
+        "left" : 4,
+        "element" : "normal"
+    },
+    "Alexander" : {
+        "up" : 9,
+        "right" : 10,
+        "down" : 4,
+        "left" : 2,
+        "element" : "light"
+    },
+    "Bahamut" : {
+        "up" : 10,
+        "right" : 8,
+        "down" : 2,
+        "left" : 6,
+        "element" : "normal"
+    },
+    "Cerberes" : {
+        "up" : 7,
+        "right" : 4,
+        "down" : 6,
+        "left" : 10,
+        "element" : "normal"
+    },
+    "Helltrain" : {
+        "up" : 3,
+        "right" : 1,
+        "down" : 10,
+        "left" : 10,
+        "element" : "poison"
+    },
+    "Leviathan" : {
+        "up" : 7,
+        "right" : 10,
+        "down" : 1,
+        "left" : 7,
+        "element" : "water"
+    },
+    "Nosferatu" : {
+        "up" : 5,
+        "right" : 10,
+        "down" : 8,
+        "left" : 3,
+        "element" : "normal"
+    },
+    "Odin" : {
+        "up" : 8,
+        "right" : 10,
+        "down" : 3,
+        "left" : 5,
+        "element" : "normal"
+    },
+    "Orbital" : {
+        "up" : 4,
+        "right" : 4,
+        "down" : 9,
+        "left" : 10,
+        "element" : "normal"
+    },
+    "Phenix" : {
+        "up" : 7,
+        "right" : 2,
+        "down" : 7,
+        "left" : 10,
+        "element" : "fire"
+    },
+    "Zephyr" : {
+        "up" : 10,
+        "right" : 1,
+        "down" : 7,
+        "left" : 7,
+        "element" : "wind"
+    }
+}

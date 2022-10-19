@@ -1,0 +1,79 @@
+{
+    "Aphide" : {
+        "up" : 2,
+        "right" : 1,
+        "down" : 4,
+        "left" : 4,
+        "element" : "thunder"
+    },
+    "Bogomile" : {
+        "up" : 1,
+        "right" : 4,
+        "down" : 1,
+        "left" : 5,
+        "element" : "normal"
+    },
+    "Carnidea" : {
+        "up" : 2,
+        "right" : 1,
+        "down" : 6, 
+        "left" : 1,
+        "element" : "normal"
+    },
+    "Diodon" : {
+        "up" : 3,
+        "right" : 5,
+        "down" : 2,
+        "left": 1,
+        "element" : "earth"
+    },
+    "Elastos" : {
+        "up" : 1,
+        "right" : 5,
+        "down" : 4,
+        "left" : 1,
+        "element" : "normal"
+    },
+    "Elmidea" : {
+        "up" : 1,
+        "right" : 3,
+        "down" : 3,
+        "left" : 5,
+        "element" : "normal"
+    },
+    "Fungus" : {
+        "up" : 5,
+        "right" : 1,
+        "down" : 1,
+        "left" : 3,
+        "element" : "normal"
+    },
+    "Gallus" : {
+        "up" : 2,
+        "right" : 1,
+        "down" : 2,
+        "left" : 6,
+        "element" : "thunder"
+    },
+    "Incube" : {
+        "up" : 2,
+        "right" : 3,
+        "down" : 1,
+        "left" : 5,
+        "element" : "normal"
+    },
+    "Larva" : {
+        "up" : 4,
+        "right" : 2,
+        "down" : 4,
+        "left" : 3,
+        "element" : "normal"
+    },
+    "Nocturnus" : {
+        "up" : 6,
+        "right" : 1,
+        "down" : 1,
+        "left" : 2,
+        "element" : "normal"
+    }
+}

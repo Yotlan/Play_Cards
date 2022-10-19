@@ -1,0 +1,79 @@
+{
+    "Angel" : {
+        "up" : 9,
+        "right" : 6,
+        "down" : 7,
+        "left" : 3,
+        "element" : "normal"
+    },
+    "Chicobo" : {
+        "up" : 9,
+        "right" : 4,
+        "down" : 8,
+        "left" : 4,
+        "element" : "normal"
+    },
+    "Gilgamesh" : {
+        "up" : 3,
+        "right" : 7,
+        "down" : 9,
+        "left" : 6,
+        "element" : "normal"
+    },
+    "Golgotha" : {
+        "up" : 2,
+        "right" : 9,
+        "down" : 9,
+        "left" : 4,
+        "element" : "thunder"
+    },
+    "GroChocobo" : {
+        "up" : 4,
+        "right" : 4,
+        "down" : 8,
+        "left" : 9,
+        "element" : "normal"
+    },
+    "Ifrit" : {
+        "up" : 9,
+        "right" : 6,
+        "down" : 2,
+        "left" : 8,
+        "element" : "fire"
+    },
+    "MiniMog" : {
+        "up" : 9,
+        "right" : 3,
+        "down" : 9,
+        "left" : 2,
+        "element" : "normal"
+    },
+    "Ondine" : {
+        "up" : 8,
+        "right" : 9,
+        "down" : 6,
+        "left" : 2,
+        "element" : "normal"
+    },
+    "Shiva" : {
+        "up" : 6,
+        "right" : 7,
+        "down" : 4,
+        "left" : 9,
+        "element" : "ice"
+    },
+    "Tauros" : {
+        "up" : 5,
+        "right" : 1,
+        "down" : 9,
+        "left" : 9,
+        "element" : "earth"
+    },
+    "Taurux" : {
+        "up" : 9,
+        "right" : 5,
+        "down" : 2,
+        "left" : 9,
+        "element" : "earth"
+    }
+}

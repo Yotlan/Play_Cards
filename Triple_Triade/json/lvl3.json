@@ -1,0 +1,79 @@
+{
+    "Adephage" : {
+        "up" : 3,
+        "right" : 5,
+        "down" : 5,
+        "left" : 5,
+        "element" : "poison"
+    },
+    "Barbarian" : {
+        "up" : 5,
+        "right" : 6,
+        "down" : 2,
+        "left" : 4,
+        "element" : "fire"
+    },
+    "Berserker" : {
+        "up" : 4,
+        "right" : 4,
+        "down" : 7,
+        "left" : 2,
+        "element" : "fire"
+    },
+    "Celebis" : {
+        "up" : 7,
+        "right" : 2,
+        "down" : 3,
+        "left" : 5,
+        "element" : "earth"
+    },
+    "Pampa" : {
+        "up" : 6,
+        "right" : 2,
+        "down" : 6,
+        "left" : 3,
+        "element" : "normal"
+    },
+    "Phantom" : {
+        "up" : 7,
+        "right" : 5,
+        "down" : 1,
+        "left" : 3,
+        "element" : "earth"
+    },
+    "Satyrux" : {
+        "up" : 5,
+        "right" : 1,
+        "down" : 5,
+        "left" : 3,
+        "element" : "ice"
+    },
+    "Scavenger" : {
+        "up" : 6,
+        "right" : 3,
+        "down" : 1,
+        "left" : 6,
+        "element" : "earth"
+    },
+    "Tomberry" : {
+        "up" : 3,
+        "right" : 6,
+        "down" : 4,
+        "left" : 4,
+        "element" : "normal"
+    },
+    "Trogiidae" : {
+        "up" : 5,
+        "right" : 6,
+        "down" : 3,
+        "left" : 3,
+        "element" : "normal"
+    },
+    "Weevil" : {
+        "up" : 6,
+        "right" : 6,
+        "down" : 3,
+        "left" : 2,
+        "element" : "normal"
+    }
+}

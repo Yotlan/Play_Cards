@@ -1,0 +1,79 @@
+{
+    "Acarnan" : {
+        "up" : 8,
+        "right" : 8,
+        "down" : 5,
+        "left" : 4,
+        "element" : "normal"
+    },
+    "Acron" : {
+        "up" : 8,
+        "right" : 5,
+        "down" : 2,
+        "left" : 8,
+        "element" : "thunder"
+    },
+    "Agamemnon" : {
+        "up" : 5,
+        "right" : 6,
+        "down" : 6,
+        "left" : 8,
+        "element" : "normal"
+    },
+    "Alienator" : {
+        "up" : 8,
+        "right" : 4,
+        "down" : 4,
+        "left" : 8,
+        "element" : "normal"
+    },
+    "Anakronox" : {
+        "up" : 8,
+        "right" : 6,
+        "down" : 7,
+        "left" : 3,
+        "element" : "normal"
+    },
+    "Attila" : {
+        "up" : 6,
+        "right" : 8,
+        "down" : 4,
+        "left" : 7,
+        "element" : "normal"
+    },
+    "Fabryce" : {
+        "up" : 1,
+        "right" : 8,
+        "down" : 7,
+        "left" : 7,
+        "element" : "normal"
+    },
+    "Mithra" : {
+        "up" : 8,
+        "right" : 3,
+        "down" : 5,
+        "left" : 8,
+        "element" : "normal"
+    },
+    "Monarch" : {
+        "up" : 7,
+        "right" : 7,
+        "down" : 2,
+        "left" : 8,
+        "element" : "normal"
+    },
+    "Omniborg" : {
+        "up" : 5,
+        "right" : 7,
+        "down" : 8,
+        "left" : 5,
+        "element" : "normal"
+    },
+    "PampaSenior" : {
+        "up" : 8,
+        "right" : 8,
+        "down" : 4,
+        "left" : 4,
+        "element" : "normal"
+    }
+}

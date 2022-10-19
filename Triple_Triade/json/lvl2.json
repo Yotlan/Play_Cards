@@ -1,0 +1,79 @@
+{
+    "Arconada" : {
+        "up" : 5,
+        "right" : 1,
+        "down" : 3,
+        "left" : 5,
+        "element" : "poison"
+    },
+    "Feng" : {
+        "up" : 4,
+        "right" : 4,
+        "down" : 5,
+        "left" : 2,
+        "element" : "thunder"
+    },
+    "Formicide" : {
+        "up" : 5,
+        "right" : 2,
+        "down" : 5,
+        "left" : 5,
+        "element" : "thunder"
+    },
+    "Hera" : {
+        "up" : 3,
+        "right" : 2,
+        "down" : 1,
+        "left" : 7,
+        "element" : "normal"
+    },
+    "Koatl" : {
+        "up" : 3,
+        "right" : 4,
+        "down" : 5,
+        "left" : 3,
+        "element" : "normal"
+    },
+    "Licorne" : {
+        "up" : 5,
+        "right" : 3,
+        "down" : 3,
+        "left" : 4,
+        "element" : "normal"
+    },
+    "Malaku" : {
+        "up" : 5,
+        "right" : 3,
+        "down" : 2,
+        "left" : 5,
+        "element" : "wind"
+    },
+    "Orchida" : {
+        "up" : 7,
+        "right" : 1,
+        "down" : 3,
+        "left" : 1,
+        "element" : "normal"
+    },
+    "Schizoid" : {
+        "up" : 6,
+        "right" : 2,
+        "down" : 2,
+        "left" : 3,
+        "element" : "normal"
+    },
+    "Selek" : {
+        "up" : 5,
+        "right" : 2,
+        "down" : 5,
+        "left" : 3,
+        "element" : "normal"
+    },
+    "Xylopode" : {
+        "up" : 6,
+        "right" : 1,
+        "down" : 4,
+        "left" : 3,
+        "element" : "ice"
+    }
+}
