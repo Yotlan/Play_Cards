@@ -25,6 +25,10 @@ import java.rmi.registry.LocateRegistry;
 public class PlayCardsController {
 
     @FXML
+    public Label pseudo = new Label("Pseudo");
+    @FXML
+    public TextField playerPseudo = new TextField();
+    @FXML
     public ObservableList<IRoom> observableRoomList = FXCollections.observableArrayList();
     @FXML
     public TableView<IRoom> roomTable = new TableView<IRoom>();
@@ -102,7 +106,7 @@ public class PlayCardsController {
                             }
                             if(nbPlayer < maxPlayer) {
                                 try {
-                                    data.connect("Test");
+                                    data.connect(playerPseudo.getText());
                                     roomTable.refresh();
                                     Parent root;
                                     try {
@@ -110,13 +114,12 @@ public class PlayCardsController {
                                         Stage stage = new Stage();
                                         stage.setTitle(gameTitle);
                                         stage.setScene(new Scene(root, 750, 600));
+                                        stage.setMaximized(true);
                                         stage.show();
                                         // Hide this current window (if this is what you want)
                                         ((Node)(event.getSource())).getScene().getWindow().hide();
                                     }
-                                    catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
+                                    catch (Exception e) {}
                                 } catch (RemoteException e) {
                                     throw new RuntimeException(e);
                                 }
