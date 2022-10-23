@@ -8,7 +8,7 @@
 
 ## PRESENTATION
 
-TODO
+In this project, you can connect to the main server and you can decide to create a Cards Game Room to play with some people to a Cards Game you have chooseen. 
 
 ### CARDS GAMES AVAILABLE
 
@@ -16,4 +16,4 @@ Cards games who're available is presented bellow :
 - Triple Triade FF8
 - Triple Triade FF14 (TODO)
 - Koi Koi Wars (TODO)
-- ...
+- *More to come*

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/Play_Cards.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/omt-odt-plugin-settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/PlayCardsApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/PlayCardsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/StartServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWars.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/room/CRoom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/room/IRoom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/room/SRoom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fr/playcards/playcards-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Play_Cards/.idea/libraries/legal.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Play_Cards/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Play_Cards/lib/src.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Play_Cards/src/main/java/CardGame/CardGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Play_Cards/src/main/java/CardGame/FF14TripleTriade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Play_Cards/src/main/java/CardGame/FF8TripleTriade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Play_Cards/src/main/java/CardGame/KoiKoiWars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Play_Cards/src/main/java/CRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Play_Cards/src/main/java/Room/CRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Play_Cards/src/main/java/IRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Play_Cards/src/main/java/Room/IRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Play_Cards/src/main/java/InitSRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Play_Cards/src/main/java/Room/InitSRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Play_Cards/src/main/java/SRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Play_Cards/src/main/java/Room/SRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Play_Cards/target/classes/CRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Play_Cards/target/classes/IRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Play_Cards/target/classes/InitSRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Play_Cards/target/classes/SRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GVdfhRJUvhowHvTZDLQtdt3iTP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/yotla/OneDrive/Bureau/Play_Cards/PlayCards"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.fr.playcards.PlayCardsApplication">
+    <configuration name="StartServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.playcards.StartServer" />
+      <module name="PlayCards" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.playcards.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fr.playcards.PlayCardsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.playcards.PlayCardsApplication" />
+      <module name="PlayCards" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.playcards.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.fr.playcards.PlayCardsApplication" />
+        <item itemvalue="Application.StartServer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="" />
+      <created>1666477791344</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666477791344</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
