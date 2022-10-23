@@ -8,8 +8,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.rmi.Naming;
@@ -87,9 +92,11 @@ public class PlayCardsController {
                             IRoom data = getTableView().getItems().get(getIndex());
                             Integer nbPlayer = 0;
                             Integer maxPlayer = 0;
+                            String gameTitle = "";
                             try {
                                 nbPlayer = data.getNbplayer();
                                 maxPlayer = data.getCurrentCardGame().getMaxPlayer();
+                                gameTitle = data.getCurrentCardGame().toString();
                             } catch (RemoteException e) {
                                 throw new RuntimeException(e);
                             }
@@ -97,6 +104,19 @@ public class PlayCardsController {
                                 try {
                                     data.connect("Test");
                                     roomTable.refresh();
+                                    Parent root;
+                                    try {
+                                        root = FXMLLoader.load(PlayCardsController.class.getResource("ff8tripletriade-view.fxml"));
+                                        Stage stage = new Stage();
+                                        stage.setTitle(gameTitle);
+                                        stage.setScene(new Scene(root, 750, 600));
+                                        stage.show();
+                                        // Hide this current window (if this is what you want)
+                                        ((Node)(event.getSource())).getScene().getWindow().hide();
+                                    }
+                                    catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
                                 } catch (RemoteException e) {
                                     throw new RuntimeException(e);
                                 }
