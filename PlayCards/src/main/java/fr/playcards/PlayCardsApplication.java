@@ -12,9 +12,10 @@ public class PlayCardsApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PlayCardsApplication.class.getResource("playcards-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("PlayCards");
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 

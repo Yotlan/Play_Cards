@@ -9,10 +9,11 @@ public class StartServer {
     public static void main(String[] argv) {
         try {
             LocateRegistry.createRegistry(1099);
-            SRoom room = new SRoom(new FF8TripleTriade());
-            Naming.bind(
-                    "play-cards/1099/createroom",
-                    room);
+            while(true) {
+                Naming.rebind(
+                        "play-cards/1099/createroom",
+                        new SRoom(new FF8TripleTriade()));
+            }
         }
         catch(Exception e) { System.out.println("erreur" + e);}
     }
