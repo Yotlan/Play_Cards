@@ -14,6 +14,8 @@ module fr.playcards {
 
     opens fr.playcards to javafx.fxml;
     exports fr.playcards;
+    opens fr.playcards.cardgame to javafx.fxml;
+    exports fr.playcards.cardgame;
     opens fr.playcards.room to java.rmi;
     exports fr.playcards.room;
 }

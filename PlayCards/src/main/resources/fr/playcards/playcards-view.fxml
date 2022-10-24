@@ -10,6 +10,9 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="fr.playcards.PlayCardsController">
     <padding>
@@ -18,6 +21,15 @@
 
     <Label fx:id="pseudo" text="Player Username"/>
     <TextField fx:id="playerPseudo"/>
+    <ChoiceBox fx:id="cardGameChoiceBox" value="FF8TripleTriade">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="FF8TripleTriade" />
+                <String fx:value="FF14TripleTriade" />
+                <String fx:value="KoiKoiWars" />
+            </FXCollections>
+        </items>
+    </ChoiceBox>
     <TableView fx:id="roomTable">
         <columns>
             <TableColumn fx:id="roomColumn" text="Room" />

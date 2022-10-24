@@ -2,6 +2,7 @@ package fr.playcards;
 
 import fr.playcards.cardgame.*;
 import fr.playcards.room.*;
+import javafx.application.Application;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
@@ -28,6 +29,8 @@ public class PlayCardsController {
     public Label pseudo = new Label("Pseudo");
     @FXML
     public TextField playerPseudo = new TextField();
+    @FXML
+    private ChoiceBox cardGameChoiceBox;
     @FXML
     public ObservableList<IRoom> observableRoomList = FXCollections.observableArrayList();
     @FXML
@@ -108,18 +111,18 @@ public class PlayCardsController {
                                 try {
                                     data.connect(playerPseudo.getText());
                                     roomTable.refresh();
-                                    Parent root;
                                     try {
-                                        root = FXMLLoader.load(PlayCardsController.class.getResource("ff8tripletriade-view.fxml"));
-                                        Stage stage = new Stage();
-                                        stage.setTitle(gameTitle);
-                                        stage.setScene(new Scene(root, 750, 600));
-                                        stage.setMaximized(true);
-                                        stage.show();
-                                        // Hide this current window (if this is what you want)
-                                        ((Node)(event.getSource())).getScene().getWindow().hide();
+                                        if(gameTitle.equals("Triple Triade - Final Fantasy 8")) {
+                                            new FF8TripleTriadeFrame(gameTitle).start();
+                                        } else if(gameTitle.equals("Triple Triade - Final Fantasy 14")) {
+                                            new FF14TripleTriadeFrame(gameTitle).start();
+                                        } else if(gameTitle.equals("Koi Koi Wars - Sakura Wars")) {
+                                            new KoiKoiWarsFrame(gameTitle).start();
+                                        }
                                     }
-                                    catch (Exception e) {}
+                                    catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
                                 } catch (RemoteException e) {
                                     throw new RuntimeException(e);
                                 }
@@ -152,10 +155,23 @@ public class PlayCardsController {
     @FXML
     public void onCreateButtonClick() {
         try {
-            IRoom room =
-                    (IRoom) Naming.lookup(
-                            "play-cards/1099/createroom");
-            observableRoomList.add(room);
+            if(cardGameChoiceBox.getValue().toString().equals("FF8TripleTriade")) {
+                IRoom room =
+                        (IRoom) Naming.lookup(
+                                "play-cards/1099/createroomff8tt");
+                observableRoomList.add(room);
+            } else if(cardGameChoiceBox.getValue().toString().equals("FF14TripleTriade")) {
+                IRoom room =
+                        (IRoom) Naming.lookup(
+                                "play-cards/1099/createroomff14tt");
+                observableRoomList.add(room);
+            } else if(cardGameChoiceBox.getValue().toString().equals("KoiKoiWars")) {
+                IRoom room =
+                        (IRoom) Naming.lookup(
+                                "play-cards/1099/createroomkkw");
+                observableRoomList.add(room);
+            }
+            System.out.println("Click !");
             roomTable.setItems(observableRoomList);
             roomTable.refresh();
         } catch (Exception e) {
