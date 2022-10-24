@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriadeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriadeFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWarsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWarsFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/ff14tripletriade-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/koikoiwars-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/PlayCardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/PlayCardsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/StartServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/StartServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/room/CRoom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fr/playcards/ff8tripletriade-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/ff8tripletriade-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fr/playcards/playcards-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/playcards/playcards-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

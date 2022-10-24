@@ -171,7 +171,6 @@ public class PlayCardsController {
                                 "play-cards/1099/createroomkkw");
                 observableRoomList.add(room);
             }
-            System.out.println("Click !");
             roomTable.setItems(observableRoomList);
             roomTable.refresh();
         } catch (Exception e) {
