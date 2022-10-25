@@ -2,26 +2,17 @@ package fr.playcards;
 
 import fr.playcards.cardgame.*;
 import fr.playcards.room.*;
-import javafx.application.Application;
-import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.rmi.Naming;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
+import java.util.stream.Collectors;
 
 public class PlayCardsController {
 
@@ -32,7 +23,7 @@ public class PlayCardsController {
     @FXML
     private ChoiceBox cardGameChoiceBox;
     @FXML
-    public ObservableList<IRoom> observableRoomList = FXCollections.observableArrayList();
+    public ObservableList<IRoom> observableRoomList;
     @FXML
     public TableView<IRoom> roomTable = new TableView<IRoom>();
     @FXML
@@ -67,8 +58,18 @@ public class PlayCardsController {
         });
         roomTable.getColumns().clear();
         roomTable.getColumns().addAll(roomColumn, cardGameColumn, nbPlayerColumn);
-
+        try {
+            IRMIObservableList<IRoom> rmiobservablelist =
+                    (IRMIObservableList<IRoom>) Naming.lookup(
+                            "play-cards/1099/observablelist");
+            observableRoomList = FXCollections.observableArrayList(rmiobservablelist.getObservableList());
+            System.out.println(observableRoomList);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
         addButtonToTable();
+        roomTable.setItems(observableRoomList);
+        roomTable.refresh();
     }
 
     //SRC : https://o7planning.org/11529/javafx-alert-dialog
@@ -159,18 +160,22 @@ public class PlayCardsController {
                 IRoom room =
                         (IRoom) Naming.lookup(
                                 "play-cards/1099/createroomff8tt");
+
                 observableRoomList.add(room);
             } else if(cardGameChoiceBox.getValue().toString().equals("FF14TripleTriade")) {
                 IRoom room =
                         (IRoom) Naming.lookup(
                                 "play-cards/1099/createroomff14tt");
+
                 observableRoomList.add(room);
             } else if(cardGameChoiceBox.getValue().toString().equals("KoiKoiWars")) {
                 IRoom room =
                         (IRoom) Naming.lookup(
                                 "play-cards/1099/createroomkkw");
+
                 observableRoomList.add(room);
             }
+            Naming.rebind("play-cards/1099/observablelist", new RMIObservableList<>(observableRoomList.stream().collect(Collectors.toList())));
             roomTable.setItems(observableRoomList);
             roomTable.refresh();
         } catch (Exception e) {

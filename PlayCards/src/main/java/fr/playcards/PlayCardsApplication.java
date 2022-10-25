@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.rmi.Naming;
 
 public class PlayCardsApplication extends Application {
 
@@ -17,6 +18,16 @@ public class PlayCardsApplication extends Application {
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();
+    }
+
+    @Override
+    public void stop() {
+        try {
+            Naming.unbind("play-cards/1099/observablelist");
+        } catch(Exception e) {
+            System.out.println("erreur"+e);
+        }
+        System.exit(0);
     }
 
     public static void main(String[] args) {
