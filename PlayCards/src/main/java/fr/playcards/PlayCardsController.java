@@ -183,4 +183,19 @@ public class PlayCardsController {
         }
     }
 
+    @FXML
+    public void onRefreshButtonClick() {
+        try {
+            IRMIObservableList<IRoom> rmiobservablelist =
+                    (IRMIObservableList<IRoom>) Naming.lookup(
+                            "play-cards/1099/observablelist");
+            observableRoomList = FXCollections.observableArrayList(rmiobservablelist.getObservableList());
+            System.out.println(observableRoomList);
+            roomTable.setItems(observableRoomList);
+            roomTable.refresh();
+        } catch (Exception e) {
+            System.out.println("erreur" + e);
+        }
+    }
+
 }
