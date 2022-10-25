@@ -24,7 +24,7 @@ public class SRoom extends UnicastRemoteObject implements IRoom {
         currentCardGame = cardGame;
     }
 
-    public void connect(String pseudo) throws RemoteException {
+    public synchronized void connect(String pseudo) throws RemoteException {
         System.out.println(pseudo + " join the game !");
         nbplayer.set(nbplayer.get()+1);
     }
