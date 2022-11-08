@@ -8,15 +8,19 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
-    <ImageView fx:id="Player1_Card1"/>
-    <ImageView fx:id="Player1_Card2"/>
-    <ImageView fx:id="Player1_Card3"/>
-    <ImageView fx:id="Player1_Card4"/>
-    <ImageView fx:id="Player1_Card5"/>
-    <ImageView fx:id="Player2_Card1"/>
-    <ImageView fx:id="Player2_Card2"/>
-    <ImageView fx:id="Player2_Card3"/>
-    <ImageView fx:id="Player2_Card4"/>
-    <ImageView fx:id="Player2_Card5"/>
-</VBox>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.playcards.cardgame.FF8TripleTriadeController">
+    <children>
+        <ImageView fx:id="Player1_Card1" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0"/>
+        <ImageView fx:id="Player1_Card2" AnchorPane.topAnchor="150" AnchorPane.leftAnchor="0"/>
+        <ImageView fx:id="Player1_Card3" AnchorPane.topAnchor="300" AnchorPane.leftAnchor="0"/>
+        <ImageView fx:id="Player1_Card4" AnchorPane.topAnchor="450" AnchorPane.leftAnchor="0"/>
+        <ImageView fx:id="Player1_Card5" AnchorPane.topAnchor="600" AnchorPane.leftAnchor="0"/>
+        <ImageView fx:id="Player2_Card1" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0"/>
+        <ImageView fx:id="Player2_Card2" AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0"/>
+        <ImageView fx:id="Player2_Card3" AnchorPane.topAnchor="300" AnchorPane.rightAnchor="0"/>
+        <ImageView fx:id="Player2_Card4" AnchorPane.topAnchor="450" AnchorPane.rightAnchor="0"/>
+        <ImageView fx:id="Player2_Card5" AnchorPane.topAnchor="600" AnchorPane.rightAnchor="0"/>
+    </children>
+</AnchorPane>

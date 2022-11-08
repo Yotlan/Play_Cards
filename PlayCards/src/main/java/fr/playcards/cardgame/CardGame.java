@@ -16,6 +16,7 @@ public interface CardGame extends Serializable, Remote{
     public String getUUID() throws RemoteException;
 
     public CardGameController getController() throws RemoteException;
+    public void setController(CardGameController controller) throws RemoteException;
 
     public List<Card> getPlayer1Card() throws RemoteException;
 

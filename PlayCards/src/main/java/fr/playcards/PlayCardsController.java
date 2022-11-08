@@ -144,6 +144,7 @@ public class PlayCardsController {
                                     }
                                     catch (Exception e) {
                                         System.out.println("PlayCardsController addButtonToTable method Error : "+e);
+                                        e.printStackTrace();
                                     }
                                 } catch (RemoteException e) {
                                     throw new RuntimeException(e);
@@ -175,13 +176,13 @@ public class PlayCardsController {
         try {
             if(cardGameChoiceBox.getValue().toString().equals("FF8TripleTriade")) {
                 String FF8TTUUID = UUID.randomUUID().toString();
-                mainServer.createRoom(new FF8TripleTriade(FF8TTUUID,new FF8TripleTriadeController(FF8TTUUID)),mainClient);
+                mainServer.createRoom(new FF8TripleTriade(FF8TTUUID),mainClient);
             } else if(cardGameChoiceBox.getValue().toString().equals("FF14TripleTriade")) {
                 String FF14TTUUID = UUID.randomUUID().toString();
-                mainServer.createRoom(new FF14TripleTriade(FF14TTUUID,new FF14TripleTriadeController(FF14TTUUID)),mainClient);
+                mainServer.createRoom(new FF14TripleTriade(FF14TTUUID),mainClient);
             } else if(cardGameChoiceBox.getValue().toString().equals("KoiKoiWars")) {
                 String KKWUUID = UUID.randomUUID().toString();
-                mainServer.createRoom(new KoiKoiWars(KKWUUID,new KoiKoiWarsController(KKWUUID)),mainClient);
+                mainServer.createRoom(new KoiKoiWars(KKWUUID),mainClient);
             }
             refresh();
         } catch (Exception e) {

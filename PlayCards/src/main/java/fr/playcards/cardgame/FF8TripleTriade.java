@@ -25,7 +25,7 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
     public List<Card> Player1_Card = new ArrayList<Card>();
     public List<Card> Player2_Card = new ArrayList<Card>();
 
-    public FF8TripleTriade(String UUID, CardGameController controller) throws IOException {
+    public FF8TripleTriade(String UUID) throws IOException {
         MAX_PLAYER = 2;
         JSON_MAP = JSON_MAPPER.readValue(Paths.get("../Triple_Triade/FF8/json/lvl1.json").toFile(), Map.class);
         for(Object name : JSON_MAP.keySet()){
@@ -49,12 +49,6 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
             }
         }
         this.UUID = UUID;
-        this.controller = controller;
-        try {
-            this.controller.setGame(this);
-        }catch(Exception e){
-            System.out.println("FF8TripleTriade Constructor Error : "+e);
-        }
     }
 
     public String getName() throws RemoteException{
@@ -71,6 +65,10 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
 
     public CardGameController getController() throws RemoteException{
         return this.controller;
+    }
+
+    public void setController(CardGameController controller) throws RemoteException{
+        this.controller = controller;
     }
 
     public List<Card> getPlayer1Card() throws RemoteException{
