@@ -1,6 +1,7 @@
 package fr.playcards.cardgame;
 
 import fr.playcards.PlayCardsApplication;
+import fr.playcards.client.IClient;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +13,7 @@ import java.io.IOException;
 public class KoiKoiWarsFrame {
 
     private String gameTitle;
-    public KoiKoiWarsFrame(String gameTitle, CardGame game) {
+    public KoiKoiWarsFrame(String gameTitle, CardGame game, IClient client) {
         this.gameTitle = gameTitle;
     }
 

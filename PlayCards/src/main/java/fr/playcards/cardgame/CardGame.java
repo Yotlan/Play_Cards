@@ -22,4 +22,11 @@ public interface CardGame extends Serializable, Remote{
 
     public List<Card> getPlayer2Card() throws RemoteException;
 
+    public String getPlayer1Pseudo() throws RemoteException;
+
+    public void setPlayer1Pseudo(String pseudo) throws RemoteException;
+
+    public String getPlayer2Pseudo() throws RemoteException;
+    public void setPlayer2Pseudo(String pseudo) throws RemoteException;
+
 }

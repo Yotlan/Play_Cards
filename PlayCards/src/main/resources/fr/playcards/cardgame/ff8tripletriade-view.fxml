@@ -13,14 +13,26 @@
             fx:controller="fr.playcards.cardgame.FF8TripleTriadeController">
     <children>
         <ImageView fx:id="Player1_Card1" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0"/>
+        <Button text="Select Card" AnchorPane.topAnchor="120" AnchorPane.leftAnchor="10"/>
         <ImageView fx:id="Player1_Card2" AnchorPane.topAnchor="150" AnchorPane.leftAnchor="0"/>
+        <Button text="Select Card" AnchorPane.topAnchor="270" AnchorPane.leftAnchor="10"/>
         <ImageView fx:id="Player1_Card3" AnchorPane.topAnchor="300" AnchorPane.leftAnchor="0"/>
+        <Button text="Select Card" AnchorPane.topAnchor="420" AnchorPane.leftAnchor="10"/>
         <ImageView fx:id="Player1_Card4" AnchorPane.topAnchor="450" AnchorPane.leftAnchor="0"/>
+        <Button text="Select Card" AnchorPane.topAnchor="570" AnchorPane.leftAnchor="10"/>
         <ImageView fx:id="Player1_Card5" AnchorPane.topAnchor="600" AnchorPane.leftAnchor="0"/>
+        <Button text="Select Card" AnchorPane.topAnchor="720" AnchorPane.leftAnchor="10"/>
+        <Label fx:id="Player1_Pseudo" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="10"/>
         <ImageView fx:id="Player2_Card1" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0"/>
+        <Button text="Select Card" AnchorPane.topAnchor="120" AnchorPane.rightAnchor="10"/>
         <ImageView fx:id="Player2_Card2" AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0"/>
+        <Button text="Select Card" AnchorPane.topAnchor="270" AnchorPane.rightAnchor="10"/>
         <ImageView fx:id="Player2_Card3" AnchorPane.topAnchor="300" AnchorPane.rightAnchor="0"/>
+        <Button text="Select Card" AnchorPane.topAnchor="420" AnchorPane.rightAnchor="10"/>
         <ImageView fx:id="Player2_Card4" AnchorPane.topAnchor="450" AnchorPane.rightAnchor="0"/>
+        <Button text="Select Card" AnchorPane.topAnchor="570" AnchorPane.rightAnchor="10"/>
         <ImageView fx:id="Player2_Card5" AnchorPane.topAnchor="600" AnchorPane.rightAnchor="0"/>
+        <Button text="Select Card" AnchorPane.topAnchor="720" AnchorPane.rightAnchor="10"/>
+        <Label fx:id="Player2_Pseudo" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="10"/>
     </children>
 </AnchorPane>

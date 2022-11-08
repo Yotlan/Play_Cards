@@ -1,6 +1,7 @@
 package fr.playcards.cardgame;
 
 import fr.playcards.PlayCardsApplication;
+import fr.playcards.client.IClient;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,9 +18,11 @@ public class FF8TripleTriadeFrame {
 
     private String gameTitle;
     public CardGame game;
-    public FF8TripleTriadeFrame(String gameTitle, CardGame game) {
+    public IClient client;
+    public FF8TripleTriadeFrame(String gameTitle, CardGame game, IClient client) {
         this.gameTitle = gameTitle;
         this.game = game;
+        this.client = client;
     }
 
     public void start() throws IOException {
@@ -28,7 +31,7 @@ public class FF8TripleTriadeFrame {
                     if (clazz == FF8TripleTriadeController.class) {
                         try {
                             FF8TripleTriadeController controller = new FF8TripleTriadeController(this.game.getUUID());
-                            controller.setGame(this.game);
+                            controller.setGame(this.game, this.client);
                             return controller;
                         } catch (RemoteException e) {
                             throw new RuntimeException(e);
@@ -43,7 +46,7 @@ public class FF8TripleTriadeFrame {
                     }
                 });
         AnchorPane root = fxmlLoader.load();
-        game.setController(fxmlLoader.getController());
+        //game.setController(fxmlLoader.getController());
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setTitle(gameTitle);

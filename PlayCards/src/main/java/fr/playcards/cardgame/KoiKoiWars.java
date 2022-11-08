@@ -15,6 +15,8 @@ public class KoiKoiWars extends UnicastRemoteObject implements CardGame {
     public CardGameController controller;
     public List<Card> Player1_Card = new ArrayList<>();
     public List<Card> Player2_Card = new ArrayList<>();
+    public String Player1_Pseudo = "";
+    public String Player2_Pseudo = "";
 
     public KoiKoiWars(String UUID) throws IOException {
         MAX_PLAYER = 2;
@@ -47,5 +49,20 @@ public class KoiKoiWars extends UnicastRemoteObject implements CardGame {
 
     public List<Card> getPlayer2Card() throws RemoteException{
         return this.Player2_Card;
+    }
+
+    public String getPlayer1Pseudo() throws RemoteException{
+        return Player1_Pseudo;
+    }
+
+    public void setPlayer1Pseudo(String pseudo) throws RemoteException{
+        this.Player1_Pseudo = pseudo;
+    }
+
+    public String getPlayer2Pseudo() throws RemoteException{
+        return this.Player2_Pseudo;
+    }
+    public void setPlayer2Pseudo(String pseudo) throws RemoteException{
+        this.Player2_Pseudo = pseudo;
     }
 }

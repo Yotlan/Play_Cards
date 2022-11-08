@@ -100,10 +100,10 @@ public class PlayCardsController {
     //SRC : https://o7planning.org/11529/javafx-alert-dialog
     private void showAlertWithoutHeaderText() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Too many player");
+        alert.setTitle("WARNING");
         // Header Text: null
         alert.setHeaderText(null);
-        alert.setContentText("The card game room is already full !");
+        alert.setContentText("The card game room is already full or you don't set your pseudo !");
         alert.showAndWait();
     }
 
@@ -128,18 +128,18 @@ public class PlayCardsController {
                             } catch (RemoteException e) {
                                 throw new RuntimeException(e);
                             }
-                            if(nbPlayer < maxPlayer) {
+                            if(nbPlayer < maxPlayer && !playerPseudo.getText().isBlank()) {
                                 try {
                                     data.connect(playerPseudo.getText());
                                     refresh();
                                     roomTable.refresh();
                                     try {
                                         if(gameTitle.equals("Triple Triade - Final Fantasy 8")) {
-                                            new FF8TripleTriadeFrame(gameTitle, data.getCurrentCardGame()).start();
+                                            new FF8TripleTriadeFrame(gameTitle, data.getCurrentCardGame(), mainClient).start();
                                         } else if(gameTitle.equals("Triple Triade - Final Fantasy 14")) {
-                                            new FF14TripleTriadeFrame(gameTitle, data.getCurrentCardGame()).start();
+                                            new FF14TripleTriadeFrame(gameTitle, data.getCurrentCardGame(), mainClient).start();
                                         } else if(gameTitle.equals("Koi Koi Wars - Sakura Wars")) {
-                                            new KoiKoiWarsFrame(gameTitle, data.getCurrentCardGame()).start();
+                                            new KoiKoiWarsFrame(gameTitle, data.getCurrentCardGame(), mainClient).start();
                                         }
                                     }
                                     catch (Exception e) {

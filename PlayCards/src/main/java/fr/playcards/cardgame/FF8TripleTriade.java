@@ -23,7 +23,9 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
     public String UUID;
     public CardGameController controller;
     public List<Card> Player1_Card = new ArrayList<Card>();
+    public String Player1_Pseudo = "";
     public List<Card> Player2_Card = new ArrayList<Card>();
+    public String Player2_Pseudo = "";
 
     public FF8TripleTriade(String UUID) throws IOException {
         MAX_PLAYER = 2;
@@ -77,6 +79,21 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
 
     public List<Card> getPlayer2Card() throws RemoteException{
         return this.Player2_Card;
+    }
+
+    public String getPlayer1Pseudo() throws RemoteException{
+        return Player1_Pseudo;
+    }
+
+    public void setPlayer1Pseudo(String pseudo) throws RemoteException{
+        this.Player1_Pseudo = pseudo;
+    }
+
+    public String getPlayer2Pseudo() throws RemoteException{
+        return this.Player2_Pseudo;
+    }
+    public void setPlayer2Pseudo(String pseudo) throws RemoteException{
+        this.Player2_Pseudo = pseudo;
     }
 
 }
