@@ -41,5 +41,4 @@
         </columnResizePolicy>
     </TableView>
     <Button text="Create Room" onAction="#onCreateButtonClick"/>
-    <Button text="Refresh" onAction="#onRefreshButtonClick"/>
 </VBox>

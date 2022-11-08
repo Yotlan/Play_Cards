@@ -12,7 +12,7 @@ import java.io.IOException;
 public class KoiKoiWarsFrame {
 
     private String gameTitle;
-    public KoiKoiWarsFrame(String gameTitle) {
+    public KoiKoiWarsFrame(String gameTitle, CardGame game) {
         this.gameTitle = gameTitle;
     }
 

@@ -1,36 +1,43 @@
 package fr.playcards;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 public class PlayCardsApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(PlayCardsApplication.class.getResource("playcards-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("PlayCards");
-        stage.setScene(scene);
-        stage.setMaximized(true);
-        stage.show();
-    }
-
-    @Override
-    public void stop() {
         try {
-            Naming.unbind("play-cards/1099/observablelist");
-        } catch(Exception e) {
-            System.out.println("erreur"+e);
+            FXMLLoader fxmlLoader = new FXMLLoader(PlayCardsApplication.class.getResource("playcards-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("PlayCards");
+            stage.setScene(scene);
+            stage.setMaximized(true);
+            stage.show();
+            stage.setOnCloseRequest(e -> {
+                fxmlLoader.setController(null);
+                Platform.exit();
+                System.exit(0);
+            });
+        } catch (Exception e) {
+            System.out.println("PlayCardsApplication start method Error : "+e);
         }
-        System.exit(0);
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }

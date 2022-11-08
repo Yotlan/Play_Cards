@@ -1,7 +1,11 @@
 package fr.playcards;
 
 import fr.playcards.cardgame.*;
+import fr.playcards.client.Client;
+import fr.playcards.client.IClient;
 import fr.playcards.room.*;
+
+import fr.playcards.server.IServer;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,12 +14,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.util.Callback;
 
-import java.rmi.Naming;
 import java.rmi.RemoteException;
-import java.util.stream.Collectors;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+import java.util.UUID;
 
 public class PlayCardsController {
-
     @FXML
     public Label pseudo = new Label("Pseudo");
     @FXML
@@ -32,6 +37,18 @@ public class PlayCardsController {
     public TableColumn<IRoom, String> cardGameColumn = new TableColumn<IRoom, String>("Card Game");
     @FXML
     public TableColumn<IRoom, String> nbPlayerColumn = new TableColumn<IRoom, String>("Nb Players");
+    public IServer mainServer;
+    public IClient mainClient;
+
+    public PlayCardsController(){
+        try {
+            Registry registry = LocateRegistry.getRegistry(1099);
+            mainServer = (IServer) registry.lookup("play-cards/1099/connecting");
+            mainClient = new Client();
+        } catch (Exception e) {
+            System.out.println("PlayCardsController Constructor Error : "+e);
+        }
+    }
 
     @FXML
     public void initialize() {
@@ -59,42 +76,45 @@ public class PlayCardsController {
         roomTable.getColumns().clear();
         roomTable.getColumns().addAll(roomColumn, cardGameColumn, nbPlayerColumn);
         try {
-            IRMIObservableList<IRoom> rmiobservablelist =
-                    (IRMIObservableList<IRoom>) Naming.lookup(
-                            "play-cards/1099/observablelist");
-            observableRoomList = FXCollections.observableArrayList(rmiobservablelist.getObservableList());
-            System.out.println(observableRoomList);
+            observableRoomList = FXCollections.observableArrayList(mainClient.getObservableRoomList());
         } catch(Exception e) {
             e.printStackTrace();
         }
         addButtonToTable();
         roomTable.setItems(observableRoomList);
         roomTable.refresh();
+        Thread t = new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                refresh();
+            }
+        });
+        t.setDaemon(true);
+        t.start();
     }
 
     //SRC : https://o7planning.org/11529/javafx-alert-dialog
     private void showAlertWithoutHeaderText() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Too many player");
-
         // Header Text: null
         alert.setHeaderText(null);
         alert.setContentText("The card game room is already full !");
-
         alert.showAndWait();
     }
 
     //SRC : https://riptutorial.com/javafx/example/27946/add-button-to-tableview
     private void addButtonToTable() {
         TableColumn<IRoom, Void> colBtn = new TableColumn("Button Column");
-
         Callback<TableColumn<IRoom, Void>, TableCell<IRoom, Void>> cellFactory = new Callback<TableColumn<IRoom, Void>, TableCell<IRoom, Void>>() {
             @Override
             public TableCell<IRoom, Void> call(final TableColumn<IRoom, Void> param) {
                 final TableCell<IRoom, Void> cell = new TableCell<IRoom, Void>() {
-
                     private final Button btn = new Button("Join");
-
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             IRoom data = getTableView().getItems().get(getIndex());
@@ -104,25 +124,26 @@ public class PlayCardsController {
                             try {
                                 nbPlayer = data.getNbplayer();
                                 maxPlayer = data.getCurrentCardGame().getMaxPlayer();
-                                gameTitle = data.getCurrentCardGame().toString();
+                                gameTitle = data.getCurrentCardGame().getName();
                             } catch (RemoteException e) {
                                 throw new RuntimeException(e);
                             }
                             if(nbPlayer < maxPlayer) {
                                 try {
                                     data.connect(playerPseudo.getText());
+                                    refresh();
                                     roomTable.refresh();
                                     try {
                                         if(gameTitle.equals("Triple Triade - Final Fantasy 8")) {
-                                            new FF8TripleTriadeFrame(gameTitle).start();
+                                            new FF8TripleTriadeFrame(gameTitle, data.getCurrentCardGame()).start();
                                         } else if(gameTitle.equals("Triple Triade - Final Fantasy 14")) {
-                                            new FF14TripleTriadeFrame(gameTitle).start();
+                                            new FF14TripleTriadeFrame(gameTitle, data.getCurrentCardGame()).start();
                                         } else if(gameTitle.equals("Koi Koi Wars - Sakura Wars")) {
-                                            new KoiKoiWarsFrame(gameTitle).start();
+                                            new KoiKoiWarsFrame(gameTitle, data.getCurrentCardGame()).start();
                                         }
                                     }
                                     catch (Exception e) {
-                                        e.printStackTrace();
+                                        System.out.println("PlayCardsController addButtonToTable method Error : "+e);
                                     }
                                 } catch (RemoteException e) {
                                     throw new RuntimeException(e);
@@ -132,7 +153,6 @@ public class PlayCardsController {
                             }
                         });
                     }
-
                     @Override
                     public void updateItem(Void item, boolean empty) {
                         super.updateItem(item, empty);
@@ -146,55 +166,37 @@ public class PlayCardsController {
                 return cell;
             }
         };
-
         colBtn.setCellFactory(cellFactory);
-
         roomTable.getColumns().add(colBtn);
-
     }
 
     @FXML
     public void onCreateButtonClick() {
         try {
             if(cardGameChoiceBox.getValue().toString().equals("FF8TripleTriade")) {
-                IRoom room =
-                        (IRoom) Naming.lookup(
-                                "play-cards/1099/createroomff8tt");
-
-                observableRoomList.add(room);
+                String FF8TTUUID = UUID.randomUUID().toString();
+                mainServer.createRoom(new FF8TripleTriade(FF8TTUUID,new FF8TripleTriadeController(FF8TTUUID)),mainClient);
             } else if(cardGameChoiceBox.getValue().toString().equals("FF14TripleTriade")) {
-                IRoom room =
-                        (IRoom) Naming.lookup(
-                                "play-cards/1099/createroomff14tt");
-
-                observableRoomList.add(room);
+                String FF14TTUUID = UUID.randomUUID().toString();
+                mainServer.createRoom(new FF14TripleTriade(FF14TTUUID,new FF14TripleTriadeController(FF14TTUUID)),mainClient);
             } else if(cardGameChoiceBox.getValue().toString().equals("KoiKoiWars")) {
-                IRoom room =
-                        (IRoom) Naming.lookup(
-                                "play-cards/1099/createroomkkw");
-
-                observableRoomList.add(room);
+                String KKWUUID = UUID.randomUUID().toString();
+                mainServer.createRoom(new KoiKoiWars(KKWUUID,new KoiKoiWarsController(KKWUUID)),mainClient);
             }
-            Naming.rebind("play-cards/1099/observablelist", new RMIObservableList<>(observableRoomList.stream().collect(Collectors.toList())));
-            roomTable.setItems(observableRoomList);
-            roomTable.refresh();
+            refresh();
         } catch (Exception e) {
-            System.out.println("erreur" + e);
+            System.out.println("PlayCardsController onCreateButtonClick method Error : " + e);
         }
     }
 
     @FXML
-    public void onRefreshButtonClick() {
-        try {
-            IRMIObservableList<IRoom> rmiobservablelist =
-                    (IRMIObservableList<IRoom>) Naming.lookup(
-                            "play-cards/1099/observablelist");
-            observableRoomList = FXCollections.observableArrayList(rmiobservablelist.getObservableList());
-            System.out.println(observableRoomList);
+    public void refresh() {
+        try{
+            observableRoomList = FXCollections.observableArrayList(mainClient.getObservableRoomList());
             roomTable.setItems(observableRoomList);
             roomTable.refresh();
-        } catch (Exception e) {
-            System.out.println("erreur" + e);
+        } catch(Exception e) {
+            System.out.println("PlayCardsController refresh method Error : "+e);
         }
     }
 

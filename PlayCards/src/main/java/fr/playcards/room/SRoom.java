@@ -1,12 +1,14 @@
 package fr.playcards.room;
 
 import fr.playcards.cardgame.*;
+
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+
 import java.util.UUID;
 
 public class SRoom extends UnicastRemoteObject implements IRoom {
@@ -14,12 +16,11 @@ public class SRoom extends UnicastRemoteObject implements IRoom {
     public SimpleStringProperty room;
     public SimpleStringProperty cardgame;
     public SimpleIntegerProperty nbplayer;
-
     private CardGame currentCardGame;
 
     public SRoom(CardGame cardGame) throws RemoteException {
-        room = new SimpleStringProperty(UUID.randomUUID().toString());
-        cardgame = new SimpleStringProperty(cardGame.toString());
+        room = new SimpleStringProperty(cardGame.getUUID());
+        cardgame = new SimpleStringProperty(cardGame.getName());
         nbplayer = new SimpleIntegerProperty(0);
         currentCardGame = cardGame;
     }

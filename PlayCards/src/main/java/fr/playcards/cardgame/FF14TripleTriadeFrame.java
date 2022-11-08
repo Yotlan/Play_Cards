@@ -12,7 +12,7 @@ import java.io.IOException;
 public class FF14TripleTriadeFrame {
 
     private String gameTitle;
-    public FF14TripleTriadeFrame(String gameTitle) {
+    public FF14TripleTriadeFrame(String gameTitle, CardGame game) {
         this.gameTitle = gameTitle;
     }
 

@@ -12,12 +12,15 @@ import java.io.IOException;
 public class FF8TripleTriadeFrame {
 
     private String gameTitle;
-    public FF8TripleTriadeFrame(String gameTitle) {
+    public CardGame game;
+    public FF8TripleTriadeFrame(String gameTitle, CardGame game) {
         this.gameTitle = gameTitle;
+        this.game = game;
     }
 
     public void start() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(FF8TripleTriadeFrame.class.getResource("ff8tripletriade-view.fxml"));
+        fxmlLoader.setController(game.getController());
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
         stage.setTitle(gameTitle);

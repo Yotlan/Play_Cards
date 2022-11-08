@@ -1,49 +1,31 @@
 package fr.playcards;
 
-import fr.playcards.cardgame.*;
-import fr.playcards.room.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
+import fr.playcards.server.IServer;
+import fr.playcards.server.Server;
 
-import java.rmi.Naming;
-import java.rmi.RMISecurityManager;
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
-import java.util.ArrayList;
-import java.util.List;
+import java.rmi.registry.Registry;
 
 public class StartServer {
+    public static IServer mainServer;
 
-    @FXML
-    public static List<IRoom> observableRoomList = new ArrayList<>();
-    public static IRMIObservableList<IRoom> backup;
+    static {
+        try {
+            mainServer = new Server("PlayCards");
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void main(String[] argv) {
         try {
-            LocateRegistry.createRegistry(1099);
-            while(true) {
-                backup = new RMIObservableList<IRoom>(observableRoomList);
-                Naming.rebind(
-                        "play-cards/1099/observablelist",
-                        backup);
-                Naming.rebind(
-                        "play-cards/1099/createroomff8tt",
-                        new SRoom(new FF8TripleTriade()));
-                Naming.rebind(
-                        "play-cards/1099/createroomff14tt",
-                        new SRoom(new FF14TripleTriade()));
-                Naming.rebind(
-                        "play-cards/1099/createroomkkw",
-                        new SRoom(new KoiKoiWars()));
-                try {
-                    backup = (IRMIObservableList) Naming.lookup("play-cards/1099/observablelist");
-                } catch(Exception e) {
-                    System.out.println(e);
-                }
-                observableRoomList = backup.getObservableList();
-                System.out.println(observableRoomList);
+            Registry registry = LocateRegistry.createRegistry(1099);
+            registry.bind("play-cards/1099/connecting",mainServer);
+            while(true){
+                mainServer.refresh();
             }
-        }
-        catch(Exception e) { System.out.println("erreur" + e);}
+        } catch(Exception e) { System.out.println("StartServer main Error : " + e);}
     }
 }
 
