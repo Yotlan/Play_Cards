@@ -8,31 +8,132 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
+<?import javafx.scene.shape.Rectangle?>
+<BorderPane id="BorderPane" prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="fr.playcards.cardgame.FF8TripleTriadeController">
-    <children>
-        <ImageView fx:id="Player1_Card1" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0"/>
-        <Button text="Select Card" AnchorPane.topAnchor="120" AnchorPane.leftAnchor="10"/>
-        <ImageView fx:id="Player1_Card2" AnchorPane.topAnchor="150" AnchorPane.leftAnchor="0"/>
-        <Button text="Select Card" AnchorPane.topAnchor="270" AnchorPane.leftAnchor="10"/>
-        <ImageView fx:id="Player1_Card3" AnchorPane.topAnchor="300" AnchorPane.leftAnchor="0"/>
-        <Button text="Select Card" AnchorPane.topAnchor="420" AnchorPane.leftAnchor="10"/>
-        <ImageView fx:id="Player1_Card4" AnchorPane.topAnchor="450" AnchorPane.leftAnchor="0"/>
-        <Button text="Select Card" AnchorPane.topAnchor="570" AnchorPane.leftAnchor="10"/>
-        <ImageView fx:id="Player1_Card5" AnchorPane.topAnchor="600" AnchorPane.leftAnchor="0"/>
-        <Button text="Select Card" AnchorPane.topAnchor="720" AnchorPane.leftAnchor="10"/>
-        <Label fx:id="Player1_Pseudo" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="10"/>
-        <ImageView fx:id="Player2_Card1" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0"/>
-        <Button text="Select Card" AnchorPane.topAnchor="120" AnchorPane.rightAnchor="10"/>
-        <ImageView fx:id="Player2_Card2" AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0"/>
-        <Button text="Select Card" AnchorPane.topAnchor="270" AnchorPane.rightAnchor="10"/>
-        <ImageView fx:id="Player2_Card3" AnchorPane.topAnchor="300" AnchorPane.rightAnchor="0"/>
-        <Button text="Select Card" AnchorPane.topAnchor="420" AnchorPane.rightAnchor="10"/>
-        <ImageView fx:id="Player2_Card4" AnchorPane.topAnchor="450" AnchorPane.rightAnchor="0"/>
-        <Button text="Select Card" AnchorPane.topAnchor="570" AnchorPane.rightAnchor="10"/>
-        <ImageView fx:id="Player2_Card5" AnchorPane.topAnchor="600" AnchorPane.rightAnchor="0"/>
-        <Button text="Select Card" AnchorPane.topAnchor="720" AnchorPane.rightAnchor="10"/>
-        <Label fx:id="Player2_Pseudo" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="10"/>
-    </children>
-</AnchorPane>
+    <left>
+        <AnchorPane id="AnchorPane">
+            <Button AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" onAction="#P1SelectC1">
+                <graphic>
+                    <ImageView fx:id="Player1_Card1"/>
+                </graphic>
+            </Button>
+            <Button AnchorPane.topAnchor="150" AnchorPane.leftAnchor="0" onAction="#P1SelectC2">
+                <graphic>
+                    <ImageView fx:id="Player1_Card2"/>
+                </graphic>
+            </Button>
+            <Button AnchorPane.topAnchor="300" AnchorPane.leftAnchor="0" onAction="#P1SelectC3">
+                <graphic>
+                    <ImageView fx:id="Player1_Card3"/>
+                </graphic>
+            </Button>
+            <Button AnchorPane.topAnchor="450" AnchorPane.leftAnchor="0" onAction="#P1SelectC4">
+                <graphic>
+                    <ImageView fx:id="Player1_Card4"/>
+                </graphic>
+            </Button>
+            <Button AnchorPane.topAnchor="600" AnchorPane.leftAnchor="0" onAction="#P1SelectC5">
+                <graphic>
+                    <ImageView fx:id="Player1_Card5"/>
+                </graphic>
+            </Button>
+            <Label fx:id="Player1_Pseudo" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="10"/>
+        </AnchorPane>
+    </left>
+    <center>
+        <HBox alignment="CENTER" spacing="20.0">
+            <BorderPane>
+                <left>
+                    <AnchorPane>
+                        <Button AnchorPane.topAnchor="150" onAction="#displayC11">
+                            <graphic>
+                                <ImageView fx:id="Empty_Card11"/>
+                            </graphic>
+                        </Button>
+                        <Button AnchorPane.topAnchor="300" onAction="#displayC21">
+                            <graphic>
+                                <ImageView fx:id="Empty_Card21"/>
+                            </graphic>
+                        </Button>
+                        <Button AnchorPane.topAnchor="450" onAction="#displayC31">
+                            <graphic>
+                                <ImageView fx:id="Empty_Card31"/>
+                            </graphic>
+                        </Button>
+                    </AnchorPane>
+                </left>
+                <center>
+                    <AnchorPane>
+                        <Button AnchorPane.topAnchor="150" onAction="#displayC12">
+                            <graphic>
+                                <ImageView fx:id="Empty_Card12"/>
+                            </graphic>
+                        </Button>
+                        <Button AnchorPane.topAnchor="300" onAction="#displayC22">
+                            <graphic>
+                                <ImageView fx:id="Empty_Card22"/>
+                            </graphic>
+                        </Button>
+                        <Button AnchorPane.topAnchor="450" onAction="#displayC32">
+                            <graphic>
+                                <ImageView fx:id="Empty_Card32"/>
+                            </graphic>
+                        </Button>
+                    </AnchorPane>
+                </center>
+                <right>
+                    <AnchorPane>
+                        <Button AnchorPane.topAnchor="150" onAction="#displayC13">
+                            <graphic>
+                                <ImageView fx:id="Empty_Card13"/>
+                            </graphic>
+                        </Button>
+                        <Button AnchorPane.topAnchor="300" onAction="#displayC23">
+                            <graphic>
+                                <ImageView fx:id="Empty_Card23"/>
+                            </graphic>
+                        </Button>
+                        <Button AnchorPane.topAnchor="450" onAction="#displayC33">
+                            <graphic>
+                                <ImageView fx:id="Empty_Card33"/>
+                            </graphic>
+                        </Button>
+                    </AnchorPane>
+                </right>
+            </BorderPane>
+        </HBox>
+    </center>
+    <right>
+        <AnchorPane id="AnchorPane">
+            <Button AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" onAction="#P2SelectC1">
+                <graphic>
+                    <ImageView fx:id="Player2_Card1"/>
+                </graphic>
+            </Button>
+            <Button AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0" onAction="#P2SelectC2">
+                <graphic>
+                    <ImageView fx:id="Player2_Card2"/>
+                </graphic>
+            </Button>
+            <Button AnchorPane.topAnchor="300" AnchorPane.rightAnchor="0" onAction="#P2SelectC3">
+                <graphic>
+                    <ImageView fx:id="Player2_Card3"/>
+                </graphic>
+            </Button>
+            <Button AnchorPane.topAnchor="450" AnchorPane.rightAnchor="0" onAction="#P2SelectC4">
+                <graphic>
+                    <ImageView fx:id="Player2_Card4"/>
+                </graphic>
+            </Button>
+            <Button AnchorPane.topAnchor="600" AnchorPane.rightAnchor="0" onAction="#P2SelectC5">
+                <graphic>
+                    <ImageView fx:id="Player2_Card5"/>
+                </graphic>
+            </Button>
+            <Label fx:id="Player2_Pseudo" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="10"/>
+        </AnchorPane>
+    </right>
+</BorderPane>

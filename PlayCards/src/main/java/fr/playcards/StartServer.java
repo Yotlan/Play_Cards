@@ -23,7 +23,7 @@ public class StartServer {
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.bind("play-cards/1099/connecting",mainServer);
             while(true){
-                mainServer.refresh();
+                mainServer.refreshRoom();
             }
         } catch(Exception e) { System.out.println("StartServer main Error : " + e);}
     }

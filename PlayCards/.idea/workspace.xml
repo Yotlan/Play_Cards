@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="">
+    <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="Add pseudo verification and dynamic pseudo display inside ff8 triple triade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/PlayCardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/PlayCardsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriadeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriadeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriadeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/StartServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/StartServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWarsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWarsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWarsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWarsFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/room/SRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/room/SRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/client/IClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/client/IClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/server/IServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/server/IServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/ff8tripletriade-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/ff8tripletriade-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -137,6 +131,14 @@
       <option name="presentableId" value="Default" />
       <updated>1666477791344</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add pseudo verification and dynamic pseudo display inside ff8 triple triade">
+      <created>1667941580206</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667941580206</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,6 +151,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add pseudo verification and dynamic pseudo display inside ff8 triple triade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add pseudo verification and dynamic pseudo display inside ff8 triple triade" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

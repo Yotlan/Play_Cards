@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -45,7 +46,7 @@ public class FF8TripleTriadeFrame {
                         }
                     }
                 });
-        AnchorPane root = fxmlLoader.load();
+        BorderPane root = fxmlLoader.load();
         //game.setController(fxmlLoader.getController());
         Scene scene = new Scene(root);
         Stage stage = new Stage();
