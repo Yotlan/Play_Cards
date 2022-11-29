@@ -17,6 +17,7 @@ public interface IClient extends Serializable {
 
     public void refreshDisplayCard();
 
+    public String getClientPseudo();
     public Map<String, Card> getFF8Card(String UUID);
 
 }

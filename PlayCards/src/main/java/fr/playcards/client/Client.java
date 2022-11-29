@@ -13,16 +13,18 @@ import java.util.Map;
 
 public class Client implements IClient {
 
+    public String clientPseudoName;
     public List<IRoom> observableRoomList = new ArrayList<>();
     public IServer mainServer;
 
     public Map<String,Card> FF8Card = new HashMap<>();
 
-    public Client() {
+    public Client(String clientName) {
         try {
             Registry registry = LocateRegistry.getRegistry(1099);
             mainServer = (IServer) registry.lookup("play-cards/1099/connecting");
             this.observableRoomList = mainServer.getObservableRoomList();
+            this.clientPseudoName=clientName;
         } catch (Exception e) {
             System.out.println("Client Constructor Error : "+e);
         }
@@ -53,6 +55,9 @@ public class Client implements IClient {
         }
     }
 
+    public String getClientPseudo(){
+        return this.clientPseudoName;
+    }
     public Map<String, Card> getFF8Card(String UUID) {
         refreshDisplayCard();
         Map<String, Card> returnedMap = new HashMap<>();

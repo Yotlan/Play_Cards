@@ -47,8 +47,18 @@ public class KoiKoiWars extends UnicastRemoteObject implements CardGame {
         return this.Player1_Card;
     }
 
+    @Override
+    public void removePlayer1Card(Card card) throws RemoteException {
+        this.Player1_Card.remove(card);
+    }
+
     public List<Card> getPlayer2Card() throws RemoteException{
         return this.Player2_Card;
+    }
+
+    @Override
+    public void removePlayer2Card(Card card) throws RemoteException {
+        this.Player1_Card.remove(card);
     }
 
     public String getPlayer1Pseudo() throws RemoteException{

@@ -44,7 +44,7 @@ public class PlayCardsController {
         try {
             Registry registry = LocateRegistry.getRegistry(1099);
             mainServer = (IServer) registry.lookup("play-cards/1099/connecting");
-            mainClient = new Client();
+            mainClient = new Client(playerPseudo.getText());
         } catch (Exception e) {
             System.out.println("PlayCardsController Constructor Error : "+e);
         }
