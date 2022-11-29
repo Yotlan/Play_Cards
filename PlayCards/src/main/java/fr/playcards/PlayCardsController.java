@@ -44,7 +44,7 @@ public class PlayCardsController {
         try {
             Registry registry = LocateRegistry.getRegistry(1099);
             mainServer = (IServer) registry.lookup("play-cards/1099/connecting");
-            mainClient = new Client(playerPseudo.getText());
+            mainClient = new Client();
         } catch (Exception e) {
             System.out.println("PlayCardsController Constructor Error : "+e);
         }
@@ -133,6 +133,7 @@ public class PlayCardsController {
                                     data.connect(playerPseudo.getText());
                                     refresh();
                                     roomTable.refresh();
+                                    mainClient.setClientPseudo(playerPseudo.getText());
                                     try {
                                         if(gameTitle.equals("Triple Triade - Final Fantasy 8")) {
                                             new FF8TripleTriadeFrame(gameTitle, data.getCurrentCardGame(), mainClient).start();

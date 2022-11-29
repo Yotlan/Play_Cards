@@ -19,12 +19,12 @@ public class Client implements IClient {
 
     public Map<String,Card> FF8Card = new HashMap<>();
 
-    public Client(String clientName) {
+    public Client() {
         try {
             Registry registry = LocateRegistry.getRegistry(1099);
             mainServer = (IServer) registry.lookup("play-cards/1099/connecting");
             this.observableRoomList = mainServer.getObservableRoomList();
-            this.clientPseudoName=clientName;
+            this.clientPseudoName="unkown";
         } catch (Exception e) {
             System.out.println("Client Constructor Error : "+e);
         }
@@ -58,6 +58,12 @@ public class Client implements IClient {
     public String getClientPseudo(){
         return this.clientPseudoName;
     }
+
+
+    public void setClientPseudo(String pseudo) {
+        this.clientPseudoName=pseudo;
+    }
+
     public Map<String, Card> getFF8Card(String UUID) {
         refreshDisplayCard();
         Map<String, Card> returnedMap = new HashMap<>();
