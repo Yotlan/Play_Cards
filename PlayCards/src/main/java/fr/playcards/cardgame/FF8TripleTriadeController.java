@@ -260,13 +260,12 @@ public class FF8TripleTriadeController implements CardGameController{
         this.Empty_Card11.setImage(this.SelectedCard.getImage());
         try {
             this.client.getMainServer().displayCard11(SelectedCardEntity,this.game.getUUID(),this.client);
-            //TODO : need current player
-            System.out.println("Player 1  name :"+this.game.getPlayer1Pseudo());
-            System.out.println("client name "+this.client.getClientPseudo());
+            System.out.println("Player 1  name = client.name: "+this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()));
             //Si client 1 clické sur le plateau de jeu
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
-                //TODO: need know index of selected card
-                //this.game.removePlayer1Card(this.SelectedCardEntity);
+                //TODO : remove Card of Player1 is not succesfully
+                this.game.removePlayer1Card(this.SelectedCardEntity);
+                System.out.println("nb of card of player1 : "+ this.game.getPlayer1Card().size());
             }else{
                 //this.game.removePlayer2Card(this.SelectedCardEntity);
             }
