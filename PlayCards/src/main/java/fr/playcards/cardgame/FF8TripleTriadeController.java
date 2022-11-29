@@ -263,7 +263,6 @@ public class FF8TripleTriadeController implements CardGameController{
             //TODO : need current player
             System.out.println(this.client.getClientPseudo());
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
-
                 this.game.removePlayer1Card(this.SelectedCardEntity);
             }else{
                 this.game.removePlayer2Card(this.SelectedCardEntity);
