@@ -76,9 +76,21 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
     public List<Card> getPlayer1Card() throws RemoteException{
         return this.Player1_Card;
     }
+    public void removePlayer1_oneCard(Card card) throws RemoteException{
+        this.Player1_Card.remove(card);
+    }
 
-    public List<Card> getPlayer2Card() throws RemoteException{
+
+    public List<Card> getPlayer2Card() throws RemoteException {
         return this.Player2_Card;
+    }
+
+    public void getPlayer2_oneCard(Card card) throws RemoteException{
+        this.Player2_Card.remove(card);
+    }
+
+    public void removePlayer1Card(Card card) throws RemoteException{
+        this.Player1_Card.remove(card);
     }
 
     public String getPlayer1Pseudo() throws RemoteException{

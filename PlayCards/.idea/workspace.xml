@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="Add pseudo verification and dynamic pseudo display inside ff8 triple triade">
+      <change beforePath="$PROJECT_DIR$/../.idea/Play_Cards.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Play_Cards.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/StartServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/StartServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/client/IClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/client/IClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/server/IServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/server/IServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/ff8tripletriade-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/ff8tripletriade-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +32,14 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2GVdfhRJUvhowHvTZDLQtdt3iTP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -45,11 +50,11 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/yotla/OneDrive/Bureau/Play_Cards/PlayCards&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/endyyu/Desktop/middleware/Play_Cards/PlayCards&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -75,6 +80,8 @@
       </method>
     </configuration>
     <configuration name="fr.playcards.PlayCardsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17 (2)" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="fr.playcards.PlayCardsApplication" />
       <module name="PlayCards" />
       <extension name="coverage">
@@ -88,6 +95,8 @@
       </method>
     </configuration>
     <configuration name="fr.playcards.PlayCardsApplicationLocal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17 (2)" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="fr.playcards.PlayCardsApplicationLocal" />
       <module name="PlayCards" />
       <extension name="coverage">
@@ -113,6 +122,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.fr.playcards.PlayCardsApplication" />
+      <item itemvalue="Application.fr.playcards.PlayCardsApplicationLocal" />
+      <item itemvalue="Application.fr.playcards.StartServer" />
+      <item itemvalue="Application.PlayCardsApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.fr.playcards.PlayCardsApplicationLocal" />
@@ -165,5 +180,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

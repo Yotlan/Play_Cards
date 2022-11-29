@@ -260,6 +260,8 @@ public class FF8TripleTriadeController implements CardGameController{
         this.Empty_Card11.setImage(this.SelectedCard.getImage());
         try {
             this.client.getMainServer().displayCard11(SelectedCardEntity,this.game.getUUID(),this.client);
+            
+            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC11 method Error : "+e);
         }
@@ -269,6 +271,7 @@ public class FF8TripleTriadeController implements CardGameController{
         this.Empty_Card21.setImage(this.SelectedCard.getImage());
         try {
             this.client.getMainServer().displayCard21(SelectedCardEntity,this.game.getUUID(),this.client);
+            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC21 method Error : "+e);
         }
@@ -278,6 +281,7 @@ public class FF8TripleTriadeController implements CardGameController{
         this.Empty_Card31.setImage(this.SelectedCard.getImage());
         try {
             this.client.getMainServer().displayCard31(SelectedCardEntity,this.game.getUUID(),this.client);
+            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC31 method Error : "+e);
         }
@@ -287,6 +291,7 @@ public class FF8TripleTriadeController implements CardGameController{
         this.Empty_Card12.setImage(this.SelectedCard.getImage());
         try {
             this.client.getMainServer().displayCard12(SelectedCardEntity,this.game.getUUID(),this.client);
+            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC12 method Error : "+e);
         }
@@ -296,6 +301,7 @@ public class FF8TripleTriadeController implements CardGameController{
         this.Empty_Card22.setImage(this.SelectedCard.getImage());
         try {
             this.client.getMainServer().displayCard22(SelectedCardEntity,this.game.getUUID(),this.client);
+            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC22 method Error : "+e);
         }
@@ -305,6 +311,7 @@ public class FF8TripleTriadeController implements CardGameController{
         this.Empty_Card32.setImage(this.SelectedCard.getImage());
         try {
             this.client.getMainServer().displayCard32(SelectedCardEntity,this.game.getUUID(),this.client);
+            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC32 method Error : "+e);
         }
@@ -314,6 +321,7 @@ public class FF8TripleTriadeController implements CardGameController{
         this.Empty_Card13.setImage(this.SelectedCard.getImage());
         try {
             this.client.getMainServer().displayCard13(SelectedCardEntity,this.game.getUUID(),this.client);
+            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC13 method Error : "+e);
         }
@@ -323,6 +331,7 @@ public class FF8TripleTriadeController implements CardGameController{
         this.Empty_Card23.setImage(this.SelectedCard.getImage());
         try {
             this.client.getMainServer().displayCard23(SelectedCardEntity,this.game.getUUID(),this.client);
+            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC23 method Error : "+e);
         }
@@ -332,6 +341,7 @@ public class FF8TripleTriadeController implements CardGameController{
         this.Empty_Card33.setImage(this.SelectedCard.getImage());
         try {
             this.client.getMainServer().displayCard33(SelectedCardEntity,this.game.getUUID(),this.client);
+            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC33 method Error : "+e);
         }
