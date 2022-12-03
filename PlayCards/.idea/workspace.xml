@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="Add pseudo verification and dynamic pseudo display inside ff8 triple triade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/PlayCardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/PlayCardsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWars.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,17 +47,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/endyyu/Desktop/middleware/Play_Cards/PlayCards&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/endyyu/Desktop/middleware/Play_Cards/PlayCards",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\yotla\OneDrive\Bureau\Play_Cards\PlayCards\src\main\resources\fr\playcards\cardgame" />

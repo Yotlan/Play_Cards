@@ -136,11 +136,11 @@ public class PlayCardsController {
                                     mainClient.setClientPseudo(playerPseudo.getText());
                                     try {
                                         if(gameTitle.equals("Triple Triade - Final Fantasy 8")) {
-                                            new FF8TripleTriadeFrame(gameTitle, data.getCurrentCardGame(), mainClient).start();
+                                            new FF8TripleTriadeFrame(gameTitle+" "+playerPseudo.getText(), data.getCurrentCardGame(), mainClient).start();
                                         } else if(gameTitle.equals("Triple Triade - Final Fantasy 14")) {
-                                            new FF14TripleTriadeFrame(gameTitle, data.getCurrentCardGame(), mainClient).start();
+                                            new FF14TripleTriadeFrame(gameTitle+" "+playerPseudo.getText(), data.getCurrentCardGame(), mainClient).start();
                                         } else if(gameTitle.equals("Koi Koi Wars - Sakura Wars")) {
-                                            new KoiKoiWarsFrame(gameTitle, data.getCurrentCardGame(), mainClient).start();
+                                            new KoiKoiWarsFrame(gameTitle+" "+playerPseudo.getText(), data.getCurrentCardGame(), mainClient).start();
                                         }
                                     }
                                     catch (Exception e) {

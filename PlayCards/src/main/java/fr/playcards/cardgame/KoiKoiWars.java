@@ -48,8 +48,8 @@ public class KoiKoiWars extends UnicastRemoteObject implements CardGame {
     }
 
     @Override
-    public void removePlayer1Card(Card card) throws RemoteException {
-        this.Player1_Card.remove(card);
+    public void removePlayer1Card(int index) throws RemoteException {
+        this.Player1_Card.remove(index);
     }
 
     public List<Card> getPlayer2Card() throws RemoteException{
@@ -57,8 +57,8 @@ public class KoiKoiWars extends UnicastRemoteObject implements CardGame {
     }
 
     @Override
-    public void removePlayer2Card(Card card) throws RemoteException {
-        this.Player1_Card.remove(card);
+    public void removePlayer2Card(int index) throws RemoteException {
+        this.Player1_Card.remove(index);
     }
 
     public String getPlayer1Pseudo() throws RemoteException{

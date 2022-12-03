@@ -20,10 +20,10 @@ public interface CardGame extends Serializable, Remote{
 
     public List<Card> getPlayer1Card() throws RemoteException;
 
-    public void removePlayer1Card(Card card) throws RemoteException;
+    public void removePlayer1Card(int index) throws RemoteException;
     public List<Card> getPlayer2Card() throws RemoteException;
 
-    public void removePlayer2Card(Card card) throws RemoteException;
+    public void removePlayer2Card(int index) throws RemoteException;
 
     public String getPlayer1Pseudo() throws RemoteException;
 
