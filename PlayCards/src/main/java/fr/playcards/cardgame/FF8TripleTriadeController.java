@@ -63,6 +63,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
     //TODO : gameBoard : 0 for no card, and 1 for player 1 , 2 for player 2;
     // if a case have another value than 0, player can not put their card in this case
+    // indice respectly 1 to 9 , ligne per ligne
     // 0  0  0
     // 0  1  2
     // 0  1  0
@@ -286,12 +287,18 @@ public class FF8TripleTriadeController implements CardGameController{
         try {
             this.client.getMainServer().displayCard11(SelectedCardEntity,this.game.getUUID(),this.client);
             //TODO: display of Player card must be empty
+            //remove card from player card
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
                 this.game.removePlayer1Card(this.SelectedCardIndex);
+                this.gameBoard[0]=1;
+
             }else{
                 this.game.removePlayer2Card(this.SelectedCardIndex);
+                this.gameBoard[0]=2;
             }
+            this.gameBoardCard[0]=this.SelectedCardEntity;
 
+            //seletecd cart will null
             this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC11 method Error : "+e);
@@ -304,9 +311,12 @@ public class FF8TripleTriadeController implements CardGameController{
             this.client.getMainServer().displayCard21(SelectedCardEntity,this.game.getUUID(),this.client);
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
                 this.game.removePlayer1Card(this.SelectedCardIndex);
+                this.gameBoard[3]=1;
             }else{
                 this.game.removePlayer2Card(this.SelectedCardIndex);
+                this.gameBoard[3]=2;
             }
+            this.gameBoardCard[3]=this.SelectedCardEntity;
             this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC21 method Error : "+e);
@@ -319,9 +329,12 @@ public class FF8TripleTriadeController implements CardGameController{
             this.client.getMainServer().displayCard31(SelectedCardEntity,this.game.getUUID(),this.client);
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
                 this.game.removePlayer1Card(this.SelectedCardIndex);
+                this.gameBoard[6]=1;
             }else{
                 this.game.removePlayer2Card(this.SelectedCardIndex);
+                this.gameBoard[6]=2;
             }
+            this.gameBoardCard[6]=this.SelectedCardEntity;
             this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC31 method Error : "+e);
@@ -334,9 +347,12 @@ public class FF8TripleTriadeController implements CardGameController{
             this.client.getMainServer().displayCard12(SelectedCardEntity,this.game.getUUID(),this.client);
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
                 this.game.removePlayer1Card(this.SelectedCardIndex);
+                this.gameBoard[1]=1;
             }else{
                 this.game.removePlayer2Card(this.SelectedCardIndex);
+                this.gameBoard[1]=2;
             }
+            this.gameBoardCard[1]=this.SelectedCardEntity;
             this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC12 method Error : "+e);
@@ -349,9 +365,12 @@ public class FF8TripleTriadeController implements CardGameController{
             this.client.getMainServer().displayCard22(SelectedCardEntity,this.game.getUUID(),this.client);
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
                 this.game.removePlayer1Card(this.SelectedCardIndex);
+                this.gameBoard[4]=1;
             }else{
                 this.game.removePlayer2Card(this.SelectedCardIndex);
+                this.gameBoard[4]=2;
             }
+            this.gameBoardCard[4]=this.SelectedCardEntity;
             this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC22 method Error : "+e);
@@ -364,9 +383,12 @@ public class FF8TripleTriadeController implements CardGameController{
             this.client.getMainServer().displayCard32(SelectedCardEntity,this.game.getUUID(),this.client);
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
                 this.game.removePlayer1Card(this.SelectedCardIndex);
+                this.gameBoard[7]=1;
             }else{
                 this.game.removePlayer2Card(this.SelectedCardIndex);
+                this.gameBoard[7]=2;
             }
+            this.gameBoardCard[7]=this.SelectedCardEntity;
             this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC32 method Error : "+e);
@@ -379,9 +401,12 @@ public class FF8TripleTriadeController implements CardGameController{
             this.client.getMainServer().displayCard13(SelectedCardEntity,this.game.getUUID(),this.client);
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
                 this.game.removePlayer1Card(this.SelectedCardIndex);
+                this.gameBoard[2]=1;
             }else{
                 this.game.removePlayer2Card(this.SelectedCardIndex);
+                this.gameBoard[2]=2;
             }
+            this.gameBoardCard[2]=this.SelectedCardEntity;
             this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC13 method Error : "+e);
@@ -394,9 +419,12 @@ public class FF8TripleTriadeController implements CardGameController{
             this.client.getMainServer().displayCard23(SelectedCardEntity,this.game.getUUID(),this.client);
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
                 this.game.removePlayer1Card(this.SelectedCardIndex);
+                this.gameBoard[5]=1;
             }else{
                 this.game.removePlayer2Card(this.SelectedCardIndex);
+                this.gameBoard[5]=2;
             }
+            this.gameBoardCard[5]=this.SelectedCardEntity;
             this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC23 method Error : "+e);
@@ -409,9 +437,12 @@ public class FF8TripleTriadeController implements CardGameController{
             this.client.getMainServer().displayCard33(SelectedCardEntity,this.game.getUUID(),this.client);
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
                 this.game.removePlayer1Card(this.SelectedCardIndex);
+                this.gameBoard[8]=1;
             }else{
                 this.game.removePlayer2Card(this.SelectedCardIndex);
+                this.gameBoard[8]=2;
             }
+            this.gameBoardCard[8]=this.SelectedCardEntity;
             this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC33 method Error : "+e);
