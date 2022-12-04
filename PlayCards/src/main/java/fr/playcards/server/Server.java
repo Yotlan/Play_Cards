@@ -25,6 +25,7 @@ public class Server extends UnicastRemoteObject implements IServer {
 
     public Map<String,Integer> FF8GameClientTurn = new HashMap<>();
 
+
     public Server(String name) throws RemoteException{
         this.name = name;
     }
@@ -75,6 +76,7 @@ public class Server extends UnicastRemoteObject implements IServer {
         }else{
             FF8GameClientList.put(UUID,new ArrayList<>(Arrays.asList(client)));
         }
+
         for(IClient clt : FF8GameClientList.get(UUID)){
             clt.refreshDisplayCard();
         }
