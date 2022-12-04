@@ -3,6 +3,7 @@ package fr.playcards.cardgame;
 import fr.playcards.PlayCardsApplication;
 import fr.playcards.client.IClient;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -47,6 +48,7 @@ public class FF8TripleTriadeFrame {
                     }
                 });
         BorderPane root = fxmlLoader.load();
+        Platform.setImplicitExit(false);
         //game.setController(fxmlLoader.getController());
         Scene scene = new Scene(root);
         Stage stage = new Stage();
