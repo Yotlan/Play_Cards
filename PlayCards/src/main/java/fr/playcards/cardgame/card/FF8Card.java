@@ -1,6 +1,7 @@
 package fr.playcards.cardgame.card;
 
 import fr.playcards.cardgame.card.Card;
+import fr.playcards.client.Client;
 
 public class FF8Card implements Card {
 
@@ -11,13 +12,16 @@ public class FF8Card implements Card {
     public int left;
     public String element;
 
-    public FF8Card(String name, int up, int right, int down, int left, String element) {
+    public Client owner;
+
+    public FF8Card(String name, int up, int right, int down, int left, String element, Client owner) {
         this.name = name;
         this.up = up;
         this.right = right;
         this.down = down;
         this.left = left;
         this.element = element;
+        this.owner = owner;
     }
 
     public String getName() {
@@ -42,6 +46,14 @@ public class FF8Card implements Card {
 
     public String getElement() {
         return this.element;
+    }
+
+    public Client getOwner() {
+        return this.owner;
+    }
+
+    public void setOwner(Client newOwner) {
+        this.owner = newOwner;
     }
 
 }
