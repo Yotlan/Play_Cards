@@ -138,47 +138,47 @@ public class FF8TripleTriadeController implements CardGameController{
             try {
                 Empty_Card11.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("11").getName()+".jpg").toFile().toURI().toString()));
             } catch (Exception e) {
-                System.out.println("FF8TripleTriadeController refresh method 11 Error : "+e);
+                //System.out.println("FF8TripleTriadeController refresh method 11 Error : "+e);
             }
             try {
                 Empty_Card21.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("21").getName()+".jpg").toFile().toURI().toString()));
             } catch (Exception e) {
-                System.out.println("FF8TripleTriadeController refresh method 21 Error : "+e);
+                //System.out.println("FF8TripleTriadeController refresh method 21 Error : "+e);
             }
             try {
                 Empty_Card31.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("31").getName()+".jpg").toFile().toURI().toString()));
             } catch (Exception e) {
-                System.out.println("FF8TripleTriadeController refresh method 31 Error : "+e);
+                //System.out.println("FF8TripleTriadeController refresh method 31 Error : "+e);
             }
             try {
                 Empty_Card12.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/" + imageMap.get("12").getName() + ".jpg").toFile().toURI().toString()));
             } catch (Exception e) {
-                System.out.println("FF8TripleTriadeController refresh method 12 Error : "+e);
+                //System.out.println("FF8TripleTriadeController refresh method 12 Error : "+e);
             }
             try {
                 Empty_Card22.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/" + imageMap.get("22").getName() + ".jpg").toFile().toURI().toString()));
             } catch (Exception e) {
-                System.out.println("FF8TripleTriadeController refresh method 22 Error : "+e);
+                //System.out.println("FF8TripleTriadeController refresh method 22 Error : "+e);
             }
             try {
                 Empty_Card32.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/" + imageMap.get("32").getName() + ".jpg").toFile().toURI().toString()));
             } catch (Exception e) {
-                System.out.println("FF8TripleTriadeController refresh method 32 Error : "+e);
+                //System.out.println("FF8TripleTriadeController refresh method 32 Error : "+e);
             }
             try {
                 Empty_Card13.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/" + imageMap.get("13").getName() + ".jpg").toFile().toURI().toString()));
             } catch (Exception e) {
-                System.out.println("FF8TripleTriadeController refresh method 13 Error : "+e);
+                //System.out.println("FF8TripleTriadeController refresh method 13 Error : "+e);
             }
             try {
                 Empty_Card23.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/" + imageMap.get("23").getName() + ".jpg").toFile().toURI().toString()));
             } catch (Exception e) {
-                System.out.println("FF8TripleTriadeController refresh method 23 Error : "+e);
+                //System.out.println("FF8TripleTriadeController refresh method 23 Error : "+e);
             }
             try {
                 Empty_Card33.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/" + imageMap.get("33").getName() + ".jpg").toFile().toURI().toString()));
             } catch (Exception e) {
-                System.out.println("FF8TripleTriadeController refresh method 33 Error : "+e);
+                //System.out.println("FF8TripleTriadeController refresh method 33 Error : "+e);
             }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController refresh method Error : "+e);
