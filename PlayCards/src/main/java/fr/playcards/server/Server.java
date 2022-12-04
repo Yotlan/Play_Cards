@@ -23,6 +23,8 @@ public class Server extends UnicastRemoteObject implements IServer {
     public Map<String,Card> FF8Card = new HashMap<>();
     public Map<String,List<IClient>> FF8GameClientList = new HashMap<>();
 
+    public Map<String,Integer> FF8GameClientTurn = new HashMap<>();
+
     public Server(String name) throws RemoteException{
         this.name = name;
     }
@@ -45,6 +47,25 @@ public class Server extends UnicastRemoteObject implements IServer {
         for(IClient clt : clientList){
             clt.refreshRoom();
         }
+    }
+
+    public void initTurn(String UUID) throws RemoteException {
+        if(!FF8GameClientTurn.containsKey(UUID)) {
+            FF8GameClientTurn.put(UUID,1);
+        }
+    }
+    public void switchTurn(String UUID) throws RemoteException {
+        if(FF8GameClientTurn.containsKey(UUID)){
+            if(FF8GameClientTurn.get(UUID) == 1){
+                FF8GameClientTurn.replace(UUID,2);
+            }else{
+                FF8GameClientTurn.replace(UUID,1);
+            }
+        }
+    }
+
+    public Integer getTurn(String UUID) throws RemoteException {
+        return this.FF8GameClientTurn.get(UUID);
     }
 
     public void displayCard11(Card card, String UUID, IClient client) throws RemoteException{

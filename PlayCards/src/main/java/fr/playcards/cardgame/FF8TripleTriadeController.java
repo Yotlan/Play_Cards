@@ -95,7 +95,7 @@ public class FF8TripleTriadeController implements CardGameController{
             }
             Player2_Pseudo.setText(this.game.getPlayer2Pseudo());
 
-            index_player=1;
+            this.client.getMainServer().initTurn(this.game.getUUID());
         }catch(Exception e){
             System.out.println("FF8TripleTriadeController initialize method Error : "+e);
         }
@@ -304,7 +304,7 @@ public class FF8TripleTriadeController implements CardGameController{
                 playerID=2;
             }
             //condition : a space is not occuped by a card AND player played is round of this player
-            if ((this.client.getFF8Card(this.UUID).get("11") == null) && (playerID==this.index_player)){
+            if ((this.client.getFF8Card(this.UUID).get("11") == null) && (playerID==this.client.getMainServer().getTurn(this.game.getUUID()))){
                 this.Empty_Card11.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard11(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -327,7 +327,6 @@ public class FF8TripleTriadeController implements CardGameController{
                             this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                             break;
                     }
-                    this.index_player=2;
                 }else{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
@@ -347,8 +346,9 @@ public class FF8TripleTriadeController implements CardGameController{
                             this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                             break;
                     }
-                    this.index_player=1;
                 }
+
+                this.client.getMainServer().switchTurn(this.game.getUUID());
 
                 //seletecd cart will null
                 this.SelectedCard = null;

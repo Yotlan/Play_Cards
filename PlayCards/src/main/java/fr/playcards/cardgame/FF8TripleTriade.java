@@ -23,9 +23,9 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
     public String UUID;
     public CardGameController controller;
     public List<Card> Player1_Card = new ArrayList<Card>();
-    public String Player1_Pseudo = "";
+    public String Player1_Pseudo = "N/A";
     public List<Card> Player2_Card = new ArrayList<Card>();
-    public String Player2_Pseudo = "";
+    public String Player2_Pseudo = "N/A";
 
     public Card EmptyCard = new FF8Card("Empty",0,0,0,0,"empty");
 

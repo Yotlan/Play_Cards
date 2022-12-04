@@ -19,6 +19,12 @@ public interface IServer extends Serializable, Remote {
     public String getName() throws RemoteException;
     public void refreshRoom() throws RemoteException;
 
+    public void initTurn(String UUID) throws RemoteException;
+
+    public void switchTurn(String UUID) throws RemoteException;
+
+    public Integer getTurn(String UUID) throws RemoteException;
+
     public void displayCard11(Card card, String UUID,IClient client) throws RemoteException;
     public void displayCard21(Card card, String UUID,IClient client) throws RemoteException;
     public void displayCard31(Card card, String UUID,IClient client) throws RemoteException;
