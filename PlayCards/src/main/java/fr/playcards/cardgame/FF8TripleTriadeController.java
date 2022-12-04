@@ -283,167 +283,191 @@ public class FF8TripleTriadeController implements CardGameController{
     }
 
     public void displayC11(){
-        this.Empty_Card11.setImage(this.SelectedCard.getImage());
+
         try {
-            this.client.getMainServer().displayCard11(SelectedCardEntity,this.game.getUUID(),this.client);
-            //TODO: display of Player card must be empty
-            //remove card from player card
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
-                this.game.removePlayer1Card(this.SelectedCardIndex);
-                this.gameBoard[0]=1;
+            if (this.gameBoard[0]==0){
+                this.Empty_Card11.setImage(this.SelectedCard.getImage());
+                this.client.getMainServer().displayCard11(SelectedCardEntity,this.game.getUUID(),this.client);
+                //TODO: display of Player card must be empty
+                //remove card from player card
+                if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
+                    this.game.removePlayer1Card(this.SelectedCardIndex);
+                    this.gameBoard[0]=1;
 
-            }else{
-                this.game.removePlayer2Card(this.SelectedCardIndex);
-                this.gameBoard[0]=2;
+                }else{
+                    this.game.removePlayer2Card(this.SelectedCardIndex);
+                    this.gameBoard[0]=2;
+                }
+                this.gameBoardCard[0]=this.SelectedCardEntity;
+
+                //seletecd cart will null
+                this.SelectedCard = null;
             }
-            this.gameBoardCard[0]=this.SelectedCardEntity;
-
-            //seletecd cart will null
-            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC11 method Error : "+e);
         }
     }
 
     public void displayC21(){
-        this.Empty_Card21.setImage(this.SelectedCard.getImage());
+
         try {
-            this.client.getMainServer().displayCard21(SelectedCardEntity,this.game.getUUID(),this.client);
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
-                this.game.removePlayer1Card(this.SelectedCardIndex);
-                this.gameBoard[3]=1;
-            }else{
-                this.game.removePlayer2Card(this.SelectedCardIndex);
-                this.gameBoard[3]=2;
+            if (this.gameBoard[3]==0){
+                this.Empty_Card21.setImage(this.SelectedCard.getImage());
+                this.client.getMainServer().displayCard21(SelectedCardEntity,this.game.getUUID(),this.client);
+                if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
+                    this.game.removePlayer1Card(this.SelectedCardIndex);
+                    this.gameBoard[3]=1;
+                }else{
+                    this.game.removePlayer2Card(this.SelectedCardIndex);
+                    this.gameBoard[3]=2;
+                }
+                this.gameBoardCard[3]=this.SelectedCardEntity;
+                this.SelectedCard = null;
             }
-            this.gameBoardCard[3]=this.SelectedCardEntity;
-            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC21 method Error : "+e);
         }
     }
 
     public void displayC31(){
-        this.Empty_Card31.setImage(this.SelectedCard.getImage());
+
         try {
-            this.client.getMainServer().displayCard31(SelectedCardEntity,this.game.getUUID(),this.client);
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
-                this.game.removePlayer1Card(this.SelectedCardIndex);
-                this.gameBoard[6]=1;
-            }else{
-                this.game.removePlayer2Card(this.SelectedCardIndex);
-                this.gameBoard[6]=2;
+            if (this.gameBoard[6]==0){
+                this.Empty_Card31.setImage(this.SelectedCard.getImage());
+                this.client.getMainServer().displayCard31(SelectedCardEntity,this.game.getUUID(),this.client);
+                if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
+                    this.game.removePlayer1Card(this.SelectedCardIndex);
+                    this.gameBoard[6]=1;
+                }else{
+                    this.game.removePlayer2Card(this.SelectedCardIndex);
+                    this.gameBoard[6]=2;
+                }
+                this.gameBoardCard[6]=this.SelectedCardEntity;
+                this.SelectedCard = null;
             }
-            this.gameBoardCard[6]=this.SelectedCardEntity;
-            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC31 method Error : "+e);
         }
     }
 
     public void displayC12(){
-        this.Empty_Card12.setImage(this.SelectedCard.getImage());
+
         try {
-            this.client.getMainServer().displayCard12(SelectedCardEntity,this.game.getUUID(),this.client);
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
-                this.game.removePlayer1Card(this.SelectedCardIndex);
-                this.gameBoard[1]=1;
-            }else{
-                this.game.removePlayer2Card(this.SelectedCardIndex);
-                this.gameBoard[1]=2;
+            if (this.gameBoard[1]==0){
+                this.Empty_Card12.setImage(this.SelectedCard.getImage());
+                this.client.getMainServer().displayCard12(SelectedCardEntity,this.game.getUUID(),this.client);
+                if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
+                    this.game.removePlayer1Card(this.SelectedCardIndex);
+                    this.gameBoard[1]=1;
+                }else{
+                    this.game.removePlayer2Card(this.SelectedCardIndex);
+                    this.gameBoard[1]=2;
+                }
+                this.gameBoardCard[1]=this.SelectedCardEntity;
+                this.SelectedCard = null;
             }
-            this.gameBoardCard[1]=this.SelectedCardEntity;
-            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC12 method Error : "+e);
         }
     }
 
     public void displayC22(){
-        this.Empty_Card22.setImage(this.SelectedCard.getImage());
+
         try {
-            this.client.getMainServer().displayCard22(SelectedCardEntity,this.game.getUUID(),this.client);
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
-                this.game.removePlayer1Card(this.SelectedCardIndex);
-                this.gameBoard[4]=1;
-            }else{
-                this.game.removePlayer2Card(this.SelectedCardIndex);
-                this.gameBoard[4]=2;
+            if (this.gameBoard[4]==0){
+                this.Empty_Card22.setImage(this.SelectedCard.getImage());
+                this.client.getMainServer().displayCard22(SelectedCardEntity,this.game.getUUID(),this.client);
+                if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
+                    this.game.removePlayer1Card(this.SelectedCardIndex);
+                    this.gameBoard[4]=1;
+                }else{
+                    this.game.removePlayer2Card(this.SelectedCardIndex);
+                    this.gameBoard[4]=2;
+                }
+                this.gameBoardCard[4]=this.SelectedCardEntity;
+                this.SelectedCard = null;
             }
-            this.gameBoardCard[4]=this.SelectedCardEntity;
-            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC22 method Error : "+e);
         }
     }
 
     public void displayC32(){
-        this.Empty_Card32.setImage(this.SelectedCard.getImage());
+
         try {
-            this.client.getMainServer().displayCard32(SelectedCardEntity,this.game.getUUID(),this.client);
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
-                this.game.removePlayer1Card(this.SelectedCardIndex);
-                this.gameBoard[7]=1;
-            }else{
-                this.game.removePlayer2Card(this.SelectedCardIndex);
-                this.gameBoard[7]=2;
+            if(gameBoard[7]==0){
+                this.Empty_Card32.setImage(this.SelectedCard.getImage());
+                this.client.getMainServer().displayCard32(SelectedCardEntity,this.game.getUUID(),this.client);
+                if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
+                    this.game.removePlayer1Card(this.SelectedCardIndex);
+                    this.gameBoard[7]=1;
+                }else{
+                    this.game.removePlayer2Card(this.SelectedCardIndex);
+                    this.gameBoard[7]=2;
+                }
+                this.gameBoardCard[7]=this.SelectedCardEntity;
+                this.SelectedCard = null;
             }
-            this.gameBoardCard[7]=this.SelectedCardEntity;
-            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC32 method Error : "+e);
         }
     }
 
     public void displayC13(){
-        this.Empty_Card13.setImage(this.SelectedCard.getImage());
         try {
-            this.client.getMainServer().displayCard13(SelectedCardEntity,this.game.getUUID(),this.client);
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
-                this.game.removePlayer1Card(this.SelectedCardIndex);
-                this.gameBoard[2]=1;
-            }else{
-                this.game.removePlayer2Card(this.SelectedCardIndex);
-                this.gameBoard[2]=2;
+            if (this.gameBoard[2]==0){
+                this.Empty_Card13.setImage(this.SelectedCard.getImage());
+                this.client.getMainServer().displayCard13(SelectedCardEntity,this.game.getUUID(),this.client);
+                if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
+                    this.game.removePlayer1Card(this.SelectedCardIndex);
+                    this.gameBoard[2]=1;
+                }else{
+                    this.game.removePlayer2Card(this.SelectedCardIndex);
+                    this.gameBoard[2]=2;
+                }
+                this.gameBoardCard[2]=this.SelectedCardEntity;
+                this.SelectedCard = null;
             }
-            this.gameBoardCard[2]=this.SelectedCardEntity;
-            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC13 method Error : "+e);
         }
     }
 
     public void displayC23(){
-        this.Empty_Card23.setImage(this.SelectedCard.getImage());
         try {
-            this.client.getMainServer().displayCard23(SelectedCardEntity,this.game.getUUID(),this.client);
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
-                this.game.removePlayer1Card(this.SelectedCardIndex);
-                this.gameBoard[5]=1;
-            }else{
-                this.game.removePlayer2Card(this.SelectedCardIndex);
-                this.gameBoard[5]=2;
+            if (this.gameBoard[5]==0){
+                this.Empty_Card23.setImage(this.SelectedCard.getImage());
+                this.client.getMainServer().displayCard23(SelectedCardEntity,this.game.getUUID(),this.client);
+                if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
+                    this.game.removePlayer1Card(this.SelectedCardIndex);
+                    this.gameBoard[5]=1;
+                }else{
+                    this.game.removePlayer2Card(this.SelectedCardIndex);
+                    this.gameBoard[5]=2;
+                }
+                this.gameBoardCard[5]=this.SelectedCardEntity;
+                this.SelectedCard = null;
             }
-            this.gameBoardCard[5]=this.SelectedCardEntity;
-            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC23 method Error : "+e);
         }
     }
 
     public void displayC33(){
-        this.Empty_Card33.setImage(this.SelectedCard.getImage());
         try {
-            this.client.getMainServer().displayCard33(SelectedCardEntity,this.game.getUUID(),this.client);
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
-                this.game.removePlayer1Card(this.SelectedCardIndex);
-                this.gameBoard[8]=1;
-            }else{
-                this.game.removePlayer2Card(this.SelectedCardIndex);
-                this.gameBoard[8]=2;
+            if (this.gameBoard[8]==0){
+                this.Empty_Card33.setImage(this.SelectedCard.getImage());
+                this.client.getMainServer().displayCard33(SelectedCardEntity,this.game.getUUID(),this.client);
+                if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) ){
+                    this.game.removePlayer1Card(this.SelectedCardIndex);
+                    this.gameBoard[8]=1;
+                }else{
+                    this.game.removePlayer2Card(this.SelectedCardIndex);
+                    this.gameBoard[8]=2;
+                }
+                this.gameBoardCard[8]=this.SelectedCardEntity;
+                this.SelectedCard = null;
             }
-            this.gameBoardCard[8]=this.SelectedCardEntity;
-            this.SelectedCard = null;
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC33 method Error : "+e);
         }
