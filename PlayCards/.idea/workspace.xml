@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="Add pseudo verification and dynamic pseudo display inside ff8 triple triade">
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" afterDir="false" />
+    <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="Totally functionnal UI for FF8 Triple Triade">
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/Play_Cards.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/omt-odt-plugin-settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,16 +32,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/playcards/PlayCardsController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/playcards/StartServer.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/Card.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/playcards/client/Client.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/playcards/client/IClient.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/playcards/server/IServer.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/playcards/server/Server.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/ff8tripletriade-view.fxml" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectId" id="2GVdfhRJUvhowHvTZDLQtdt3iTP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -45,11 +57,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/endyyu/Desktop/middleware/Play_Cards/PlayCards",
+    "last_opened_file_path": "C:/Users/yotla/OneDrive/Bureau/Play_Cards/PlayCards",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.runner"
+    "settings.editor.selected.configurable": "advanced.settings"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -60,7 +72,7 @@
       <recent name="fr.playcards" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.fr.playcards.PlayCardsApplication">
+  <component name="RunManager" selected="Application.fr.playcards.PlayCardsApplicationLocal">
     <configuration name="PlayCardsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.playcards.room.PlayCardsApplication" />
       <module name="PlayCards" />
@@ -75,8 +87,6 @@
       </method>
     </configuration>
     <configuration name="fr.playcards.PlayCardsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="fr.playcards.PlayCardsApplication" />
       <module name="PlayCards" />
       <extension name="coverage">
@@ -90,8 +100,6 @@
       </method>
     </configuration>
     <configuration name="fr.playcards.PlayCardsApplicationLocal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="17 (2)" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="fr.playcards.PlayCardsApplicationLocal" />
       <module name="PlayCards" />
       <extension name="coverage">
@@ -117,17 +125,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.fr.playcards.PlayCardsApplication" />
-      <item itemvalue="Application.fr.playcards.PlayCardsApplicationLocal" />
-      <item itemvalue="Application.fr.playcards.StartServer" />
-      <item itemvalue="Application.PlayCardsApplication" />
-    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.fr.playcards.PlayCardsApplicationLocal" />
         <item itemvalue="Application.fr.playcards.PlayCardsApplication" />
         <item itemvalue="Application.fr.playcards.StartServer" />
-        <item itemvalue="Application.fr.playcards.PlayCardsApplicationLocal" />
         <item itemvalue="Application.fr.playcards.PlayCardsApplication" />
       </list>
     </recent_temporary>
@@ -148,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667941580206</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Totally functionnal UI for FF8 Triple Triade">
+      <created>1668288196206</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668288196206</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,7 +173,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add pseudo verification and dynamic pseudo display inside ff8 triple triade" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add pseudo verification and dynamic pseudo display inside ff8 triple triade" />
+    <MESSAGE value="Totally functionnal UI for FF8 Triple Triade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Totally functionnal UI for FF8 Triple Triade" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -175,9 +185,5 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
