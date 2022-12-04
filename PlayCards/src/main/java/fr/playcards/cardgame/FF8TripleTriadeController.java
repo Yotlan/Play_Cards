@@ -2,6 +2,7 @@ package fr.playcards.cardgame;
 
 import fr.playcards.cardgame.card.Card;
 import fr.playcards.cardgame.card.FF8Card;
+import fr.playcards.client.Client;
 import fr.playcards.client.IClient;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -35,6 +36,7 @@ public class FF8TripleTriadeController implements CardGameController{
     public ImageView Player2_Card4 = new ImageView();
     @FXML
     public ImageView Player2_Card5 = new ImageView();
+
     @FXML
     public ImageView Empty_Card11 = new ImageView();
     @FXML
@@ -58,6 +60,15 @@ public class FF8TripleTriadeController implements CardGameController{
     @FXML
     public Card SelectedCardEntity = new FF8Card("N/A",0,0,0,0,"N/A");
     public int SelectedCardIndex=-1;
+
+    //TODO : gameBoard : 0 for no card, and 1 for player 1 , 2 for player 2;
+    // if a case have another value than 0, player can not put their card in this case
+    // 0  0  0
+    // 0  1  2
+    // 0  1  0
+    public int [] gameBoard=new int[9];
+    // TODO : gameBoardCard to save Card on the board
+    public Card [] gameBoardCard=new Card[9];
     @FXML
     public Label Player1_Pseudo = new Label("N/A");
     @FXML
@@ -90,6 +101,9 @@ public class FF8TripleTriadeController implements CardGameController{
                 P2CardImage.get(i).setImage(image);
             }
             Player2_Pseudo.setText(this.game.getPlayer2Pseudo());
+
+            Arrays.fill(gameBoard,0);
+            Arrays.fill(gameBoardCard,null);
         }catch(Exception e){
             System.out.println("FF8TripleTriadeController initialize method Error : "+e);
         }
