@@ -179,7 +179,18 @@ public class Server extends UnicastRemoteObject implements IServer {
     }
 
     public Map<String,Card> getFF8Card() throws RemoteException{
-        System.out.println(FF8Card);
         return this.FF8Card;
+    }
+
+    public void initFF8GameClientList(String UUID, IClient client) throws RemoteException{
+        if(!this.FF8GameClientList.containsKey(UUID)){
+            this.FF8GameClientList.put(UUID, new ArrayList<>(Arrays.asList(client)));
+        }else{
+            this.FF8GameClientList.get(UUID).add(1,client);
+        }
+    }
+
+    public List<IClient> getFF8GameClientList(String UUID) throws RemoteException{
+        return this.FF8GameClientList.get(UUID);
     }
 }

@@ -85,7 +85,8 @@ public class FF8TripleTriadeController implements CardGameController{
                 Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+card.getName()+".jpg").toFile().toURI().toString());
                 P1CardImage.get(i).setImage(image);
             }
-            Player1_Pseudo.setText(this.game.getPlayer1Pseudo());
+            this.client.getMainServer().initFF8GameClientList(this.game.getUUID(),this.client);
+            Player1_Pseudo.setText(this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).get(0).getClientPseudo());
             List<Card> P2Card = this.game.getPlayer2Card();
             List<ImageView> P2CardImage = new ArrayList<>(Arrays.asList(Player2_Card1,Player2_Card2,Player2_Card3,Player2_Card4,Player2_Card5));
             for(int i=0; i<P2Card.size();i++){
@@ -93,7 +94,10 @@ public class FF8TripleTriadeController implements CardGameController{
                 Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+card.getName()+".jpg").toFile().toURI().toString());
                 P2CardImage.get(i).setImage(image);
             }
-            Player2_Pseudo.setText(this.game.getPlayer2Pseudo());
+            if(this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).size()>1) {
+                Player2_Pseudo.setText(this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).get(1).getClientPseudo());
+            }
+
 
             this.client.getMainServer().initTurn(this.game.getUUID());
         }catch(Exception e){
@@ -120,8 +124,12 @@ public class FF8TripleTriadeController implements CardGameController{
 
     public void refresh(){
         try {
-            Player1_Pseudo.setText(this.game.getPlayer1Pseudo());
-            Player2_Pseudo.setText(this.game.getPlayer2Pseudo());
+            //Player1_Pseudo.setText(this.game.getPlayer1Pseudo());
+            //Player2_Pseudo.setText(this.game.getPlayer2Pseudo());
+            Player1_Pseudo.setText(this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).get(0).getClientPseudo());
+            if(this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).size()>1) {
+                Player2_Pseudo.setText(this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).get(1).getClientPseudo());
+            }
             Map<String, Card> imageMap = this.client.getFF8Card(this.UUID);
 
             try {
