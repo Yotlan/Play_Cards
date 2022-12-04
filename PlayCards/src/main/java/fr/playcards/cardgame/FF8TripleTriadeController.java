@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.nio.file.Paths;
+import java.rmi.RemoteException;
 import java.util.*;
 
 public class FF8TripleTriadeController implements CardGameController{
@@ -839,5 +840,78 @@ public class FF8TripleTriadeController implements CardGameController{
     }
 
     //TODO : règles de jeu : applicable? same , + ,
+    public void regleFlip(String position, String uuid ) throws RemoteException {
+        boolean turnRight=false;
+        boolean turnDown=false;
+        boolean turnLeft=false;
+        boolean turnTop=false;
+
+        //rightable
+        if (position.charAt(1)<3){
+            turnRight=this.checkRight(position);
+        }
+        //leftable
+        if (position.charAt(1)>1){
+            turnLeft=this.checkLeft(position);
+        }
+        //toptable
+        if (position.charAt(0)>1){
+            turnTop=this.checkTop(position);
+        }
+        //downtable
+        if (position.charAt(0)<3){
+            turnDown=this.checkDown(position);
+        }
+
+        //flip card where able
+
+
+    }
+
+    public boolean checkRight(String position) throws RemoteException {
+        Card card=this.client.getFF8Card(this.game.getUUID()).get(position);
+        int x = position.charAt(0);
+        int y = position.charAt(1)+1;
+        Card cardRight = this.client.getFF8Card(this.game.getUUID()).get(Integer.toString(x) + Integer.toString(y));
+        if (card.getRight() > cardRight.getLeft()){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public boolean checkTop(String position) throws RemoteException {
+        Card card=this.client.getFF8Card(this.game.getUUID()).get(position);
+        int x = position.charAt(0)-1;
+        int y = position.charAt(1);
+        Card cardAround = this.client.getFF8Card(this.game.getUUID()).get(Integer.toString(x) + Integer.toString(y));
+        if (card.getUp() > cardAround.getDown()){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public boolean checkLeft(String position) throws RemoteException {
+        Card card=this.client.getFF8Card(this.game.getUUID()).get(position);
+        int x = position.charAt(0);
+        int y = position.charAt(1)-1;
+        Card cardAround = this.client.getFF8Card(this.game.getUUID()).get(Integer.toString(x) + Integer.toString(y));
+        if (card.getLeft() > cardAround.getRight()){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public boolean checkDown(String position) throws RemoteException {
+        Card card=this.client.getFF8Card(this.game.getUUID()).get(position);
+        int x = position.charAt(0)+1;
+        int y = position.charAt(1);
+        Card cardAround = this.client.getFF8Card(this.game.getUUID()).get(Integer.toString(x) + Integer.toString(y));
+        if (card.getDown() > cardAround.getUp()){
+            return true;
+        }else {
+            return false;
+        }
+    }
 
 }
