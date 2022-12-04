@@ -123,6 +123,7 @@ public class FF8TripleTriadeController implements CardGameController{
             Player1_Pseudo.setText(this.game.getPlayer1Pseudo());
             Player2_Pseudo.setText(this.game.getPlayer2Pseudo());
             Map<String, Card> imageMap = this.client.getFF8Card(this.UUID);
+
             try {
                 Empty_Card11.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("11").getName()+".jpg").toFile().toURI().toString()));
             } catch (Exception e) {
@@ -309,9 +310,43 @@ public class FF8TripleTriadeController implements CardGameController{
                 this.client.getMainServer().displayCard11(SelectedCardEntity,this.game.getUUID(),this.client);
                 if (playerID==1 ){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player1_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player1_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player1_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player1_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=2;
                 }else{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player2_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player2_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player2_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player2_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=1;
                 }
 
@@ -337,9 +372,43 @@ public class FF8TripleTriadeController implements CardGameController{
                 this.client.getMainServer().displayCard21(SelectedCardEntity,this.game.getUUID(),this.client);
                 if (playerID==1 ){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player1_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player1_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player1_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player1_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=2;
                 }else{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player2_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player2_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player2_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player2_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=1;
                 }
                 this.SelectedCard = null;
@@ -363,9 +432,43 @@ public class FF8TripleTriadeController implements CardGameController{
                 this.client.getMainServer().displayCard31(SelectedCardEntity,this.game.getUUID(),this.client);
                 if (playerID==1 ){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player1_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player1_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player1_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player1_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=2;
                 }else{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player2_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player2_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player2_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player2_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=1;
                 }
                 this.SelectedCard = null;
@@ -389,9 +492,43 @@ public class FF8TripleTriadeController implements CardGameController{
                 this.client.getMainServer().displayCard12(SelectedCardEntity,this.game.getUUID(),this.client);
                 if (playerID==1 ){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player1_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player1_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player1_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player1_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=2;
                 }else{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player2_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player2_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player2_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player2_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=1;
                 }
                 this.SelectedCard = null;
@@ -415,9 +552,43 @@ public class FF8TripleTriadeController implements CardGameController{
                 this.client.getMainServer().displayCard22(SelectedCardEntity,this.game.getUUID(),this.client);
                 if (playerID==1 ){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player1_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player1_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player1_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player1_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=2;
                 }else{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player2_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player2_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player2_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player2_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=1;
                 }
                 this.SelectedCard = null;
@@ -441,9 +612,43 @@ public class FF8TripleTriadeController implements CardGameController{
                 this.client.getMainServer().displayCard32(SelectedCardEntity,this.game.getUUID(),this.client);
                 if (playerID==1 ){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player1_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player1_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player1_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player1_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=2;
                 }else{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player2_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player2_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player2_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player2_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=1;
                 }
                 this.SelectedCard = null;
@@ -465,12 +670,46 @@ public class FF8TripleTriadeController implements CardGameController{
                 this.Empty_Card13.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard13(SelectedCardEntity,this.game.getUUID(),this.client);
-                if (playerID==1){
+                if (playerID==1 ){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player1_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player1_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player1_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player1_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=2;
                 }else{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
-                    this.index_player=2;
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player2_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player2_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player2_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player2_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
+                    this.index_player=1;
                 }
                 this.SelectedCard = null;
             }
@@ -491,11 +730,45 @@ public class FF8TripleTriadeController implements CardGameController{
                 this.Empty_Card23.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard23(SelectedCardEntity,this.game.getUUID(),this.client);
-                if (playerID==1){
+                if (playerID==1 ){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player1_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player1_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player1_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player1_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=2;
                 }else{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player2_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player2_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player2_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player2_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=1;
                 }
                 this.SelectedCard = null;
@@ -519,9 +792,43 @@ public class FF8TripleTriadeController implements CardGameController{
                 this.client.getMainServer().displayCard33(SelectedCardEntity,this.game.getUUID(),this.client);
                 if (playerID==1 ){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player1_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player1_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player1_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player1_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=2;
                 }else{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
+                    switch (this.SelectedCardIndex) {
+                        case 1 :
+                            this.Player2_Card1.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 2 :
+                            this.Player2_Card2.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 3 :
+                            this.Player2_Card3.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 4 :
+                            this.Player2_Card4.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                        case 5 :
+                            this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
+                            break;
+                    }
                     this.index_player=1;
                 }
                 this.SelectedCard = null;
