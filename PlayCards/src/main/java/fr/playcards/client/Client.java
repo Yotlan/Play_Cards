@@ -17,7 +17,7 @@ public class Client implements IClient {
     public List<IRoom> observableRoomList = new ArrayList<>();
     public IServer mainServer;
 
-    public Map<String,Card> FF8Card = new HashMap<>();
+    public Map<String,String> FF8CardName = new HashMap<>();
 
     public Client() {
         try {
@@ -49,7 +49,7 @@ public class Client implements IClient {
 
     public void refreshDisplayCard() {
         try{
-            this.FF8Card = this.mainServer.getFF8Card();
+            this.FF8CardName = this.mainServer.getFF8Card();
         } catch (Exception e) {
             System.out.println("Client refresh method Error : "+e);
         }
@@ -64,18 +64,18 @@ public class Client implements IClient {
         this.clientPseudoName=pseudo;
     }
 
-    public Map<String, Card> getFF8Card(String UUID) {
+    public Map<String, String> getFF8Card(String UUID) {
         refreshDisplayCard();
-        Map<String, Card> returnedMap = new HashMap<>();
-        returnedMap.put("11",this.FF8Card.get(UUID+"#11"));
-        returnedMap.put("21",this.FF8Card.get(UUID+"#21"));
-        returnedMap.put("31",this.FF8Card.get(UUID+"#31"));
-        returnedMap.put("12",this.FF8Card.get(UUID+"#12"));
-        returnedMap.put("22",this.FF8Card.get(UUID+"#22"));
-        returnedMap.put("32",this.FF8Card.get(UUID+"#32"));
-        returnedMap.put("13",this.FF8Card.get(UUID+"#13"));
-        returnedMap.put("23",this.FF8Card.get(UUID+"#23"));
-        returnedMap.put("33",this.FF8Card.get(UUID+"#33"));
+        Map<String, String> returnedMap = new HashMap<>();
+        returnedMap.put("11",this.FF8CardName.get(UUID+"#11"));
+        returnedMap.put("21",this.FF8CardName.get(UUID+"#21"));
+        returnedMap.put("31",this.FF8CardName.get(UUID+"#31"));
+        returnedMap.put("12",this.FF8CardName.get(UUID+"#12"));
+        returnedMap.put("22",this.FF8CardName.get(UUID+"#22"));
+        returnedMap.put("32",this.FF8CardName.get(UUID+"#32"));
+        returnedMap.put("13",this.FF8CardName.get(UUID+"#13"));
+        returnedMap.put("23",this.FF8CardName.get(UUID+"#23"));
+        returnedMap.put("33",this.FF8CardName.get(UUID+"#33"));
         return returnedMap;
     }
 

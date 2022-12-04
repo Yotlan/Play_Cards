@@ -21,6 +21,6 @@ public interface IClient extends Serializable {
 
     public void setClientPseudo(String pseudo);
 
-    public Map<String, Card> getFF8Card(String UUID);
+    public Map<String, String> getFF8Card(String UUID);
 
 }
