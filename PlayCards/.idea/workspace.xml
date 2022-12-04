@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="Add pseudo verification and dynamic pseudo display inside ff8 triple triade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

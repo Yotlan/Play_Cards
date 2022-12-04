@@ -80,7 +80,7 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
     @Override
     public void removePlayer1Card(int index) throws RemoteException{
         Player1_Card.remove(index);
-        Player1_Card.set(index,null);
+        Player1_Card.add(index,null);
     }
 
     public List<Card> getPlayer2Card() throws RemoteException {
@@ -90,8 +90,7 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
 
     public void removePlayer2Card(int index) throws RemoteException {
         this.Player2_Card.remove(index);
-        Player2_Card.set(index,null);
-
+        Player2_Card.add(index,null);
     }
 
 
