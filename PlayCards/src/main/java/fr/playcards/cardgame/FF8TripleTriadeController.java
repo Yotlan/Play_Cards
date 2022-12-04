@@ -304,7 +304,7 @@ public class FF8TripleTriadeController implements CardGameController{
                 playerID=2;
             }
             //condition : a space is not occuped by a card AND player played is round of this player
-            if ((this.client.getFF8Card(this.UUID).get("11") != null) && (playerID==this.index_player)){
+            if ((this.client.getFF8Card(this.UUID).get("11") == null) && (playerID==this.index_player)){
                 this.Empty_Card11.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard11(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -366,7 +366,7 @@ public class FF8TripleTriadeController implements CardGameController{
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID = 2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("21") != null) && playerID==this.index_player){
+            if ((this.client.getFF8Card(this.UUID).get("21") == null) && playerID==this.index_player){
                 this.Empty_Card21.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard21(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -426,7 +426,7 @@ public class FF8TripleTriadeController implements CardGameController{
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("31") != null) && playerID==this.index_player){
+            if ((this.client.getFF8Card(this.UUID).get("31") == null) && playerID==this.index_player){
                 this.Empty_Card31.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard31(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -486,7 +486,7 @@ public class FF8TripleTriadeController implements CardGameController{
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("12") != null) && playerID==this.index_player){
+            if ((this.client.getFF8Card(this.UUID).get("12") == null) && playerID==this.index_player){
                 this.Empty_Card12.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard12(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -546,7 +546,7 @@ public class FF8TripleTriadeController implements CardGameController{
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("22") != null) && playerID==this.index_player){
+            if ((this.client.getFF8Card(this.UUID).get("22") == null) && playerID==this.index_player){
                 this.Empty_Card22.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard22(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -606,7 +606,7 @@ public class FF8TripleTriadeController implements CardGameController{
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if((this.client.getFF8Card(this.UUID).get("32") != null) && playerID==this.index_player){
+            if((this.client.getFF8Card(this.UUID).get("32") == null) && playerID==this.index_player){
                 this.Empty_Card32.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard32(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -666,7 +666,7 @@ public class FF8TripleTriadeController implements CardGameController{
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("13") != null) && playerID==this.index_player){
+            if ((this.client.getFF8Card(this.UUID).get("13") == null) && playerID==this.index_player){
                 this.Empty_Card13.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard13(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -726,7 +726,7 @@ public class FF8TripleTriadeController implements CardGameController{
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("23") != null) && playerID==this.index_player){
+            if ((this.client.getFF8Card(this.UUID).get("23") == null) && playerID==this.index_player){
                 this.Empty_Card23.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard23(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -786,7 +786,7 @@ public class FF8TripleTriadeController implements CardGameController{
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("33") != null) && playerID==this.index_player){
+            if ((this.client.getFF8Card(this.UUID).get("33") == null) && playerID==this.index_player){
                 this.Empty_Card33.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard33(SelectedCardEntity,this.game.getUUID(),this.client);
