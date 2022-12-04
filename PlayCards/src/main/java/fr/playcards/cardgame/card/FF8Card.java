@@ -14,14 +14,14 @@ public class FF8Card implements Card {
 
     public Client owner;
 
-    public FF8Card(String name, int up, int right, int down, int left, String element, Client owner) {
+    public FF8Card(String name, int up, int right, int down, int left, String element) {
         this.name = name;
         this.up = up;
         this.right = right;
         this.down = down;
         this.left = left;
         this.element = element;
-        this.owner = owner;
+        this.owner = null;
     }
 
     public String getName() {
