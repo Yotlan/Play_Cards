@@ -22,6 +22,12 @@ public class Server extends UnicastRemoteObject implements IServer {
 
     public Map<String,Card> FF8Card = new HashMap<>();
     public Map<String,String> FF8CardName = new HashMap<>();
+    public Map<String,Integer> FF8CardUp = new HashMap<>();
+    public Map<String,Integer> FF8CardRight = new HashMap<>();
+    public Map<String,Integer> FF8CardDown = new HashMap<>();
+    public Map<String,Integer> FF8CardLeft = new HashMap<>();
+    public Map<String,String> FF8CardOwner = new HashMap<>();
+
     public Map<String,List<IClient>> FF8GameClientList = new HashMap<>();
 
     public Map<String,Integer> FF8GameClientTurn = new HashMap<>();
@@ -73,6 +79,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     public void displayCard11(Card card, String UUID, IClient client) throws RemoteException{
         FF8Card.put(UUID+"#11",card);
         FF8CardName.put(UUID+"#11", card.getName());
+        FF8CardUp.put(UUID+"#11", card.getUp());
+        FF8CardRight.put(UUID+"#11", card.getRight());
+        FF8CardDown.put(UUID+"#11", card.getDown());
+        FF8CardLeft.put(UUID+"#11", card.getLeft());
+        FF8CardOwner.put(UUID+"#11", card.getOwner().getClientPseudo());
         if(FF8GameClientList.containsKey(UUID)){
             FF8GameClientList.get(UUID).add(client);
         }else{
@@ -87,6 +98,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     public void displayCard21(Card card, String UUID, IClient client) throws RemoteException{
         FF8Card.put(UUID+"#21",card);
         FF8CardName.put(UUID+"#21", card.getName());
+        FF8CardUp.put(UUID+"#21", card.getUp());
+        FF8CardRight.put(UUID+"#21", card.getRight());
+        FF8CardDown.put(UUID+"#21", card.getDown());
+        FF8CardLeft.put(UUID+"#21", card.getLeft());
+        FF8CardOwner.put(UUID+"#21", card.getOwner().getClientPseudo());
         if(FF8GameClientList.containsKey(UUID)){
             FF8GameClientList.get(UUID).add(client);
         }else{
@@ -100,6 +116,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     public void displayCard31(Card card, String UUID, IClient client) throws RemoteException{
         FF8Card.put(UUID+"#31",card);
         FF8CardName.put(UUID+"#31", card.getName());
+        FF8CardUp.put(UUID+"#31", card.getUp());
+        FF8CardRight.put(UUID+"#31", card.getRight());
+        FF8CardDown.put(UUID+"#31", card.getDown());
+        FF8CardLeft.put(UUID+"#31", card.getLeft());
+        FF8CardOwner.put(UUID+"#31", card.getOwner().getClientPseudo());
         if(FF8GameClientList.containsKey(UUID)){
             FF8GameClientList.get(UUID).add(client);
         }else{
@@ -113,6 +134,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     public void displayCard12(Card card, String UUID, IClient client) throws RemoteException{
         FF8Card.put(UUID+"#12",card);
         FF8CardName.put(UUID+"#12", card.getName());
+        FF8CardUp.put(UUID+"#12", card.getUp());
+        FF8CardRight.put(UUID+"#12", card.getRight());
+        FF8CardDown.put(UUID+"#12", card.getDown());
+        FF8CardLeft.put(UUID+"#12", card.getLeft());
+        FF8CardOwner.put(UUID+"#12", card.getOwner().getClientPseudo());
         if(FF8GameClientList.containsKey(UUID)){
             FF8GameClientList.get(UUID).add(client);
         }else{
@@ -126,6 +152,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     public void displayCard22(Card card, String UUID, IClient client) throws RemoteException{
         FF8Card.put(UUID+"#22",card);
         FF8CardName.put(UUID+"#22", card.getName());
+        FF8CardUp.put(UUID+"#22", card.getUp());
+        FF8CardRight.put(UUID+"#22", card.getRight());
+        FF8CardDown.put(UUID+"#22", card.getDown());
+        FF8CardLeft.put(UUID+"#22", card.getLeft());
+        FF8CardOwner.put(UUID+"#22", card.getOwner().getClientPseudo());
         if(FF8GameClientList.containsKey(UUID)){
             FF8GameClientList.get(UUID).add(client);
         }else{
@@ -139,6 +170,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     public void displayCard32(Card card, String UUID, IClient client) throws RemoteException{
         FF8Card.put(UUID+"#32",card);
         FF8CardName.put(UUID+"#32", card.getName());
+        FF8CardUp.put(UUID+"#32", card.getUp());
+        FF8CardRight.put(UUID+"#32", card.getRight());
+        FF8CardDown.put(UUID+"#32", card.getDown());
+        FF8CardLeft.put(UUID+"#32", card.getLeft());
+        FF8CardOwner.put(UUID+"#32", card.getOwner().getClientPseudo());
         if(FF8GameClientList.containsKey(UUID)){
             FF8GameClientList.get(UUID).add(client);
         }else{
@@ -152,6 +188,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     public void displayCard13(Card card, String UUID, IClient client) throws RemoteException{
         FF8Card.put(UUID+"#13",card);
         FF8CardName.put(UUID+"#13", card.getName());
+        FF8CardUp.put(UUID+"#13", card.getUp());
+        FF8CardRight.put(UUID+"#13", card.getRight());
+        FF8CardDown.put(UUID+"#13", card.getDown());
+        FF8CardLeft.put(UUID+"#13", card.getLeft());
+        FF8CardOwner.put(UUID+"#13", card.getOwner().getClientPseudo());
         if(FF8GameClientList.containsKey(UUID)){
             FF8GameClientList.get(UUID).add(client);
         }else{
@@ -165,6 +206,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     public void displayCard23(Card card, String UUID, IClient client) throws RemoteException{
         FF8Card.put(UUID+"#23",card);
         FF8CardName.put(UUID+"#23", card.getName());
+        FF8CardUp.put(UUID+"#23", card.getUp());
+        FF8CardRight.put(UUID+"#23", card.getRight());
+        FF8CardDown.put(UUID+"#23", card.getDown());
+        FF8CardLeft.put(UUID+"#23", card.getLeft());
+        FF8CardOwner.put(UUID+"#23", card.getOwner().getClientPseudo());
         if(FF8GameClientList.containsKey(UUID)){
             FF8GameClientList.get(UUID).add(client);
         }else{
@@ -178,6 +224,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     public void displayCard33(Card card, String UUID, IClient client) throws RemoteException{
         FF8Card.put(UUID+"#33",card);
         FF8CardName.put(UUID+"#33", card.getName());
+        FF8CardUp.put(UUID+"#33", card.getUp());
+        FF8CardRight.put(UUID+"#33", card.getRight());
+        FF8CardDown.put(UUID+"#33", card.getDown());
+        FF8CardLeft.put(UUID+"#33", card.getLeft());
+        FF8CardOwner.put(UUID+"#33", card.getOwner().getClientPseudo());
         if(FF8GameClientList.containsKey(UUID)){
             FF8GameClientList.get(UUID).add(client);
         }else{
@@ -202,5 +253,21 @@ public class Server extends UnicastRemoteObject implements IServer {
 
     public List<IClient> getFF8GameClientList(String UUID) throws RemoteException{
         return this.FF8GameClientList.get(UUID);
+    }
+
+    public Map<String,Integer> getFF8CardUp() throws RemoteException{
+        return this.FF8CardUp;
+    }
+    public Map<String,Integer> getFF8CardRight() throws RemoteException{
+        return this.FF8CardRight;
+    }
+    public Map<String,Integer> getFF8CardDown() throws RemoteException{
+        return this.FF8CardDown;
+    }
+    public Map<String,Integer> getFF8CardLeft() throws RemoteException{
+        return this.FF8CardLeft;
+    }
+    public Map<String,String> getFF8CardOwner() throws RemoteException{
+        return this.FF8CardOwner;
     }
 }

@@ -40,4 +40,11 @@ public interface IServer extends Serializable, Remote {
     public void initFF8GameClientList(String UUID, IClient client) throws RemoteException;
 
     public List<IClient> getFF8GameClientList(String UUID) throws RemoteException;
+
+    public Map<String,Integer> getFF8CardUp() throws RemoteException;
+    public Map<String,Integer> getFF8CardRight() throws RemoteException;
+    public Map<String,Integer> getFF8CardDown() throws RemoteException;
+    public Map<String,Integer> getFF8CardLeft() throws RemoteException;
+    public Map<String,String> getFF8CardOwner() throws RemoteException;
+
 }
