@@ -61,16 +61,6 @@ public class FF8TripleTriadeController implements CardGameController{
     public Card SelectedCardEntity = new FF8Card("N/A",0,0,0,0,"N/A");
     public int SelectedCardIndex=-1;
 
-    //TODO : gameBoard : 0 for no card, and 1 for player 1 , 2 for player 2;
-    // if a case have another value than 0, player can not put their card in this case
-    // indice respectly 1 to 9 , ligne per ligne
-    // 0  0  0
-    // 0  1  2
-    // 0  1  0
-    public int [] gameBoard=new int[9];
-    // TODO : gameBoardCard to save Card on the board
-    public Card [] gameBoardCard=new Card[9];
-
     public int index_player=0; // give index of player that can put the card
     @FXML
     public Label Player1_Pseudo = new Label("N/A");
@@ -105,8 +95,6 @@ public class FF8TripleTriadeController implements CardGameController{
             }
             Player2_Pseudo.setText(this.game.getPlayer2Pseudo());
 
-            Arrays.fill(gameBoard,0);
-            Arrays.fill(gameBoardCard,null);
             index_player=1;
         }catch(Exception e){
             System.out.println("FF8TripleTriadeController initialize method Error : "+e);
@@ -326,7 +314,6 @@ public class FF8TripleTriadeController implements CardGameController{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     this.index_player=1;
                 }
-                this.gameBoardCard[0]=this.SelectedCardEntity;
 
                 //seletecd cart will null
                 this.SelectedCard = null;
@@ -355,7 +342,6 @@ public class FF8TripleTriadeController implements CardGameController{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     this.index_player=1;
                 }
-                this.gameBoardCard[3]=this.SelectedCardEntity;
                 this.SelectedCard = null;
             }
         } catch (Exception e) {
@@ -382,7 +368,6 @@ public class FF8TripleTriadeController implements CardGameController{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     this.index_player=1;
                 }
-                this.gameBoardCard[6]=this.SelectedCardEntity;
                 this.SelectedCard = null;
             }
         } catch (Exception e) {
@@ -409,7 +394,6 @@ public class FF8TripleTriadeController implements CardGameController{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     this.index_player=1;
                 }
-                this.gameBoardCard[1]=this.SelectedCardEntity;
                 this.SelectedCard = null;
             }
         } catch (Exception e) {
@@ -436,7 +420,6 @@ public class FF8TripleTriadeController implements CardGameController{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     this.index_player=1;
                 }
-                this.gameBoardCard[4]=this.SelectedCardEntity;
                 this.SelectedCard = null;
             }
         } catch (Exception e) {
@@ -463,7 +446,6 @@ public class FF8TripleTriadeController implements CardGameController{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     this.index_player=1;
                 }
-                this.gameBoardCard[7]=this.SelectedCardEntity;
                 this.SelectedCard = null;
             }
         } catch (Exception e) {
@@ -490,7 +472,6 @@ public class FF8TripleTriadeController implements CardGameController{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     this.index_player=2;
                 }
-                this.gameBoardCard[2]=this.SelectedCardEntity;
                 this.SelectedCard = null;
             }
         } catch (Exception e) {
@@ -517,7 +498,6 @@ public class FF8TripleTriadeController implements CardGameController{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     this.index_player=1;
                 }
-                this.gameBoardCard[5]=this.SelectedCardEntity;
                 this.SelectedCard = null;
             }
         } catch (Exception e) {
@@ -544,7 +524,6 @@ public class FF8TripleTriadeController implements CardGameController{
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     this.index_player=1;
                 }
-                this.gameBoardCard[8]=this.SelectedCardEntity;
                 this.SelectedCard = null;
             }
         } catch (Exception e) {
