@@ -70,6 +70,8 @@ public class FF8TripleTriadeController implements CardGameController{
     public int [] gameBoard=new int[9];
     // TODO : gameBoardCard to save Card on the board
     public Card [] gameBoardCard=new Card[9];
+
+    public int index_player=0; // give index of player that can put the card
     @FXML
     public Label Player1_Pseudo = new Label("N/A");
     @FXML
@@ -105,6 +107,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
             Arrays.fill(gameBoard,0);
             Arrays.fill(gameBoardCard,null);
+            index_player=1;
         }catch(Exception e){
             System.out.println("FF8TripleTriadeController initialize method Error : "+e);
         }
@@ -183,100 +186,121 @@ public class FF8TripleTriadeController implements CardGameController{
     }
 
     public void P1SelectC1(){
-        this.SelectedCard = Player1_Card1;
         try {
-            this.SelectedCardEntity = this.game.getPlayer1Card().get(0);
-            this.SelectedCardIndex = 0;
+            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
+                this.SelectedCard = Player1_Card1;
+                this.SelectedCardEntity = this.game.getPlayer1Card().get(0);
+                this.SelectedCardIndex = 0;
+            }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController P1SelectC1 method Error : "+e);
         }
     }
 
     public void P1SelectC2(){
-        this.SelectedCard = Player1_Card2;
         try {
-            this.SelectedCardEntity = this.game.getPlayer1Card().get(1);
-            this.SelectedCardIndex = 1;
+            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
+                this.SelectedCard = Player1_Card2;
+                this.SelectedCardEntity = this.game.getPlayer1Card().get(1);
+                this.SelectedCardIndex = 1;
+            }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController P1SelectC2 method Error : "+e);
         }
     }
 
     public void P1SelectC3(){
-        this.SelectedCard = Player1_Card3;
         try {
-            this.SelectedCardEntity = this.game.getPlayer1Card().get(2);
-            this.SelectedCardIndex = 2;
+            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
+                this.SelectedCard = Player1_Card3;
+                this.SelectedCardEntity = this.game.getPlayer1Card().get(2);
+                this.SelectedCardIndex = 2;
+            }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController P1SelectC3 method Error : "+e);
         }
     }
 
     public void P1SelectC4(){
-        this.SelectedCard = Player1_Card4;
+
         try {
-            this.SelectedCardEntity = this.game.getPlayer1Card().get(3);
-            this.SelectedCardIndex = 3;
+            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
+                this.SelectedCard = Player1_Card4;
+                this.SelectedCardEntity = this.game.getPlayer1Card().get(3);
+                this.SelectedCardIndex = 3;
+            }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController P1SelectC4 method Error : "+e);
         }
     }
 
     public void P1SelectC5(){
-        this.SelectedCard = Player1_Card5;
         try {
-            this.SelectedCardEntity = this.game.getPlayer1Card().get(4);
-            this.SelectedCardIndex = 4;
+            if(this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
+                this.SelectedCard = Player1_Card5;
+                this.SelectedCardEntity = this.game.getPlayer1Card().get(4);
+                this.SelectedCardIndex = 4;
+            }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController P1SelectC5 method Error : "+e);
         }
     }
 
     public void P2SelectC1(){
-        this.SelectedCard = Player2_Card1;
         try {
-            this.SelectedCardEntity = this.game.getPlayer2Card().get(0);
-            this.SelectedCardIndex = 0;
+            if(this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())){
+                this.SelectedCard = Player2_Card1;
+                this.SelectedCardEntity = this.game.getPlayer2Card().get(0);
+                this.SelectedCardIndex = 0;
+            }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController P2SelectC1 method Error : "+e);
         }
     }
 
     public void P2SelectC2(){
-        this.SelectedCard = Player2_Card2;
         try {
-            this.SelectedCardEntity = this.game.getPlayer2Card().get(1);
-            this.SelectedCardIndex = 1;
+            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())){
+                this.SelectedCard = Player2_Card2;
+                this.SelectedCardEntity = this.game.getPlayer2Card().get(1);
+                this.SelectedCardIndex = 1;
+            }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController P2SelectC2 method Error : "+e);
         }
     }
 
     public void P2SelectC3(){
-        this.SelectedCard = Player2_Card3;
         try {
-            this.SelectedCardEntity = this.game.getPlayer2Card().get(2);
-            this.SelectedCardIndex = 2;
+            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())){
+                this.SelectedCard = Player2_Card3;
+                this.SelectedCardEntity = this.game.getPlayer2Card().get(2);
+                this.SelectedCardIndex = 2;
+            }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController P2SelectC3 method Error : "+e);
         }
     }
 
     public void P2SelectC4(){
-        this.SelectedCard = Player2_Card4;
         try {
-            this.SelectedCardEntity = this.game.getPlayer2Card().get(3);
-            this.SelectedCardIndex = 3;
+            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())){
+                this.SelectedCard = Player2_Card4;
+                this.SelectedCardEntity = this.game.getPlayer2Card().get(3);
+                this.SelectedCardIndex = 3;
+            }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController P2SelectC4 method Error : "+e);
         }
     }
 
     public void P2SelectC5(){
-        this.SelectedCard = Player2_Card5;
         try {
-            this.SelectedCardEntity = this.game.getPlayer2Card().get(4);
-            this.SelectedCardIndex = 4;
+            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())){
+                this.SelectedCard = Player2_Card5;
+                this.SelectedCardEntity = this.game.getPlayer2Card().get(4);
+                this.SelectedCardIndex = 4;
+            }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController P2SelectC5 method Error : "+e);
         }
