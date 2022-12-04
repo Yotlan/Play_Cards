@@ -27,6 +27,8 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
     public List<Card> Player2_Card = new ArrayList<Card>();
     public String Player2_Pseudo = "";
 
+    public Card EmptyCard = new FF8Card("Empty",0,0,0,0,"empty");
+
     public FF8TripleTriade(String UUID) throws IOException {
         MAX_PLAYER = 2;
         JSON_MAP = JSON_MAPPER.readValue(Paths.get("../Triple_Triade/FF8/json/lvl1.json").toFile(), Map.class);
@@ -79,8 +81,7 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
 
     @Override
     public void removePlayer1Card(int index) throws RemoteException{
-        Player1_Card.remove(index);
-        Player1_Card.add(index,null);
+        Player1_Card.set(index,EmptyCard);
     }
 
     public List<Card> getPlayer2Card() throws RemoteException {
@@ -89,8 +90,7 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
 
 
     public void removePlayer2Card(int index) throws RemoteException {
-        this.Player2_Card.remove(index);
-        Player2_Card.add(index,null);
+        Player2_Card.set(index,EmptyCard);
     }
 
 
