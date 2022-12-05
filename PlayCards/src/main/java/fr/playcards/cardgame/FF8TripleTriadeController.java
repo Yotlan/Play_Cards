@@ -301,6 +301,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
     public void displayC11(){
         try {
+            System.out.println("displayC11 correct");
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
@@ -352,10 +353,10 @@ public class FF8TripleTriadeController implements CardGameController{
                     }
                 }
 
-                this.client.getMainServer().switchTurn(this.game.getUUID());
-
                 //seletecd cart will null
                 this.SelectedCard = null;
+                this.regleFlip("11",this.game.getUUID());
+                this.client.getMainServer().switchTurn(this.game.getUUID());
             }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC11 method Error : "+e);
@@ -364,6 +365,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
     public void displayC21(){
         try {
+            System.out.println("displayC21 correct");
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
@@ -413,8 +415,9 @@ public class FF8TripleTriadeController implements CardGameController{
                             break;
                     }
                 }
-                this.client.getMainServer().switchTurn(this.game.getUUID());
                 this.SelectedCard = null;
+                this.regleFlip("21",this.game.getUUID());
+                this.client.getMainServer().switchTurn(this.game.getUUID());
             }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC21 method Error : "+e);
@@ -472,8 +475,10 @@ public class FF8TripleTriadeController implements CardGameController{
                             break;
                     }
                 }
-                this.client.getMainServer().switchTurn(this.game.getUUID());
+
+                this.regleFlip("31",this.game.getUUID());
                 this.SelectedCard = null;
+                this.client.getMainServer().switchTurn(this.game.getUUID());
             }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC31 method Error : "+e);
@@ -482,6 +487,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
     public void displayC12(){
         try {
+            System.out.println("displayC12 correct");
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
@@ -532,6 +538,7 @@ public class FF8TripleTriadeController implements CardGameController{
                     }
                 }
                 this.SelectedCard = null;
+                this.regleFlip("12",this.game.getUUID());
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }
         } catch (Exception e) {
@@ -590,8 +597,9 @@ public class FF8TripleTriadeController implements CardGameController{
                             break;
                     }
                 }
-                this.client.getMainServer().switchTurn(this.game.getUUID());
+                this.regleFlip("22",this.game.getUUID());
                 this.SelectedCard = null;
+                this.client.getMainServer().switchTurn(this.game.getUUID());
             }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC22 method Error : "+e);
@@ -649,8 +657,9 @@ public class FF8TripleTriadeController implements CardGameController{
                             break;
                     }
                 }
-                this.client.getMainServer().switchTurn(this.game.getUUID());
+                this.regleFlip("32",this.game.getUUID());
                 this.SelectedCard = null;
+                this.client.getMainServer().switchTurn(this.game.getUUID());
             }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC32 method Error : "+e);
@@ -708,8 +717,9 @@ public class FF8TripleTriadeController implements CardGameController{
                             break;
                     }
                 }
-                this.client.getMainServer().switchTurn(this.game.getUUID());
+                this.regleFlip("13",this.game.getUUID());
                 this.SelectedCard = null;
+                this.client.getMainServer().switchTurn(this.game.getUUID());
             }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC13 method Error : "+e);
@@ -767,8 +777,9 @@ public class FF8TripleTriadeController implements CardGameController{
                             break;
                     }
                 }
-                this.client.getMainServer().switchTurn(this.game.getUUID());
+                this.regleFlip("23",this.game.getUUID());
                 this.SelectedCard = null;
+                this.client.getMainServer().switchTurn(this.game.getUUID());
             }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC23 method Error : "+e);
@@ -826,87 +837,144 @@ public class FF8TripleTriadeController implements CardGameController{
                             break;
                     }
                 }
-                this.client.getMainServer().switchTurn(this.game.getUUID());
+                this.regleFlip("33",this.game.getUUID());
                 this.SelectedCard = null;
+                this.client.getMainServer().switchTurn(this.game.getUUID());
             }
         } catch (Exception e) {
             System.out.println("FF8TripleTriadeController displayC33 method Error : "+e);
         }
     }
 
-    //TODO : règles de jeu : applicable? same , + ,
+    //TODO : Check On UI , that playerB flap change card of playerA
     public void regleFlip(String position, String uuid ) throws RemoteException {
         boolean turnRight=false;
         boolean turnDown=false;
         boolean turnLeft=false;
         boolean turnTop=false;
+        int x;
+        int y;
+        int positionNumeric_x = Integer.parseInt(String.valueOf(position.charAt(0)));
+        int positionNumeric_y = Integer.parseInt(String.valueOf(position.charAt(1)));
 
         //rightable
-        if (position.charAt(1)<3){
-            turnRight=this.checkRight(position);
+        if (positionNumeric_y<3){
+            turnRight=this.checkRight(positionNumeric_x,positionNumeric_y);
         }
         //leftable
-        if (position.charAt(1)>1){
-            turnLeft=this.checkLeft(position);
+        if (positionNumeric_y>1){
+            turnLeft=this.checkLeft(positionNumeric_x,positionNumeric_y);
         }
         //toptable
-        if (position.charAt(0)>1){
-            turnTop=this.checkTop(position);
+        if (positionNumeric_x>1){
+            turnTop=this.checkTop(positionNumeric_x,positionNumeric_y);
         }
         //downtable
-        if (position.charAt(0)<3){
-            turnDown=this.checkDown(position);
+        if (positionNumeric_x<3){
+            turnDown=this.checkDown(positionNumeric_x,positionNumeric_y);
         }
 
-        //flip card where able
+        if (turnRight || turnLeft || turnDown || turnTop){
 
+            if (turnRight){
+                x = Integer.parseInt(String.valueOf(position.charAt(0)));
+                y = Integer.parseInt(String.valueOf(position.charAt(1)))+1;
+                this.client.getFF8CardOwner(this.game.getUUID()).replace(Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
+            }
+            if (turnLeft){
+                x = Integer.parseInt(String.valueOf(position.charAt(0)) );
+                y = Integer.parseInt(String.valueOf(position.charAt(1)))-1;
+                this.client.getFF8CardOwner(this.game.getUUID()).replace(Integer.toString(x)+Integer.toString(y),this.client.getClientPseudo());
+            }
+            if (turnTop){
+                x = Integer.parseInt(String.valueOf(position.charAt(0)))-1;
+                y = Integer.parseInt(String.valueOf(position.charAt(1)));
+                this.client.getFF8CardOwner(this.game.getUUID()).replace(Integer.toString(x)+Integer.toString((y)),this.client.getClientPseudo());
+            }
+            if (turnDown){
+                x = Integer.parseInt(String.valueOf(position.charAt(0)))+1;
+                y = Integer.parseInt(String.valueOf(position.charAt(1)));
+                this.client.getFF8CardOwner(this.game.getUUID()).replace(Integer.toString(x)+Integer.toString((y)),this.client.getClientPseudo());
+            }
+        }
 
     }
 
-    public boolean checkRight(String position) throws RemoteException {
-        Card card=this.client.getFF8Card(this.game.getUUID()).get(position);
-        int x = position.charAt(0);
-        int y = position.charAt(1)+1;
-        Card cardRight = this.client.getFF8Card(this.game.getUUID()).get(Integer.toString(x) + Integer.toString(y));
-        if (card.getRight() > cardRight.getLeft()){
-            return true;
-        }else {
-            return false;
+    public boolean checkRight(int positionX,int positionY) throws RemoteException {
+        System.out.println("checkRight Application");
+        System.out.println("concat positionx et y = "+Integer.toString(positionX).concat(Integer.toString(positionY)));
+        int card_value=this.client.getFF8CardRight(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+        System.out.println("position : "+positionX+ " "+positionY);
+        int x = positionX;
+        int y = positionX+1;
+        System.out.println("x : "+x+" y:"+y);
+        String key=Integer.toString(x).concat(Integer.toString(y));
+        System.out.println("key="+key);
+        if (this.client.getFF8CardLeft(this.game.getUUID()).get(key)!=null){
+            int card_valueLeft=this.client.getFF8CardLeft(this.game.getUUID()).get(key);
+            if (!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())){
+                if (card_value > card_valueLeft){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
         }
+        return false;
     }
-    public boolean checkTop(String position) throws RemoteException {
-        Card card=this.client.getFF8Card(this.game.getUUID()).get(position);
-        int x = position.charAt(0)-1;
-        int y = position.charAt(1);
-        Card cardAround = this.client.getFF8Card(this.game.getUUID()).get(Integer.toString(x) + Integer.toString(y));
-        if (card.getUp() > cardAround.getDown()){
-            return true;
-        }else {
-            return false;
+    public boolean checkTop(int positionX,int positionY) throws RemoteException {
+        System.out.println("checkTop Application");
+        int card_currentTopvalue=this.client.getFF8CardUp(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+        int x = positionX-1;
+        int y = positionY;
+        String key=Integer.toString(x).concat(Integer.toString(y));
+        if (this.client.getFF8CardDown(this.game.getUUID()).get(key)!=null){
+            int card_topDownvalue = this.client.getFF8CardDown(this.game.getUUID()).get(key);
+            if (!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())){
+                if (card_currentTopvalue > card_topDownvalue){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
         }
+        return false;
     }
 
-    public boolean checkLeft(String position) throws RemoteException {
-        Card card=this.client.getFF8Card(this.game.getUUID()).get(position);
-        int x = position.charAt(0);
-        int y = position.charAt(1)-1;
-        Card cardAround = this.client.getFF8Card(this.game.getUUID()).get(Integer.toString(x) + Integer.toString(y));
-        if (card.getLeft() > cardAround.getRight()){
-            return true;
-        }else {
-            return false;
+    public boolean checkLeft(int positionX,int positionY) throws RemoteException {
+        int card_currentLeft=this.client.getFF8CardLeft(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+        int x = positionX;
+        int y = positionY-1;
+        String key=Integer.toString(x).concat(Integer.toString(y));
+        if (this.client.getFF8CardRight(this.game.getUUID()).get(key)!=null){
+            int card_leftRightvalue = this.client.getFF8CardRight(this.game.getUUID()).get(key);
+            if (!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())){
+                if (card_currentLeft > card_leftRightvalue){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
         }
+        return false;
     }
-    public boolean checkDown(String position) throws RemoteException {
-        Card card=this.client.getFF8Card(this.game.getUUID()).get(position);
-        int x = position.charAt(0)+1;
-        int y = position.charAt(1);
-        Card cardAround = this.client.getFF8Card(this.game.getUUID()).get(Integer.toString(x) + Integer.toString(y));
-        if (card.getDown() > cardAround.getUp()){
-            return true;
-        }else {
-            return false;
+    public boolean checkDown(int positionX, int positionY) throws RemoteException {
+        int card_currentDownvalue=this.client.getFF8CardDown(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+        int x = positionX+1;
+        int y = positionY;
+        String key = Integer.toString(x).concat(Integer.toString(y));
+        if (this.client.getFF8CardUp(this.game.getUUID()).get(key)!=null){
+            System.out.println("value card "+this.client.getFF8CardUp(this.game.getUUID()).get(key));
+            int card_downTopvalue = this.client.getFF8CardUp(this.game.getUUID()).get(key);
+            if(!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())) {
+                if (card_currentDownvalue > card_downTopvalue){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
         }
+        return false;
     }
 
 }
