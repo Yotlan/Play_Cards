@@ -95,6 +95,7 @@
                             </graphic>
                         </Button>
                         <Circle fx:id="c32" AnchorPane.topAnchor="450" AnchorPane.rightAnchor="0" radius="15"/>
+                        <Label fx:id="Message" AnchorPane.bottomAnchor="0"/>
                     </AnchorPane>
                 </center>
                 <right>
