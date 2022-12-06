@@ -47,4 +47,6 @@ public interface IServer extends Serializable, Remote {
     public Map<String,Integer> getFF8CardLeft() throws RemoteException;
     public Map<String,String> getFF8CardOwner() throws RemoteException;
 
+    public boolean setFF8CardOwner(String UUID,String position, String newOwner) throws RemoteException;
+
 }

@@ -1,5 +1,6 @@
 package fr.playcards.server;
 
+import fr.playcards.StartServer;
 import fr.playcards.cardgame.CardGame;
 import fr.playcards.cardgame.card.Card;
 import fr.playcards.client.IClient;
@@ -270,4 +271,16 @@ public class Server extends UnicastRemoteObject implements IServer {
     public Map<String,String> getFF8CardOwner() throws RemoteException{
         return this.FF8CardOwner;
     }
+
+    @Override
+    public boolean setFF8CardOwner(String UUID, String position, String newOwner) throws RemoteException {
+        this.FF8CardOwner.replace(UUID+"#"+position, newOwner);
+        if (this.FF8CardOwner.get(UUID+"#"+position).equals(newOwner)){
+            System.out.println("return true");
+            return true;
+        }
+        System.out.println("return false");
+        return false;
+    }
+
 }
