@@ -274,7 +274,9 @@ public class Server extends UnicastRemoteObject implements IServer {
 
     @Override
     public boolean setFF8CardOwner(String UUID, String position, String newOwner) throws RemoteException {
+        System.out.println(FF8CardOwner);
         this.FF8CardOwner.replace(UUID+"#"+position, newOwner);
+        System.out.println(FF8CardOwner);
         if (this.FF8CardOwner.get(UUID+"#"+position).equals(newOwner)){
             for ( IClient client : this.getFF8GameClientList(UUID)){
                 client.refreshDisplayCard();
