@@ -6,22 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="Totally functionnal UI for FF8 Triple Triade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriadeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriadeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF14TripleTriadeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWarsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWarsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWarsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/KoiKoiWarsFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/FF8Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/FF8Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/ff14tripletriade-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/ff14tripletriade-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/ff8tripletriade-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/ff8tripletriade-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/koikoiwars-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/playcards/cardgame/koikoiwars-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +122,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.fr.playcards.PlayCardsApplication" />
-        <item itemvalue="Application.fr.playcards.StartServer" />
         <item itemvalue="Application.fr.playcards.PlayCardsApplicationLocal" />
         <item itemvalue="Application.fr.playcards.PlayCardsApplication" />
       </list>

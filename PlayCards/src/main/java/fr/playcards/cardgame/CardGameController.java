@@ -11,7 +11,20 @@ This interface have for goal to control this card game frame.
  */
 
 public interface CardGameController {
-    public void setGame(CardGame game, IClient client);
-    public void refresh();
+
+    /*
+    @param CardGame game
+    @param IClient client
+
+    This method link a controller to the server which are the client client.
+     */
+
+    void setGame(CardGame game, IClient client);
+
+    /*
+    This method refresh the controller information by asking the server for the update.
+     */
+
+    void refresh();
 
 }

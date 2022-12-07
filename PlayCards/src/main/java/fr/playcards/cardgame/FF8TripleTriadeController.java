@@ -93,13 +93,21 @@ public class FF8TripleTriadeController implements CardGameController{
         this.UUID = UUID;
     }
 
+    /*
+    This method initialize all the information we can have to the controller of FF8 Triple Triade game.
+     */
+
     @FXML
     public synchronized void initialize() {
         try{
+
+            //Display all the 9 middle card like empty card
             List<ImageView> EmptyCard = new ArrayList<>(Arrays.asList(Empty_Card11,Empty_Card12,Empty_Card13,Empty_Card21,Empty_Card22,Empty_Card23,Empty_Card31,Empty_Card32,Empty_Card33));
             for(int i=0; i<EmptyCard.size();i++){
                 EmptyCard.get(i).setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
             }
+
+            //Display all the 5 player 1 cards
             List<Card> P1Card = this.game.getPlayer1Card();
             List<ImageView> P1CardImage = new ArrayList<>(Arrays.asList(Player1_Card1,Player1_Card2,Player1_Card3,Player1_Card4,Player1_Card5));
             for(int i=0; i<P1Card.size();i++){
@@ -107,8 +115,14 @@ public class FF8TripleTriadeController implements CardGameController{
                 Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+card.getName()+".jpg").toFile().toURI().toString());
                 P1CardImage.get(i).setImage(image);
             }
+
+            //Add the client to the server
             this.client.getMainServer().initFF8GameClientList(this.game.getUUID(),this.client);
+
+            //Display the player 1 pseudo
             Player1_Pseudo.setText(this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).get(0).getClientPseudo());
+
+            //Display all the 5 player 2 cards
             List<Card> P2Card = this.game.getPlayer2Card();
             List<ImageView> P2CardImage = new ArrayList<>(Arrays.asList(Player2_Card1,Player2_Card2,Player2_Card3,Player2_Card4,Player2_Card5));
             for(int i=0; i<P2Card.size();i++){
@@ -116,8 +130,12 @@ public class FF8TripleTriadeController implements CardGameController{
                 Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+card.getName()+".jpg").toFile().toURI().toString());
                 P2CardImage.get(i).setImage(image);
             }
+
+            //Run later because we not have already the information and we'll have these information later
             Platform.runLater(() -> {
                 try {
+
+                    //If we have already 2 clients in the game, we can display the player 2 pseudo
                     if (this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).size() > 1) {
                         Player2_Pseudo.setText(this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).get(1).getClientPseudo());
                     }
@@ -126,11 +144,13 @@ public class FF8TripleTriadeController implements CardGameController{
                 }
             });
 
-
+            //Initialize the turn of the card game by beginning with the player 1
             this.client.getMainServer().initTurn(this.game.getUUID());
         }catch(Exception e){
             System.out.println("FF8TripleTriadeController initialize method Error : "+e);
         }
+
+        //Create a thread who called refresh method each second
         Thread t = new Thread(() -> {
             while (true) {
                 try {
@@ -152,9 +172,15 @@ public class FF8TripleTriadeController implements CardGameController{
 
     public synchronized void refresh(){
         try {
+
+            //Display player 1 pseudo
             Player1_Pseudo.setText(this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).get(0).getClientPseudo());
+
+            //Run later because maybe we not have already the information we need
             Platform.runLater(() -> {
                 try {
+
+                    //If we have 2 client in the card game, display player 2 pseudo
                     if (this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).size() > 1) {
                         Player2_Pseudo.setText(this.client.getMainServer().getFF8GameClientList(this.game.getUUID()).get(1).getClientPseudo());
                     }
@@ -162,6 +188,8 @@ public class FF8TripleTriadeController implements CardGameController{
                     System.out.println("FF8TripleTriadeController refresh method Error : "+e);
                 }
             });
+
+            //Display all 5 player 1 cards
             List<Card> P1Card = this.game.getPlayer1Card();
             List<ImageView> P1CardImage = new ArrayList<>(Arrays.asList(Player1_Card1,Player1_Card2,Player1_Card3,Player1_Card4,Player1_Card5));
             for(int i=0; i<P1Card.size();i++){
@@ -174,6 +202,8 @@ public class FF8TripleTriadeController implements CardGameController{
                     P1CardImage.get(i).setImage(image);
                 }
             }
+
+            //Display all 5 player 2 cards
             List<Card> P2Card = this.game.getPlayer2Card();
             List<ImageView> P2CardImage = new ArrayList<>(Arrays.asList(Player2_Card1,Player2_Card2,Player2_Card3,Player2_Card4,Player2_Card5));
             for(int i=0; i<P2Card.size();i++){
@@ -186,17 +216,29 @@ public class FF8TripleTriadeController implements CardGameController{
                     P2CardImage.get(i).setImage(image);
                 }
             }
+
+            //Getting all the name of the 9 middle cards to display it in the middle
             Map<String, String> imageMap = this.client.getFF8CardName(this.UUID);
+
+            //Getting all the owner name of the 9 middle cards to change pawn's color
             Map<String, String> cardOwner = this.client.getFF8CardOwner(this.UUID);
+
+            //Run later because maybe we not have already the necessary information
             Platform.runLater(() -> {
                 try {
+
+                    //Initialize value before checking if the game is end
                     boolean isEnd = true;
                     int P1Pawn = 0;
                     int P2Pawn = 0;
+
+                    //Check if all the 9 cards is displayed
                     for (String owner : cardOwner.values()) {
                         if (owner == null) {
                             isEnd = false;
                         } else {
+
+                            //Update the score for cards owner's
                             if (owner.equals(Player1_Pseudo.getText())) {
                                 P1Pawn++;
                             } else {
@@ -204,7 +246,11 @@ public class FF8TripleTriadeController implements CardGameController{
                             }
                         }
                     }
+
+                    //If the game is end
                     if (isEnd) {
+
+                        //Getting player 1 and player 2 cards and check which one have 1 cards left, to add him +1
                         List<Card> P1EndCard = this.game.getPlayer1Card();
                         List<Card> P2EndCard = this.game.getPlayer2Card();
                         for (Card card : P1EndCard) {
@@ -217,6 +263,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 P2Pawn++;
                             }
                         }
+
+                        //Check who win and change the turn's message by the score and the name of the winner
                         if (P1Pawn > P2Pawn) {
                             showAlertWinning(Player1_Pseudo.getText(), Player2_Pseudo.getText(), P1Pawn, P2Pawn);
                         } else if (P2Pawn > P1Pawn) {
@@ -225,6 +273,8 @@ public class FF8TripleTriadeController implements CardGameController{
                             showAlertDraw(Player1_Pseudo.getText(), Player2_Pseudo.getText(), P1Pawn, P2Pawn);
                         }
                     } else {
+
+                        //Getting the player's turn and change the turn's message by displaying his name
                         int turn = this.client.getMainServer().getTurn(this.game.getUUID());
                         if (turn == 1) {
                             Message.setText("It's " + Player1_Pseudo.getText() + "'s turn !");
@@ -236,6 +286,9 @@ public class FF8TripleTriadeController implements CardGameController{
                     System.out.println("FF8TripleTriadeController refresh method Error : " + e);
                 }
             });
+
+            //Check if a card is displayed in corresponding position, then display it in the screen of clients
+            //Moreover, link the pawn's color with the card's owner color
             if(imageMap.get("11")!=null){
                 Empty_Card11.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("11")+".jpg").toFile().toURI().toString()));
                 if(cardOwner.get("11").equals(Player1_Pseudo.getText())){
@@ -313,6 +366,10 @@ public class FF8TripleTriadeController implements CardGameController{
         }
     }
 
+    /*
+    This method is called when a player select a card he already played or when he try to select the opponent cards
+     */
+
     private void showAlertSelect() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("WARNING");
@@ -320,6 +377,10 @@ public class FF8TripleTriadeController implements CardGameController{
         alert.setContentText("You can't select this card because you already play it or it's not your card !");
         alert.showAndWait();
     }
+
+    /*
+    This method is called when a player display a card where a card is already display or when it's not his turn
+     */
 
     private void showAlertDisplay() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -329,16 +390,30 @@ public class FF8TripleTriadeController implements CardGameController{
         alert.showAndWait();
     }
 
+    /*
+    @param String winner
+    @param String looser
+    @param nbWinPawn
+    @param nbLoosePawn
+
+    These methods are called when the game end and change the turn's message by the corresponding score message
+     */
+
     private void showAlertWinning(String winner, String looser, int nbWinPawn, int nbLoosePawn) {
         Message.setText("Congratulation to "+winner+" ! He's the winner of this game ! He win against "+looser+" with a score of "+Integer.toString(nbWinPawn)+"-"+Integer.toString(nbLoosePawn)+" !");
     }
-
     private void showAlertDraw(String winner, String looser, int nbWinPawn, int nbLoosePawn) {
         Message.setText("Congratulation to both "+winner+" and "+looser+" ! It's a draw ! The score is "+Integer.toString(nbWinPawn)+"-"+Integer.toString(nbLoosePawn)+" !");
     }
 
+    /*
+    These methods are called when a player choose a card by clicking on it
+     */
+
     public void P1SelectC1(){
         try {
+
+            //Check if the player can choose this card
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())
                     && !(this.game.getPlayer1Card().get(0).getName().equals("Empty"))
             ){
@@ -352,9 +427,10 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController P1SelectC1 method Error : "+e);
         }
     }
-
     public void P1SelectC2(){
         try {
+
+            //Check if the player can choose this card
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())
                     && !(this.game.getPlayer1Card().get(1).getName().equals("Empty"))
             ){
@@ -368,9 +444,10 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController P1SelectC2 method Error : "+e);
         }
     }
-
     public void P1SelectC3(){
         try {
+
+            //Check if the player can choose this card
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())
                     && !(this.game.getPlayer1Card().get(2).getName().equals("Empty"))
             ){
@@ -384,10 +461,10 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController P1SelectC3 method Error : "+e);
         }
     }
-
     public void P1SelectC4(){
-
         try {
+
+            //Check if the player can choose this card
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())
                     && !(this.game.getPlayer1Card().get(3).getName().equals("Empty"))
             ){
@@ -401,9 +478,10 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController P1SelectC4 method Error : "+e);
         }
     }
-
     public void P1SelectC5(){
         try {
+
+            //Check if the player can choose this card
             if(this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())
                     && !(this.game.getPlayer1Card().get(4).getName().equals("Empty"))
             ){
@@ -417,9 +495,10 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController P1SelectC5 method Error : "+e);
         }
     }
-
     public void P2SelectC1(){
         try {
+
+            //Check if the player can choose this card
             if(this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())
                     && !(this.game.getPlayer2Card().get(0).getName().equals("Empty"))
             ){
@@ -433,9 +512,10 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController P2SelectC1 method Error : "+e);
         }
     }
-
     public void P2SelectC2(){
         try {
+
+            //Check if the player can choose this card
             if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())
                     && !(this.game.getPlayer2Card().get(1).getName().equals("Empty"))
             ){
@@ -449,9 +529,10 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController P2SelectC2 method Error : "+e);
         }
     }
-
     public void P2SelectC3(){
         try {
+
+            //Check if the player can choose this card
             if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())
                     && !(this.game.getPlayer2Card().get(2).getName().equals("Empty"))
             ){
@@ -465,9 +546,10 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController P2SelectC3 method Error : "+e);
         }
     }
-
     public void P2SelectC4(){
         try {
+
+            //Check if the player can choose this card
             if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())
                     && !(this.game.getPlayer2Card().get(3).getName().equals("Empty"))
             ){
@@ -481,9 +563,10 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController P2SelectC4 method Error : "+e);
         }
     }
-
     public void P2SelectC5(){
         try {
+
+            //Check if the player can choose this card
             if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())
                     && !(this.game.getPlayer2Card().get(4).getName().equals("Empty"))
             ){
@@ -498,21 +581,39 @@ public class FF8TripleTriadeController implements CardGameController{
         }
     }
 
+    /*
+    These methods are called when a player display a card at the corresponding position
+     */
+
     public void displayC11(){
         try {
+
+            //Determine the playerID before checking it's his turn or not
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
+
+            //Check if we can display the card at this position, and if the current player have the right to display it
             if ((this.client.getFF8CardName(this.UUID).get("11") == null)
                     && (playerID==this.client.getMainServer().getTurn(this.game.getUUID()))
             ){
+
+                //Set the empty card image at this position by the selected card image
                 this.Empty_Card11.setImage(this.SelectedCard.getImage());
+
+                //Set the owner name of this card by this client
                 this.SelectedCardEntity.setOwner((Client) this.client);
+
+                //Send the information to the server to spread it to all clients
                 this.client.getMainServer().displayCard11(SelectedCardEntity,this.game.getUUID(),this.client);
+
+                //Check which player's turn
                 if (playerID==1){
+
+                    //Call soft remove and display the empty card at the position of player 1 selected card in his hand
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -527,6 +628,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }else{
+
+                    //Call soft remove and display the empty card at the position of player 2 selected card in his hand
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -541,6 +644,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }
+
+                //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
                 this.flipRule("11");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
@@ -551,22 +656,35 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController displayC11 method Error : "+e);
         }
     }
-
     public void displayC21(){
         try {
+
+            //Determine the playerID before checking it's his turn or not
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID = 2;
             }
+
+            //Check if we can display the card at this position, and if the current player have the right to display it
             if ((this.client.getFF8CardName(this.UUID).get("21") == null)
                     && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
             ){
+
+                //Set the empty card image at this position by the selected card image
                 this.Empty_Card21.setImage(this.SelectedCard.getImage());
+
+                //Set the owner name of this card by this client
                 this.SelectedCardEntity.setOwner((Client) this.client);
+
+                //Send the information to the server to spread it to all clients
                 this.client.getMainServer().displayCard21(SelectedCardEntity,this.game.getUUID(),this.client);
+
+                //Check player's turn
                 if (playerID==1){
+
+                    //Call soft remove and display the empty card at the position of player 1 selected card in his hand
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -581,6 +699,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }else{
+
+                    //Call soft remove and display the empty card at the position of player 2 selected card in his hand
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -595,6 +715,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }
+
+                //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
                 this.flipRule("21");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
@@ -605,22 +727,35 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController displayC21 method Error : "+e);
         }
     }
-
     public void displayC31(){
         try {
+
+            //Determine the playerID before checking it's his turn or not
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
+
+            //Check if we can display the card at this position, and if the current player have the right to display it
             if ((this.client.getFF8CardName(this.UUID).get("31") == null)
                     && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
             ){
+
+                //Set the empty card image at this position by the selected card image
                 this.Empty_Card31.setImage(this.SelectedCard.getImage());
+
+                //Set the owner name of this card by this client
                 this.SelectedCardEntity.setOwner((Client) this.client);
+
+                //Send the information to the server to spread it to all clients
                 this.client.getMainServer().displayCard31(SelectedCardEntity,this.game.getUUID(),this.client);
+
+                //Check player's turn
                 if (playerID==1){
+
+                    //Call soft remove and display the empty card at the position of player 1 selected card in his hand
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -635,6 +770,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }else{
+
+                    //Call soft remove and display the empty card at the position of player 2 selected card in his hand
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -649,6 +786,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }
+
+                //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
                 this.flipRule("31");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
@@ -659,22 +798,35 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController displayC31 method Error : "+e);
         }
     }
-
     public void displayC12(){
         try {
+
+            //Determine the playerID before checking it's his turn or not
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
+
+            //Check if we can display the card at this position, and if the current player have the right to display it
             if ((this.client.getFF8CardName(this.UUID).get("12") == null)
                     && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
             ){
+
+                //Set the empty card image at this position by the selected card image
                 this.Empty_Card12.setImage(this.SelectedCard.getImage());
+
+                //Set the owner name of this card by this client
                 this.SelectedCardEntity.setOwner((Client) this.client);
+
+                //Send the information to the server to spread it to all clients
                 this.client.getMainServer().displayCard12(SelectedCardEntity,this.game.getUUID(),this.client);
+
+                //Check player's turn
                 if (playerID==1){
+
+                    //Call soft remove and display the empty card at the position of player 1 selected card in his hand
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -689,6 +841,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }else{
+
+                    //Call soft remove and display the empty card at the position of player 2 selected card in his hand
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -703,6 +857,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }
+
+                //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
                 this.flipRule("12");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
@@ -713,22 +869,35 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController displayC12 method Error : "+e);
         }
     }
-
     public void displayC22(){
         try {
+
+            //Determine the playerID before checking it's his turn or not
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
+
+            //Check if we can display the card at this position, and if the current player have the right to display it
             if ((this.client.getFF8CardName(this.UUID).get("22") == null)
                     && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
             ){
+
+                //Set the empty card image at this position by the selected card image
                 this.Empty_Card22.setImage(this.SelectedCard.getImage());
+
+                //Set the owner name of this card by this client
                 this.SelectedCardEntity.setOwner((Client) this.client);
+
+                //Send the information to the server to spread it to all clients
                 this.client.getMainServer().displayCard22(SelectedCardEntity,this.game.getUUID(),this.client);
+
+                //Check player's turn
                 if (playerID==1){
+
+                    //Call soft remove and display the empty card at the position of player 1 selected card in his hand
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -743,6 +912,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }else{
+
+                    //Call soft remove and display the empty card at the position of player 2 selected card in his hand
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -757,6 +928,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }
+
+                //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
                 this.flipRule("22");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
@@ -767,22 +940,35 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController displayC22 method Error : "+e);
         }
     }
-
     public void displayC32(){
         try {
+
+            //Determine the playerID before checking it's his turn or not
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
+
+            //Check if we can display the card at this position, and if the current player have the right to display it
             if((this.client.getFF8CardName(this.UUID).get("32") == null)
                     && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
             ){
+
+                //Set the empty card image at this position by the selected card image
                 this.Empty_Card32.setImage(this.SelectedCard.getImage());
+
+                //Set the owner name of this card by this client
                 this.SelectedCardEntity.setOwner((Client) this.client);
+
+                //Send the information to the server to spread it to all clients
                 this.client.getMainServer().displayCard32(SelectedCardEntity,this.game.getUUID(),this.client);
+
+                //Check player's turn
                 if (playerID==1){
+
+                    //Call soft remove and display the empty card at the position of player 1 selected card in his hand
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -797,6 +983,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }else{
+
+                    //Call soft remove and display the empty card at the position of player 2 selected card in his hand
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -811,6 +999,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }
+
+                //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
                 this.flipRule("32");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
@@ -821,22 +1011,35 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController displayC32 method Error : "+e);
         }
     }
-
     public void displayC13(){
         try {
+
+            //Determine the playerID before checking it's his turn or not
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
+
+            //Check if we can display the card at this position, and if the current player have the right to display it
             if ((this.client.getFF8CardName(this.UUID).get("13") == null)
                     && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
             ){
+
+                //Set the empty card image at this position by the selected card image
                 this.Empty_Card13.setImage(this.SelectedCard.getImage());
+
+                //Set the owner name of this card by this client
                 this.SelectedCardEntity.setOwner((Client) this.client);
+
+                //Send the information to the server to spread it to all clients
                 this.client.getMainServer().displayCard13(SelectedCardEntity,this.game.getUUID(),this.client);
+
+                //Check player's turn
                 if (playerID==1){
+
+                    //Call soft remove and display the empty card at the position of player 1 selected card in his hand
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -851,6 +1054,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }else{
+
+                    //Call soft remove and display the empty card at the position of player 2 selected card in his hand
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -865,6 +1070,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }
+
+                //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
                 this.flipRule("13");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
@@ -875,22 +1082,35 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController displayC13 method Error : "+e);
         }
     }
-
     public void displayC23(){
         try {
+
+            //Determine the playerID before checking it's his turn or not
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
+
+            //Check if we can display the card at this position, and if the current player have the right to display it
             if ((this.client.getFF8CardName(this.UUID).get("23") == null)
                     && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
             ){
+
+                //Set the empty card image at this position by the selected card image
                 this.Empty_Card23.setImage(this.SelectedCard.getImage());
+
+                //Set the owner name of this card by this client
                 this.SelectedCardEntity.setOwner((Client) this.client);
+
+                //Send the information to the server to spread it to all clients
                 this.client.getMainServer().displayCard23(SelectedCardEntity,this.game.getUUID(),this.client);
+
+                //Check player's turn
                 if (playerID==1){
+
+                    //Call soft remove and display the empty card at the position of player 1 selected card in his hand
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -905,6 +1125,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }else{
+
+                    //Call soft remove and display the empty card at the position of player 2 selected card in his hand
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -919,6 +1141,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }
+
+                //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
                 this.flipRule("23");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
@@ -929,22 +1153,35 @@ public class FF8TripleTriadeController implements CardGameController{
             System.out.println("FF8TripleTriadeController displayC23 method Error : "+e);
         }
     }
-
     public void displayC33(){
         try {
+
+            //Determine the playerID before checking it's his turn or not
             int playerID=0;
             if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())){
                 playerID=1;
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
+
+            //Check if we can display the card at this position, and if the current player have the right to display it
             if ((this.client.getFF8CardName(this.UUID).get("33") == null)
                     && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
             ){
+
+                //Set the empty card image at this position by the selected card image
                 this.Empty_Card33.setImage(this.SelectedCard.getImage());
+
+                //Set the owner name of this card by this client
                 this.SelectedCardEntity.setOwner((Client) this.client);
+
+                //Send the information to the server to spread it to all clients
                 this.client.getMainServer().displayCard33(SelectedCardEntity,this.game.getUUID(),this.client);
+
+                //Check player's turn
                 if (playerID==1){
+
+                    //Call soft remove and display the empty card at the position of player 1 selected card in his hand
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -959,6 +1196,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player1_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }else{
+
+                    //Call soft remove and display the empty card at the position of player 2 selected card in his hand
                     this.game.removePlayer2Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -973,6 +1212,8 @@ public class FF8TripleTriadeController implements CardGameController{
                                 this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }
+
+                //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
                 this.flipRule("33");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
@@ -984,7 +1225,18 @@ public class FF8TripleTriadeController implements CardGameController{
         }
     }
 
+    /*
+    @param String position
+
+    @throws RemoteException
+
+    This method is called when a card is display somewhere on the board, so when we need to check if the card around can
+    be flip or not
+     */
+
     public synchronized void flipRule(String position) throws RemoteException {
+
+        //Initialize turn and position
         boolean turnRight=false;
         boolean turnDown=false;
         boolean turnLeft=false;
@@ -993,60 +1245,99 @@ public class FF8TripleTriadeController implements CardGameController{
         int y;
         int positionNumeric_x = Integer.parseInt(String.valueOf(position.charAt(0)));
         int positionNumeric_y = Integer.parseInt(String.valueOf(position.charAt(1)));
-        //rightable
+
+        //Check if we can flip the card at the right of this card
         if (positionNumeric_y<3){
             turnRight=this.checkRight(positionNumeric_x,positionNumeric_y);
         }
-        //leftable
+        //Check if we can flip the card at the left of this card
         if (positionNumeric_y>1){
             turnLeft=this.checkLeft(positionNumeric_x,positionNumeric_y);
         }
-        //toptable
+
+        //Check if we can flip the card above this card
         if (positionNumeric_x>1){
             turnTop=this.checkTop(positionNumeric_x,positionNumeric_y);
         }
-        //downtable
+
+        //Check if we can flip the card at the bottom of this card
         if (positionNumeric_x<3){
             turnDown=this.checkDown(positionNumeric_x,positionNumeric_y);
         }
 
-        if (turnRight || turnLeft || turnDown || turnTop){
+        //Check if we can flip a card around this card
+        if (turnRight
+                || turnLeft
+                || turnDown
+                || turnTop
+        ){
             if (turnRight){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)));
                 y = Integer.parseInt(String.valueOf(position.charAt(1)))+1;
+
+                //Combo rule : called again Flip rule
                 flipRule(Integer.toString(x).concat(Integer.toString(y)));
+
+                //Send update to the server to spread it to all client
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
             }
             if (turnLeft){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)) );
                 y = Integer.parseInt(String.valueOf(position.charAt(1)))-1;
+
+                //Combo rule : called again Flip rule
                 flipRule(Integer.toString(x).concat(Integer.toString(y)));
+
+                //Send update to the server to spread it to all client
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
             }
             if (turnTop){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)))-1;
                 y = Integer.parseInt(String.valueOf(position.charAt(1)));
+
+                //Combo rule : called again Flip rule
                 flipRule(Integer.toString(x).concat(Integer.toString(y)));
+
+                //Send update to the server to spread it to all client
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
             }
             if (turnDown){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)))+1;
                 y = Integer.parseInt(String.valueOf(position.charAt(1)));
+
+                //Combo rule : called again Flip rule
                 flipRule(Integer.toString(x).concat(Integer.toString(y)));
+
+                //Send update to the server to spread it to all client
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
             }
         }
 
     }
 
+    /*
+    @param int positionX
+    @param int positionY
+
+    @throws RemoteException
+
+    These methods check around a specific card if we can flip some card
+     */
+
     public boolean checkRight(int positionX,int positionY) throws RemoteException {
         int cardValueRight=this.client.getFF8CardRight(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
         int x = positionX;
         int y = positionY+1;
         String key=Integer.toString(x).concat(Integer.toString(y));
+
+        //Check if the card at the right exist
         if (this.client.getFF8CardLeft(this.game.getUUID()).get(key)!=null){
             int cardValueLeft=this.client.getFF8CardLeft(this.game.getUUID()).get(key);
+
+            //Check if the card at the right is not my card
             if (!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())){
+
+                //Check if we can flip this card
                 if (cardValueRight > cardValueLeft){
                     return true;
                 }else {
@@ -1056,15 +1347,20 @@ public class FF8TripleTriadeController implements CardGameController{
         }
         return false;
     }
-
     public boolean checkTop(int positionX,int positionY) throws RemoteException {
         int cardValueTop=this.client.getFF8CardUp(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
         int x = positionX-1;
         int y = positionY;
         String key=Integer.toString(x).concat(Integer.toString(y));
+
+        //Check if the card at the top exist
         if (this.client.getFF8CardDown(this.game.getUUID()).get(key)!=null){
             int cardValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(key);
+
+            //Check if the card at the top is not my card
             if (!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())){
+
+                //Check if we can flip this card
                 if (cardValueTop > cardValueDown){
                     return true;
                 }else {
@@ -1074,15 +1370,20 @@ public class FF8TripleTriadeController implements CardGameController{
         }
         return false;
     }
-
     public boolean checkLeft(int positionX,int positionY) throws RemoteException {
         int cardValueLeft=this.client.getFF8CardLeft(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
         int x = positionX;
         int y = positionY-1;
         String key=Integer.toString(x).concat(Integer.toString(y));
+
+        //Check if the card at the left exist
         if (this.client.getFF8CardRight(this.game.getUUID()).get(key)!=null){
             int cardValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(key);
+
+            //Check if the card at the left is not my card
             if (!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())){
+
+                //Check if we can flip this card
                 if (cardValueLeft > cardValueRight){
                     return true;
                 }else {
@@ -1092,15 +1393,20 @@ public class FF8TripleTriadeController implements CardGameController{
         }
         return false;
     }
-
     public boolean checkDown(int positionX, int positionY) throws RemoteException {
         int cardValueDown=this.client.getFF8CardDown(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
         int x = positionX+1;
         int y = positionY;
         String key = Integer.toString(x).concat(Integer.toString(y));
+
+        //Check if the card at the bottom exist
         if (this.client.getFF8CardUp(this.game.getUUID()).get(key)!=null){
             int cardValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(key);
+
+            //Check if the card at the bottom is not my card
             if(!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())) {
+
+                //Check if we can flip this card
                 if (cardValueDown > cardValueTop){
                     return true;
                 }else {
