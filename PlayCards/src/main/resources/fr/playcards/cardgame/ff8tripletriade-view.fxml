@@ -42,8 +42,8 @@
                     <ImageView fx:id="Player1_Card5"/>
                 </graphic>
             </Button>
-            <Label fx:id="Player1_Pseudo" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="10"/>
-            <Circle AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" radius="15">
+            <Label fx:id="Player1_Pseudo" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="10"/>
+            <Circle AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="0" radius="15">
                 <fill>
                     <Color red="0.0" green="0.0" blue="1.0"/>
                 </fill>
@@ -51,77 +51,81 @@
         </AnchorPane>
     </left>
     <center>
-        <HBox alignment="CENTER" spacing="20.0">
-            <BorderPane>
-                <left>
-                    <AnchorPane>
-                        <Button AnchorPane.topAnchor="150" onAction="#displayC11">
-                            <graphic>
-                                <ImageView fx:id="Empty_Card11"/>
-                            </graphic>
-                        </Button>
-                        <Circle fx:id="c11" AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0" radius="15"/>
-                        <Button AnchorPane.topAnchor="300" onAction="#displayC21">
-                            <graphic>
-                                <ImageView fx:id="Empty_Card21"/>
-                            </graphic>
-                        </Button>
-                        <Circle fx:id="c21" AnchorPane.topAnchor="300" AnchorPane.rightAnchor="0" radius="15"/>
-                        <Button AnchorPane.topAnchor="450" onAction="#displayC31">
-                            <graphic>
-                                <ImageView fx:id="Empty_Card31"/>
-                            </graphic>
-                        </Button>
-                        <Circle fx:id="c31" AnchorPane.topAnchor="450" AnchorPane.rightAnchor="0" radius="15"/>
-                    </AnchorPane>
-                </left>
-                <center>
-                    <AnchorPane>
-                        <Button AnchorPane.topAnchor="150" onAction="#displayC12">
-                            <graphic>
-                                <ImageView fx:id="Empty_Card12"/>
-                            </graphic>
-                        </Button>
-                        <Circle fx:id="c12" AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0" radius="15"/>
-                        <Button AnchorPane.topAnchor="300" onAction="#displayC22">
-                            <graphic>
-                                <ImageView fx:id="Empty_Card22"/>
-                            </graphic>
-                        </Button>
-                        <Circle fx:id="c22" AnchorPane.topAnchor="300" AnchorPane.rightAnchor="0" radius="15"/>
-                        <Button AnchorPane.topAnchor="450" onAction="#displayC32">
-                            <graphic>
-                                <ImageView fx:id="Empty_Card32"/>
-                            </graphic>
-                        </Button>
-                        <Circle fx:id="c32" AnchorPane.topAnchor="450" AnchorPane.rightAnchor="0" radius="15"/>
-                        <Label fx:id="Message" AnchorPane.bottomAnchor="0"/>
-                    </AnchorPane>
-                </center>
-                <right>
-                    <AnchorPane>
-                        <Button AnchorPane.topAnchor="150" onAction="#displayC13">
-                            <graphic>
-                                <ImageView fx:id="Empty_Card13"/>
-                            </graphic>
-                        </Button>
-                        <Circle fx:id="c13" AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0" radius="15"/>
-                        <Button AnchorPane.topAnchor="300" onAction="#displayC23">
-                            <graphic>
-                                <ImageView fx:id="Empty_Card23"/>
-                            </graphic>
-                        </Button>
-                        <Circle fx:id="c23" AnchorPane.topAnchor="300" AnchorPane.rightAnchor="0" radius="15"/>
-                        <Button AnchorPane.topAnchor="450" onAction="#displayC33">
-                            <graphic>
-                                <ImageView fx:id="Empty_Card33"/>
-                            </graphic>
-                        </Button>
-                        <Circle fx:id="c33" AnchorPane.topAnchor="450" AnchorPane.rightAnchor="0" radius="15"/>
-                    </AnchorPane>
-                </right>
-            </BorderPane>
-        </HBox>
+        <VBox spacing="20.0">
+            <HBox alignment="CENTER" spacing="20.0">
+                <BorderPane>
+                    <left>
+                        <AnchorPane>
+                            <Button AnchorPane.topAnchor="150" onAction="#displayC11">
+                                <graphic>
+                                    <ImageView fx:id="Empty_Card11"/>
+                                </graphic>
+                            </Button>
+                            <Circle fx:id="c11" AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0" radius="15"/>
+                            <Button AnchorPane.topAnchor="300" onAction="#displayC21">
+                                <graphic>
+                                    <ImageView fx:id="Empty_Card21"/>
+                                </graphic>
+                            </Button>
+                            <Circle fx:id="c21" AnchorPane.topAnchor="300" AnchorPane.rightAnchor="0" radius="15"/>
+                            <Button AnchorPane.topAnchor="450" onAction="#displayC31">
+                                <graphic>
+                                    <ImageView fx:id="Empty_Card31"/>
+                                </graphic>
+                            </Button>
+                            <Circle fx:id="c31" AnchorPane.topAnchor="450" AnchorPane.rightAnchor="0" radius="15"/>
+                        </AnchorPane>
+                    </left>
+                    <center>
+                        <AnchorPane>
+                            <Button AnchorPane.topAnchor="150" onAction="#displayC12">
+                                <graphic>
+                                    <ImageView fx:id="Empty_Card12"/>
+                                </graphic>
+                            </Button>
+                            <Circle fx:id="c12" AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0" radius="15"/>
+                            <Button AnchorPane.topAnchor="300" onAction="#displayC22">
+                                <graphic>
+                                    <ImageView fx:id="Empty_Card22"/>
+                                </graphic>
+                            </Button>
+                            <Circle fx:id="c22" AnchorPane.topAnchor="300" AnchorPane.rightAnchor="0" radius="15"/>
+                            <Button AnchorPane.topAnchor="450" onAction="#displayC32">
+                                <graphic>
+                                    <ImageView fx:id="Empty_Card32"/>
+                                </graphic>
+                            </Button>
+                            <Circle fx:id="c32" AnchorPane.topAnchor="450" AnchorPane.rightAnchor="0" radius="15"/>
+                        </AnchorPane>
+                    </center>
+                    <right>
+                        <AnchorPane>
+                            <Button AnchorPane.topAnchor="150" onAction="#displayC13">
+                                <graphic>
+                                    <ImageView fx:id="Empty_Card13"/>
+                                </graphic>
+                            </Button>
+                            <Circle fx:id="c13" AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0" radius="15"/>
+                            <Button AnchorPane.topAnchor="300" onAction="#displayC23">
+                                <graphic>
+                                    <ImageView fx:id="Empty_Card23"/>
+                                </graphic>
+                            </Button>
+                            <Circle fx:id="c23" AnchorPane.topAnchor="300" AnchorPane.rightAnchor="0" radius="15"/>
+                            <Button AnchorPane.topAnchor="450" onAction="#displayC33">
+                                <graphic>
+                                    <ImageView fx:id="Empty_Card33"/>
+                                </graphic>
+                            </Button>
+                            <Circle fx:id="c33" AnchorPane.topAnchor="450" AnchorPane.rightAnchor="0" radius="15"/>
+                        </AnchorPane>
+                    </right>
+                </BorderPane>
+            </HBox>
+            <HBox alignment="CENTER" spacing="20.0">
+                <Label fx:id="Message"/>
+            </HBox>
+        </VBox>
     </center>
     <right>
         <AnchorPane id="AnchorPane">
@@ -150,8 +154,8 @@
                     <ImageView fx:id="Player2_Card5"/>
                 </graphic>
             </Button>
-            <Label fx:id="Player2_Pseudo" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="10"/>
-            <Circle AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" radius="15">
+            <Label fx:id="Player2_Pseudo" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="10"/>
+            <Circle AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="0" radius="15">
                 <fill>
                     <Color red="1.0" green="0.0" blue="0.0"/>
                 </fill>
