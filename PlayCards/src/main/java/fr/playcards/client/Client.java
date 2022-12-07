@@ -16,6 +16,7 @@ public class Client implements IClient {
     public List<IRoom> observableRoomList = new ArrayList<>();
     public IServer mainServer;
     public Map<String,String> FF8CardName = new HashMap<>();
+    public Map<String,Integer> FF8CardLevel = new HashMap<>();
     public Map<String,Integer> FF8CardUp = new HashMap<>();
     public Map<String,Integer> FF8CardRight = new HashMap<>();
     public Map<String,Integer> FF8CardDown = new HashMap<>();
@@ -53,6 +54,7 @@ public class Client implements IClient {
     public void refreshDisplayCard() {
         try{
             this.FF8CardName = this.mainServer.getFF8CardName();
+            this.FF8CardLevel = this.mainServer.getFF8CardLevel();
             this.FF8CardUp = this.mainServer.getFF8CardUp();
             this.FF8CardRight = this.mainServer.getFF8CardRight();
             this.FF8CardDown = this.mainServer.getFF8CardDown();
@@ -82,6 +84,20 @@ public class Client implements IClient {
         returnedMap.put("13",this.FF8CardName.get(UUID+"#13"));
         returnedMap.put("23",this.FF8CardName.get(UUID+"#23"));
         returnedMap.put("33",this.FF8CardName.get(UUID+"#33"));
+        return returnedMap;
+    }
+    public Map<String,Integer> getFF8CardLevel(String UUID) throws RemoteException{
+        refreshDisplayCard();
+        Map<String, Integer> returnedMap = new HashMap<>();
+        returnedMap.put("11",this.FF8CardLevel.get(UUID+"#11"));
+        returnedMap.put("21",this.FF8CardLevel.get(UUID+"#21"));
+        returnedMap.put("31",this.FF8CardLevel.get(UUID+"#31"));
+        returnedMap.put("12",this.FF8CardLevel.get(UUID+"#12"));
+        returnedMap.put("22",this.FF8CardLevel.get(UUID+"#22"));
+        returnedMap.put("32",this.FF8CardLevel.get(UUID+"#32"));
+        returnedMap.put("13",this.FF8CardLevel.get(UUID+"#13"));
+        returnedMap.put("23",this.FF8CardLevel.get(UUID+"#23"));
+        returnedMap.put("33",this.FF8CardLevel.get(UUID+"#33"));
         return returnedMap;
     }
     public Map<String,Integer> getFF8CardUp(String UUID) throws RemoteException{

@@ -136,10 +136,11 @@ public interface IServer extends Serializable, Remote {
     /*
     @throws RemoteException
 
-    These methods are called by Client and return maps with all the FF8Card Name, Up, Right, Down, Left and Owner values.
+    These methods are called by Client and return maps with all the FF8Card Name, Level, Up, Right, Down, Left and Owner values.
      */
 
     Map<String,String> getFF8CardName() throws RemoteException;
+    Map<String,Integer> getFF8CardLevel() throws RemoteException;
     Map<String,Integer> getFF8CardUp() throws RemoteException;
     Map<String,Integer> getFF8CardRight() throws RemoteException;
     Map<String,Integer> getFF8CardDown() throws RemoteException;

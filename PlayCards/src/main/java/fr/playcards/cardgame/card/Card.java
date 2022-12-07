@@ -15,6 +15,7 @@ public interface Card extends Serializable {
 
     //Getter/Setter card's information method
     String getName();
+    int getLevel();
     int getUp();
     int getRight();
     int getDown();

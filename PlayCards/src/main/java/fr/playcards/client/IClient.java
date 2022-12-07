@@ -51,7 +51,8 @@ public interface IClient extends Serializable {
     These methods return all card's information.
      */
 
-    Map<String, String> getFF8CardName(String UUID);
+    Map<String,String> getFF8CardName(String UUID);
+    Map<String,Integer> getFF8CardLevel(String UUID) throws RemoteException;
     Map<String,Integer> getFF8CardUp(String UUID) throws RemoteException;
     Map<String,Integer> getFF8CardRight(String UUID) throws RemoteException;
     Map<String,Integer> getFF8CardDown(String UUID) throws RemoteException;

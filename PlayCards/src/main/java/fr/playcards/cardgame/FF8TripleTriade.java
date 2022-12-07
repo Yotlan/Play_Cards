@@ -34,7 +34,7 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
     public List<Card> Player2_Card = new ArrayList<Card>();
     public String Player2_Pseudo = "N/A";
 
-    public Card EmptyCard = new FF8Card("Empty",0,0,0,0,"empty");
+    public Card EmptyCard = new FF8Card("Empty",0,0,0,0,0,"empty");
 
     public FF8TripleTriade(String UUID) throws IOException {
         MAX_PLAYER = 2;
@@ -43,6 +43,7 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
             LVL1.add(
                     new FF8Card(
                             (String) name,
+                            1,
                             (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("up"),
                             (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("right"),
                             (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("down"),
@@ -51,14 +52,209 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
                     )
             );
         }
-        for(int i=0; i<10; i++){
-            int index = new Random().nextInt(LVL1.size());
-            if(i<5){
-                Player1_Card.add(LVL1.get(index));
-            }else{
-                Player2_Card.add(LVL1.get(index));
-            }
+        JSON_MAP = JSON_MAPPER.readValue(Paths.get("../Triple_Triade/FF8/json/lvl2.json").toFile(), Map.class);
+        for(Object name : JSON_MAP.keySet()){
+            LVL2.add(
+                    new FF8Card(
+                            (String) name,
+                            2,
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("up"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("right"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("down"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("left"),
+                            (String) ((Map<?,?>) JSON_MAP.get(name)).get("element")
+                    )
+            );
         }
+        JSON_MAP = JSON_MAPPER.readValue(Paths.get("../Triple_Triade/FF8/json/lvl3.json").toFile(), Map.class);
+        for(Object name : JSON_MAP.keySet()){
+            LVL3.add(
+                    new FF8Card(
+                            (String) name,
+                            3,
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("up"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("right"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("down"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("left"),
+                            (String) ((Map<?,?>) JSON_MAP.get(name)).get("element")
+                    )
+            );
+        }
+        JSON_MAP = JSON_MAPPER.readValue(Paths.get("../Triple_Triade/FF8/json/lvl4.json").toFile(), Map.class);
+        for(Object name : JSON_MAP.keySet()){
+            LVL4.add(
+                    new FF8Card(
+                            (String) name,
+                            4,
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("up"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("right"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("down"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("left"),
+                            (String) ((Map<?,?>) JSON_MAP.get(name)).get("element")
+                    )
+            );
+        }
+        JSON_MAP = JSON_MAPPER.readValue(Paths.get("../Triple_Triade/FF8/json/lvl5.json").toFile(), Map.class);
+        for(Object name : JSON_MAP.keySet()){
+            LVL5.add(
+                    new FF8Card(
+                            (String) name,
+                            5,
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("up"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("right"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("down"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("left"),
+                            (String) ((Map<?,?>) JSON_MAP.get(name)).get("element")
+                    )
+            );
+        }
+        JSON_MAP = JSON_MAPPER.readValue(Paths.get("../Triple_Triade/FF8/json/lvl6.json").toFile(), Map.class);
+        for(Object name : JSON_MAP.keySet()){
+            LVL6.add(
+                    new FF8Card(
+                            (String) name,
+                            6,
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("up"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("right"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("down"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("left"),
+                            (String) ((Map<?,?>) JSON_MAP.get(name)).get("element")
+                    )
+            );
+        }
+        JSON_MAP = JSON_MAPPER.readValue(Paths.get("../Triple_Triade/FF8/json/lvl7.json").toFile(), Map.class);
+        for(Object name : JSON_MAP.keySet()){
+            LVL7.add(
+                    new FF8Card(
+                            (String) name,
+                            7,
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("up"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("right"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("down"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("left"),
+                            (String) ((Map<?,?>) JSON_MAP.get(name)).get("element")
+                    )
+            );
+        }
+        JSON_MAP = JSON_MAPPER.readValue(Paths.get("../Triple_Triade/FF8/json/lvl8.json").toFile(), Map.class);
+        for(Object name : JSON_MAP.keySet()){
+            LVL8.add(
+                    new FF8Card(
+                            (String) name,
+                            8,
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("up"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("right"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("down"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("left"),
+                            (String) ((Map<?,?>) JSON_MAP.get(name)).get("element")
+                    )
+            );
+        }
+        JSON_MAP = JSON_MAPPER.readValue(Paths.get("../Triple_Triade/FF8/json/lvl9.json").toFile(), Map.class);
+        for(Object name : JSON_MAP.keySet()){
+            LVL9.add(
+                    new FF8Card(
+                            (String) name,
+                            9,
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("up"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("right"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("down"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("left"),
+                            (String) ((Map<?,?>) JSON_MAP.get(name)).get("element")
+                    )
+            );
+        }
+        JSON_MAP = JSON_MAPPER.readValue(Paths.get("../Triple_Triade/FF8/json/lvl10.json").toFile(), Map.class);
+        for(Object name : JSON_MAP.keySet()){
+            LVL10.add(
+                    new FF8Card(
+                            (String) name,
+                            10,
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("up"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("right"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("down"),
+                            (Integer) ((Map<?,?>) JSON_MAP.get(name)).get("left"),
+                            (String) ((Map<?,?>) JSON_MAP.get(name)).get("element")
+                    )
+            );
+        }
+        //Select the lvl card in the pool 1
+        int lvlPool1 = new Random().nextInt(1,6);
+        if(lvlPool1==1){
+            Player1_Card.add(LVL1.remove(new Random().nextInt(LVL1.size())));
+        }else if(lvlPool1==2){
+            Player1_Card.add(LVL2.remove(new Random().nextInt(LVL2.size())));
+        }else if(lvlPool1==3){
+            Player1_Card.add(LVL3.remove(new Random().nextInt(LVL3.size())));
+        }else if(lvlPool1==4){
+            Player1_Card.add(LVL4.remove(new Random().nextInt(LVL4.size())));
+        }else if(lvlPool1==5){
+            Player1_Card.add(LVL5.remove(new Random().nextInt(LVL5.size())));
+        }
+
+        //Select lvls cards in the pool 2
+        int lvl1Pool2 = new Random().nextInt(6,8);
+        int lvl2Pool2 = new Random().nextInt(6,8);
+        if(lvl1Pool2==6){
+            Player1_Card.add(LVL6.remove(new Random().nextInt(LVL6.size())));
+        }else if(lvl1Pool2==7){
+            Player1_Card.add(LVL6.remove(new Random().nextInt(LVL7.size())));
+        }
+        if(lvl2Pool2==6){
+            Player1_Card.add(LVL6.remove(new Random().nextInt(LVL6.size())));
+        }else if(lvl2Pool2==7){
+            Player1_Card.add(LVL7.remove(new Random().nextInt(LVL7.size())));
+        }
+
+        //Select lvl card in the pool 3
+        int lvlPool3 = new Random().nextInt(8,10);
+        if(lvlPool3==8){
+            Player1_Card.add(LVL8.remove(new Random().nextInt(LVL8.size())));
+        }else if(lvlPool3==9){
+            Player1_Card.add(LVL9.remove(new Random().nextInt(LVL9.size())));
+        }
+
+        //Select lvl card in the pool 4
+        Player1_Card.add(LVL10.remove(new Random().nextInt(LVL10.size())));
+
+        //Select the lvl card in the pool 1
+        lvlPool1 = new Random().nextInt(1,6);
+        if(lvlPool1==1){
+            Player2_Card.add(LVL1.remove(new Random().nextInt(LVL1.size())));
+        }else if(lvlPool1==2){
+            Player2_Card.add(LVL2.remove(new Random().nextInt(LVL2.size())));
+        }else if(lvlPool1==3){
+            Player2_Card.add(LVL3.remove(new Random().nextInt(LVL3.size())));
+        }else if(lvlPool1==4){
+            Player2_Card.add(LVL4.remove(new Random().nextInt(LVL4.size())));
+        }else if(lvlPool1==5){
+            Player2_Card.add(LVL5.remove(new Random().nextInt(LVL5.size())));
+        }
+
+        //Select lvls cards in the pool 2
+        lvl1Pool2 = new Random().nextInt(6,8);
+        lvl2Pool2 = new Random().nextInt(6,8);
+        if(lvl1Pool2==6){
+            Player2_Card.add(LVL6.remove(new Random().nextInt(LVL6.size())));
+        }else if(lvl1Pool2==7){
+            Player2_Card.add(LVL6.remove(new Random().nextInt(LVL7.size())));
+        }
+        if(lvl2Pool2==6){
+            Player2_Card.add(LVL6.remove(new Random().nextInt(LVL6.size())));
+        }else if(lvl2Pool2==7){
+            Player2_Card.add(LVL7.remove(new Random().nextInt(LVL7.size())));
+        }
+
+        //Select lvl card in the pool 3
+        lvlPool3 = new Random().nextInt(8,10);
+        if(lvlPool3==8){
+            Player2_Card.add(LVL8.remove(new Random().nextInt(LVL8.size())));
+        }else if(lvlPool3==9){
+            Player2_Card.add(LVL9.remove(new Random().nextInt(LVL9.size())));
+        }
+
+        //Select lvl card in the pool 4
+        Player2_Card.add(LVL10.remove(new Random().nextInt(LVL10.size())));
         this.UUID = UUID;
     }
 

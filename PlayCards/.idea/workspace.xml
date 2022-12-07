@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="Totally functionnal UI for FF8 Triple Triade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/CardGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/FF8Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/FF8Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/client/IClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/client/IClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/server/IServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/server/IServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +72,7 @@
       <recent name="fr.playcards" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.fr.playcards.PlayCardsApplication">
+  <component name="RunManager" selected="Application.fr.playcards.PlayCardsApplicationLocal">
     <configuration name="StartServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.playcards.StartServer" />
       <module name="PlayCards" />
@@ -121,8 +127,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.fr.playcards.PlayCardsApplication" />
         <item itemvalue="Application.fr.playcards.PlayCardsApplicationLocal" />
+        <item itemvalue="Application.fr.playcards.PlayCardsApplication" />
+        <item itemvalue="Application.StartServer" />
         <item itemvalue="Application.fr.playcards.PlayCardsApplication" />
       </list>
     </recent_temporary>

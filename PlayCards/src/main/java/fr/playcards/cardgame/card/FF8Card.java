@@ -5,6 +5,7 @@ import fr.playcards.client.Client;
 
 public class FF8Card implements Card {
     public String name;
+    public int level;
     public int up;
     public int right;
     public int down;
@@ -12,8 +13,9 @@ public class FF8Card implements Card {
     public String element;
     public Client owner;
 
-    public FF8Card(String name, int up, int right, int down, int left, String element) {
+    public FF8Card(String name, int level, int up, int right, int down, int left, String element) {
         this.name = name;
+        this.level = level;
         this.up = up;
         this.right = right;
         this.down = down;
@@ -24,6 +26,9 @@ public class FF8Card implements Card {
 
     public String getName() {
         return this.name;
+    }
+    public int getLevel(){
+        return this.level;
     }
     public int getUp() {
         return this.up;

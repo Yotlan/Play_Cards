@@ -61,7 +61,7 @@ public class FF8TripleTriadeController implements CardGameController{
     @FXML
     public ImageView SelectedCard = new ImageView();
     @FXML
-    public Card SelectedCardEntity = new FF8Card("N/A",0,0,0,0,"N/A");
+    public Card SelectedCardEntity = new FF8Card("N/A",0,0,0,0,0,"N/A");
     public int SelectedCardIndex=-1;
     @FXML
     public Label Player1_Pseudo = new Label("N/A");
@@ -112,7 +112,7 @@ public class FF8TripleTriadeController implements CardGameController{
             List<ImageView> P1CardImage = new ArrayList<>(Arrays.asList(Player1_Card1,Player1_Card2,Player1_Card3,Player1_Card4,Player1_Card5));
             for(int i=0; i<P1Card.size();i++){
                 Card card = P1Card.get(i);
-                Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+card.getName()+".jpg").toFile().toURI().toString());
+                Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+card.getLevel()+"/"+card.getName()+".jpg").toFile().toURI().toString());
                 P1CardImage.get(i).setImage(image);
             }
 
@@ -127,7 +127,7 @@ public class FF8TripleTriadeController implements CardGameController{
             List<ImageView> P2CardImage = new ArrayList<>(Arrays.asList(Player2_Card1,Player2_Card2,Player2_Card3,Player2_Card4,Player2_Card5));
             for(int i=0; i<P2Card.size();i++){
                 Card card = P2Card.get(i);
-                Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+card.getName()+".jpg").toFile().toURI().toString());
+                Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+card.getLevel()+"/"+card.getName()+".jpg").toFile().toURI().toString());
                 P2CardImage.get(i).setImage(image);
             }
 
@@ -198,7 +198,7 @@ public class FF8TripleTriadeController implements CardGameController{
                     Image image = new Image(Paths.get("../Triple_Triade/FF8/img/" + card.getName() + ".jpg").toFile().toURI().toString());
                     P1CardImage.get(i).setImage(image);
                 }else {
-                    Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/" + card.getName() + ".jpg").toFile().toURI().toString());
+                    Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+card.getLevel()+"/" + card.getName() + ".jpg").toFile().toURI().toString());
                     P1CardImage.get(i).setImage(image);
                 }
             }
@@ -212,13 +212,16 @@ public class FF8TripleTriadeController implements CardGameController{
                     Image image = new Image(Paths.get("../Triple_Triade/FF8/img/" + card.getName() + ".jpg").toFile().toURI().toString());
                     P2CardImage.get(i).setImage(image);
                 }else {
-                    Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/" + card.getName() + ".jpg").toFile().toURI().toString());
+                    Image image = new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+card.getLevel()+"/" + card.getName() + ".jpg").toFile().toURI().toString());
                     P2CardImage.get(i).setImage(image);
                 }
             }
 
             //Getting all the name of the 9 middle cards to display it in the middle
             Map<String, String> imageMap = this.client.getFF8CardName(this.UUID);
+
+            //Getting all the level of the 9 middle cards to display it in the middle
+            Map<String, Integer> cardLevel = this.client.getFF8CardLevel(this.UUID);
 
             //Getting all the owner name of the 9 middle cards to change pawn's color
             Map<String, String> cardOwner = this.client.getFF8CardOwner(this.UUID);
@@ -290,7 +293,7 @@ public class FF8TripleTriadeController implements CardGameController{
             //Check if a card is displayed in corresponding position, then display it in the screen of clients
             //Moreover, link the pawn's color with the card's owner color
             if(imageMap.get("11")!=null){
-                Empty_Card11.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("11")+".jpg").toFile().toURI().toString()));
+                Empty_Card11.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+cardLevel.get("11")+"/"+imageMap.get("11")+".jpg").toFile().toURI().toString()));
                 if(cardOwner.get("11").equals(Player1_Pseudo.getText())){
                     c11.setFill(Color.BLUE);
                 }else{
@@ -298,7 +301,7 @@ public class FF8TripleTriadeController implements CardGameController{
                 }
             }
             if(imageMap.get("21")!=null){
-                Empty_Card21.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("21")+".jpg").toFile().toURI().toString()));
+                Empty_Card21.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+cardLevel.get("21")+"/"+imageMap.get("21")+".jpg").toFile().toURI().toString()));
                 if(cardOwner.get("21").equals(Player1_Pseudo.getText())){
                     c21.setFill(Color.BLUE);
                 }else{
@@ -306,7 +309,7 @@ public class FF8TripleTriadeController implements CardGameController{
                 }
             }
             if(imageMap.get("31")!=null){
-                Empty_Card31.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("31")+".jpg").toFile().toURI().toString()));
+                Empty_Card31.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+cardLevel.get("31")+"/"+imageMap.get("31")+".jpg").toFile().toURI().toString()));
                 if(cardOwner.get("31").equals(Player1_Pseudo.getText())){
                     c31.setFill(Color.BLUE);
                 }else{
@@ -314,7 +317,7 @@ public class FF8TripleTriadeController implements CardGameController{
                 }
             }
             if(imageMap.get("12")!=null){
-                Empty_Card12.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("12")+".jpg").toFile().toURI().toString()));
+                Empty_Card12.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+cardLevel.get("12")+"/"+imageMap.get("12")+".jpg").toFile().toURI().toString()));
                 if(cardOwner.get("12").equals(Player1_Pseudo.getText())){
                     c12.setFill(Color.BLUE);
                 }else{
@@ -322,7 +325,7 @@ public class FF8TripleTriadeController implements CardGameController{
                 }
             }
             if(imageMap.get("22")!=null){
-                Empty_Card22.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("22")+".jpg").toFile().toURI().toString()));
+                Empty_Card22.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+cardLevel.get("22")+"/"+imageMap.get("22")+".jpg").toFile().toURI().toString()));
                 if(cardOwner.get("22").equals(Player1_Pseudo.getText())){
                     c22.setFill(Color.BLUE);
                 }else{
@@ -330,7 +333,7 @@ public class FF8TripleTriadeController implements CardGameController{
                 }
             }
             if(imageMap.get("32")!=null){
-                Empty_Card32.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("32")+".jpg").toFile().toURI().toString()));
+                Empty_Card32.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+cardLevel.get("32")+"/"+imageMap.get("32")+".jpg").toFile().toURI().toString()));
                 if(cardOwner.get("32").equals(Player1_Pseudo.getText())){
                     c32.setFill(Color.BLUE);
                 }else{
@@ -338,7 +341,7 @@ public class FF8TripleTriadeController implements CardGameController{
                 }
             }
             if(imageMap.get("13")!=null){
-                Empty_Card13.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("13")+".jpg").toFile().toURI().toString()));
+                Empty_Card13.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+cardLevel.get("13")+"/"+imageMap.get("13")+".jpg").toFile().toURI().toString()));
                 if(cardOwner.get("13").equals(Player1_Pseudo.getText())){
                     c13.setFill(Color.BLUE);
                 }else{
@@ -346,7 +349,7 @@ public class FF8TripleTriadeController implements CardGameController{
                 }
             }
             if(imageMap.get("23")!=null){
-                Empty_Card23.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("23")+".jpg").toFile().toURI().toString()));
+                Empty_Card23.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+cardLevel.get("23")+"/"+imageMap.get("23")+".jpg").toFile().toURI().toString()));
                 if(cardOwner.get("23").equals(Player1_Pseudo.getText())){
                     c23.setFill(Color.BLUE);
                 }else{
@@ -354,7 +357,7 @@ public class FF8TripleTriadeController implements CardGameController{
                 }
             }
             if(imageMap.get("33")!=null){
-                Empty_Card33.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl1/"+imageMap.get("33")+".jpg").toFile().toURI().toString()));
+                Empty_Card33.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/lvl"+cardLevel.get("33")+"/"+imageMap.get("33")+".jpg").toFile().toURI().toString()));
                 if(cardOwner.get("33").equals(Player1_Pseudo.getText())){
                     c33.setFill(Color.BLUE);
                 }else{
@@ -647,7 +650,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
                 //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
-                this.flipRule("11");
+                this.flipRule("11", new ArrayList<>(Arrays.asList(this.SelectedCardEntity.getName())));
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -718,7 +721,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
                 //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
-                this.flipRule("21");
+                this.flipRule("21", new ArrayList<>(Arrays.asList(this.SelectedCardEntity.getName())));
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -789,7 +792,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
                 //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
-                this.flipRule("31");
+                this.flipRule("31", new ArrayList<>(Arrays.asList(this.SelectedCardEntity.getName())));
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -860,7 +863,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
                 //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
-                this.flipRule("12");
+                this.flipRule("12", new ArrayList<>(Arrays.asList(this.SelectedCardEntity.getName())));
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -931,7 +934,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
                 //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
-                this.flipRule("22");
+                this.flipRule("22", new ArrayList<>(Arrays.asList(this.SelectedCardEntity.getName())));
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -1002,7 +1005,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
                 //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
-                this.flipRule("32");
+                this.flipRule("32", new ArrayList<>(Arrays.asList(this.SelectedCardEntity.getName())));
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -1073,7 +1076,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
                 //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
-                this.flipRule("13");
+                this.flipRule("13", new ArrayList<>(Arrays.asList(this.SelectedCardEntity.getName())));
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -1144,7 +1147,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
                 //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
-                this.flipRule("23");
+                this.flipRule("23", new ArrayList<>(Arrays.asList(this.SelectedCardEntity.getName())));
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -1215,7 +1218,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
                 //Reinitialize selected card, and called flip rule at this position before changing the turn to the next player
                 this.SelectedCard = null;
-                this.flipRule("33");
+                this.flipRule("33", new ArrayList<>(Arrays.asList(this.SelectedCardEntity.getName())));
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -1227,6 +1230,7 @@ public class FF8TripleTriadeController implements CardGameController{
 
     /*
     @param String position
+    @param List<String> visitedCard
 
     @throws RemoteException
 
@@ -1234,7 +1238,7 @@ public class FF8TripleTriadeController implements CardGameController{
     be flip or not
      */
 
-    public synchronized void flipRule(String position) throws RemoteException {
+    public synchronized void flipRule(String position, List<String> visitedCard) throws RemoteException {
 
         //Initialize turn and position
         boolean turnRight=false;
@@ -1276,7 +1280,10 @@ public class FF8TripleTriadeController implements CardGameController{
                 y = Integer.parseInt(String.valueOf(position.charAt(1)))+1;
 
                 //Combo rule : called again Flip rule
-                flipRule(Integer.toString(x).concat(Integer.toString(y)));
+                if(!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))){
+                    visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                    flipRule(Integer.toString(x).concat(Integer.toString(y)),visitedCard);
+                }
 
                 //Send update to the server to spread it to all client
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
@@ -1286,7 +1293,10 @@ public class FF8TripleTriadeController implements CardGameController{
                 y = Integer.parseInt(String.valueOf(position.charAt(1)))-1;
 
                 //Combo rule : called again Flip rule
-                flipRule(Integer.toString(x).concat(Integer.toString(y)));
+                if(!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))){
+                    visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                    flipRule(Integer.toString(x).concat(Integer.toString(y)),visitedCard);
+                }
 
                 //Send update to the server to spread it to all client
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
@@ -1296,7 +1306,10 @@ public class FF8TripleTriadeController implements CardGameController{
                 y = Integer.parseInt(String.valueOf(position.charAt(1)));
 
                 //Combo rule : called again Flip rule
-                flipRule(Integer.toString(x).concat(Integer.toString(y)));
+                if(!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))){
+                    visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                    flipRule(Integer.toString(x).concat(Integer.toString(y)),visitedCard);
+                }
 
                 //Send update to the server to spread it to all client
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
@@ -1306,7 +1319,10 @@ public class FF8TripleTriadeController implements CardGameController{
                 y = Integer.parseInt(String.valueOf(position.charAt(1)));
 
                 //Combo rule : called again Flip rule
-                flipRule(Integer.toString(x).concat(Integer.toString(y)));
+                if(!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))){
+                    visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                    flipRule(Integer.toString(x).concat(Integer.toString(y)),visitedCard);
+                }
 
                 //Send update to the server to spread it to all client
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
