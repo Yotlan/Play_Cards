@@ -1,12 +1,11 @@
 package fr.playcards.cardgame;
 
+//Import part
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.playcards.cardgame.card.Card;
 import fr.playcards.cardgame.card.FF8Card;
-
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -15,10 +14,18 @@ import java.util.Map;
 import java.util.Random;
 
 public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
-
     ObjectMapper JSON_MAPPER = new ObjectMapper();
     Map<?, ?> JSON_MAP;
-    List<FF8Card> LVL1 = new ArrayList<FF8Card>();
+    List<FF8Card> LVL1 = new ArrayList<>();
+    List<FF8Card> LVL2 = new ArrayList<>();
+    List<FF8Card> LVL3 = new ArrayList<>();
+    List<FF8Card> LVL4 = new ArrayList<>();
+    List<FF8Card> LVL5 = new ArrayList<>();
+    List<FF8Card> LVL6 = new ArrayList<>();
+    List<FF8Card> LVL7 = new ArrayList<>();
+    List<FF8Card> LVL8 = new ArrayList<>();
+    List<FF8Card> LVL9 = new ArrayList<>();
+    List<FF8Card> LVL10 = new ArrayList<>();
     private Integer MAX_PLAYER;
     public String UUID;
     public CardGameController controller;
@@ -58,50 +65,36 @@ public class FF8TripleTriade extends UnicastRemoteObject implements CardGame{
     public String getName() throws RemoteException{
         return "Triple Triade - Final Fantasy 8";
     }
-
     public Integer getMaxPlayer() throws RemoteException{
         return MAX_PLAYER;
     }
-
     public String getUUID() throws RemoteException{
         return this.UUID;
     }
-
     public CardGameController getController() throws RemoteException{
         return this.controller;
     }
-
     public void setController(CardGameController controller) throws RemoteException{
         this.controller = controller;
     }
-
     public List<Card> getPlayer1Card() throws RemoteException{
         return this.Player1_Card;
     }
-
-    @Override
     public void removePlayer1Card(int index) throws RemoteException{
         Player1_Card.set(index,EmptyCard);
     }
-
     public List<Card> getPlayer2Card() throws RemoteException {
         return this.Player2_Card;
     }
-
-
     public void removePlayer2Card(int index) throws RemoteException {
         Player2_Card.set(index,EmptyCard);
     }
-
-
     public String getPlayer1Pseudo() throws RemoteException{
         return Player1_Pseudo;
     }
-
     public void setPlayer1Pseudo(String pseudo) throws RemoteException{
         this.Player1_Pseudo = pseudo;
     }
-
     public String getPlayer2Pseudo() throws RemoteException{
         return this.Player2_Pseudo;
     }

@@ -1,18 +1,17 @@
 package fr.playcards.cardgame;
 
-import fr.playcards.PlayCardsApplication;
+//Import part
 import fr.playcards.client.IClient;
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
-public class KoiKoiWarsFrame {
+//TODO : Complete this java file
 
+public class KoiKoiWarsFrame {
     private String gameTitle;
+
     public KoiKoiWarsFrame(String gameTitle, CardGame game, IClient client) {
         this.gameTitle = gameTitle;
     }

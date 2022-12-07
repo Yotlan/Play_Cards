@@ -1,23 +1,23 @@
-    package fr.playcards.cardgame;
+package fr.playcards.cardgame;
 
-    import fr.playcards.cardgame.card.Card;
-    import fr.playcards.cardgame.card.FF8Card;
-    import fr.playcards.client.Client;
-    import fr.playcards.client.IClient;
-    import javafx.application.Platform;
-    import javafx.fxml.FXML;
-    import javafx.scene.control.Alert;
-    import javafx.scene.control.Label;
-    import javafx.scene.image.Image;
-    import javafx.scene.image.ImageView;
-    import javafx.scene.paint.Color;
-    import javafx.scene.shape.Circle;
+//Import part
+import fr.playcards.cardgame.card.Card;
+import fr.playcards.cardgame.card.FF8Card;
+import fr.playcards.client.Client;
+import fr.playcards.client.IClient;
+import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import java.nio.file.Paths;
+import java.rmi.RemoteException;
+import java.util.*;
 
-    import java.nio.file.Paths;
-    import java.rmi.RemoteException;
-    import java.util.*;
-
-    public class FF8TripleTriadeController implements CardGameController{
+public class FF8TripleTriadeController implements CardGameController{
     public String UUID;
     public CardGame game;
     @FXML
@@ -40,7 +40,6 @@
     public ImageView Player2_Card4 = new ImageView();
     @FXML
     public ImageView Player2_Card5 = new ImageView();
-
     @FXML
     public ImageView Empty_Card11 = new ImageView();
     @FXML
@@ -64,8 +63,6 @@
     @FXML
     public Card SelectedCardEntity = new FF8Card("N/A",0,0,0,0,"N/A");
     public int SelectedCardIndex=-1;
-
-    public int index_player=0; // give index of player that can put the card
     @FXML
     public Label Player1_Pseudo = new Label("N/A");
     @FXML
@@ -73,7 +70,6 @@
     @FXML
     public Label Message = new Label("");
     public IClient client;
-
     @FXML
     public Circle c11 = new Circle();
     @FXML
@@ -96,6 +92,7 @@
     public FF8TripleTriadeController(String UUID) {
         this.UUID = UUID;
     }
+
     @FXML
     public synchronized void initialize() {
         try{
@@ -319,7 +316,6 @@
     private void showAlertSelect() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("WARNING");
-        // Header Text: null
         alert.setHeaderText(null);
         alert.setContentText("You can't select this card because you already play it or it's not your card !");
         alert.showAndWait();
@@ -328,7 +324,6 @@
     private void showAlertDisplay() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("WARNING");
-        // Header Text: null
         alert.setHeaderText(null);
         alert.setContentText("You can't display this card here because someone else display a card here or it's not your turn !");
         alert.showAndWait();
@@ -344,7 +339,9 @@
 
     public void P1SelectC1(){
         try {
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) && !(this.game.getPlayer1Card().get(0).getName().equals("Empty"))){
+            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())
+                    && !(this.game.getPlayer1Card().get(0).getName().equals("Empty"))
+            ){
                 this.SelectedCard = Player1_Card1;
                 this.SelectedCardEntity = this.game.getPlayer1Card().get(0);
                 this.SelectedCardIndex = 0;
@@ -358,7 +355,9 @@
 
     public void P1SelectC2(){
         try {
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) && !(this.game.getPlayer1Card().get(1).getName().equals("Empty"))){
+            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())
+                    && !(this.game.getPlayer1Card().get(1).getName().equals("Empty"))
+            ){
                 this.SelectedCard = Player1_Card2;
                 this.SelectedCardEntity = this.game.getPlayer1Card().get(1);
                 this.SelectedCardIndex = 1;
@@ -372,7 +371,9 @@
 
     public void P1SelectC3(){
         try {
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) && !(this.game.getPlayer1Card().get(2).getName().equals("Empty"))){
+            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())
+                    && !(this.game.getPlayer1Card().get(2).getName().equals("Empty"))
+            ){
                 this.SelectedCard = Player1_Card3;
                 this.SelectedCardEntity = this.game.getPlayer1Card().get(2);
                 this.SelectedCardIndex = 2;
@@ -387,7 +388,9 @@
     public void P1SelectC4(){
 
         try {
-            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) && !(this.game.getPlayer1Card().get(3).getName().equals("Empty"))){
+            if (this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())
+                    && !(this.game.getPlayer1Card().get(3).getName().equals("Empty"))
+            ){
                 this.SelectedCard = Player1_Card4;
                 this.SelectedCardEntity = this.game.getPlayer1Card().get(3);
                 this.SelectedCardIndex = 3;
@@ -401,7 +404,9 @@
 
     public void P1SelectC5(){
         try {
-            if(this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo()) && !(this.game.getPlayer1Card().get(4).getName().equals("Empty"))){
+            if(this.client.getClientPseudo().equals(this.game.getPlayer1Pseudo())
+                    && !(this.game.getPlayer1Card().get(4).getName().equals("Empty"))
+            ){
                 this.SelectedCard = Player1_Card5;
                 this.SelectedCardEntity = this.game.getPlayer1Card().get(4);
                 this.SelectedCardIndex = 4;
@@ -415,7 +420,9 @@
 
     public void P2SelectC1(){
         try {
-            if(this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo()) && !(this.game.getPlayer2Card().get(0).getName().equals("Empty"))){
+            if(this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())
+                    && !(this.game.getPlayer2Card().get(0).getName().equals("Empty"))
+            ){
                 this.SelectedCard = Player2_Card1;
                 this.SelectedCardEntity = this.game.getPlayer2Card().get(0);
                 this.SelectedCardIndex = 0;
@@ -429,7 +436,9 @@
 
     public void P2SelectC2(){
         try {
-            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo()) && !(this.game.getPlayer2Card().get(1).getName().equals("Empty"))){
+            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())
+                    && !(this.game.getPlayer2Card().get(1).getName().equals("Empty"))
+            ){
                 this.SelectedCard = Player2_Card2;
                 this.SelectedCardEntity = this.game.getPlayer2Card().get(1);
                 this.SelectedCardIndex = 1;
@@ -443,7 +452,9 @@
 
     public void P2SelectC3(){
         try {
-            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo()) && !(this.game.getPlayer2Card().get(2).getName().equals("Empty"))){
+            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())
+                    && !(this.game.getPlayer2Card().get(2).getName().equals("Empty"))
+            ){
                 this.SelectedCard = Player2_Card3;
                 this.SelectedCardEntity = this.game.getPlayer2Card().get(2);
                 this.SelectedCardIndex = 2;
@@ -457,7 +468,9 @@
 
     public void P2SelectC4(){
         try {
-            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo()) && !(this.game.getPlayer2Card().get(3).getName().equals("Empty"))){
+            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())
+                    && !(this.game.getPlayer2Card().get(3).getName().equals("Empty"))
+            ){
                 this.SelectedCard = Player2_Card4;
                 this.SelectedCardEntity = this.game.getPlayer2Card().get(3);
                 this.SelectedCardIndex = 3;
@@ -471,7 +484,9 @@
 
     public void P2SelectC5(){
         try {
-            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo()) && !(this.game.getPlayer2Card().get(4).getName().equals("Empty"))){
+            if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())
+                    && !(this.game.getPlayer2Card().get(4).getName().equals("Empty"))
+            ){
                 this.SelectedCard = Player2_Card5;
                 this.SelectedCardEntity = this.game.getPlayer2Card().get(4);
                 this.SelectedCardIndex = 4;
@@ -491,12 +506,13 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            //condition : a space is not occuped by a card AND player played is round of this player
-            if ((this.client.getFF8CardName(this.UUID).get("11") == null) && (playerID==this.client.getMainServer().getTurn(this.game.getUUID()))){
+            if ((this.client.getFF8CardName(this.UUID).get("11") == null)
+                    && (playerID==this.client.getMainServer().getTurn(this.game.getUUID()))
+            ){
                 this.Empty_Card11.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard11(SelectedCardEntity,this.game.getUUID(),this.client);
-                if (playerID==1 ){
+                if (playerID==1){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -525,10 +541,8 @@
                                 this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }
-
-                //seletecd cart will null
                 this.SelectedCard = null;
-                this.regleFlip("11",this.game.getUUID());
+                this.flipRule("11");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -546,11 +560,13 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID = 2;
             }
-            if ((this.client.getFF8CardName(this.UUID).get("21") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("21") == null)
+                    && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
+            ){
                 this.Empty_Card21.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard21(SelectedCardEntity,this.game.getUUID(),this.client);
-                if (playerID==1 ){
+                if (playerID==1){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -580,7 +596,7 @@
                     }
                 }
                 this.SelectedCard = null;
-                this.regleFlip("21",this.game.getUUID());
+                this.flipRule("21");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -598,11 +614,13 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8CardName(this.UUID).get("31") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("31") == null)
+                    && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
+            ){
                 this.Empty_Card31.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard31(SelectedCardEntity,this.game.getUUID(),this.client);
-                if (playerID==1 ){
+                if (playerID==1){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -631,9 +649,8 @@
                                 this.Player2_Card5.setImage(new Image(Paths.get("../Triple_Triade/FF8/img/Empty.jpg").toFile().toURI().toString()));
                     }
                 }
-
                 this.SelectedCard = null;
-                this.regleFlip("31",this.game.getUUID());
+                this.flipRule("31");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -651,11 +668,13 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8CardName(this.UUID).get("12") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("12") == null)
+                    && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
+            ){
                 this.Empty_Card12.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard12(SelectedCardEntity,this.game.getUUID(),this.client);
-                if (playerID==1 ){
+                if (playerID==1){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -685,7 +704,7 @@
                     }
                 }
                 this.SelectedCard = null;
-                this.regleFlip("12",this.game.getUUID());
+                this.flipRule("12");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -703,11 +722,13 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8CardName(this.UUID).get("22") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("22") == null)
+                    && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
+            ){
                 this.Empty_Card22.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard22(SelectedCardEntity,this.game.getUUID(),this.client);
-                if (playerID==1 ){
+                if (playerID==1){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -737,7 +758,7 @@
                     }
                 }
                 this.SelectedCard = null;
-                this.regleFlip("22",this.game.getUUID());
+                this.flipRule("22");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -755,11 +776,13 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if((this.client.getFF8CardName(this.UUID).get("32") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if((this.client.getFF8CardName(this.UUID).get("32") == null)
+                    && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
+            ){
                 this.Empty_Card32.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard32(SelectedCardEntity,this.game.getUUID(),this.client);
-                if (playerID==1 ){
+                if (playerID==1){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -789,7 +812,7 @@
                     }
                 }
                 this.SelectedCard = null;
-                this.regleFlip("32",this.game.getUUID());
+                this.flipRule("32");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -807,11 +830,13 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8CardName(this.UUID).get("13") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("13") == null)
+                    && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
+            ){
                 this.Empty_Card13.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard13(SelectedCardEntity,this.game.getUUID(),this.client);
-                if (playerID==1 ){
+                if (playerID==1){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -841,7 +866,7 @@
                     }
                 }
                 this.SelectedCard = null;
-                this.regleFlip("13",this.game.getUUID());
+                this.flipRule("13");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -859,11 +884,13 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8CardName(this.UUID).get("23") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("23") == null)
+                    && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
+            ){
                 this.Empty_Card23.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard23(SelectedCardEntity,this.game.getUUID(),this.client);
-                if (playerID==1 ){
+                if (playerID==1){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -893,7 +920,7 @@
                     }
                 }
                 this.SelectedCard = null;
-                this.regleFlip("23",this.game.getUUID());
+                this.flipRule("23");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -911,11 +938,13 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8CardName(this.UUID).get("33") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("33") == null)
+                    && playerID==this.client.getMainServer().getTurn(this.game.getUUID())
+            ){
                 this.Empty_Card33.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard33(SelectedCardEntity,this.game.getUUID(),this.client);
-                if (playerID==1 ){
+                if (playerID==1){
                     this.game.removePlayer1Card(this.SelectedCardIndex);
                     switch (this.SelectedCardIndex) {
                         case 0 ->
@@ -945,7 +974,7 @@
                     }
                 }
                 this.SelectedCard = null;
-                this.regleFlip("33",this.game.getUUID());
+                this.flipRule("33");
                 this.client.getMainServer().switchTurn(this.game.getUUID());
             }else{
                 showAlertDisplay();
@@ -955,7 +984,7 @@
         }
     }
 
-    public synchronized void regleFlip(String position, String uuid) throws RemoteException {
+    public synchronized void flipRule(String position) throws RemoteException {
         boolean turnRight=false;
         boolean turnDown=false;
         boolean turnLeft=false;
@@ -985,25 +1014,25 @@
             if (turnRight){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)));
                 y = Integer.parseInt(String.valueOf(position.charAt(1)))+1;
-                regleFlip(Integer.toString(x).concat(Integer.toString(y)),uuid);
+                flipRule(Integer.toString(x).concat(Integer.toString(y)));
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
             }
             if (turnLeft){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)) );
                 y = Integer.parseInt(String.valueOf(position.charAt(1)))-1;
-                regleFlip(Integer.toString(x).concat(Integer.toString(y)),uuid);
+                flipRule(Integer.toString(x).concat(Integer.toString(y)));
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
             }
             if (turnTop){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)))-1;
                 y = Integer.parseInt(String.valueOf(position.charAt(1)));
-                regleFlip(Integer.toString(x).concat(Integer.toString(y)),uuid);
+                flipRule(Integer.toString(x).concat(Integer.toString(y)));
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
             }
             if (turnDown){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)))+1;
                 y = Integer.parseInt(String.valueOf(position.charAt(1)));
-                regleFlip(Integer.toString(x).concat(Integer.toString(y)),uuid);
+                flipRule(Integer.toString(x).concat(Integer.toString(y)));
                 this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
             }
         }
@@ -1011,14 +1040,14 @@
     }
 
     public boolean checkRight(int positionX,int positionY) throws RemoteException {
-        int card_value=this.client.getFF8CardRight(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+        int cardValueRight=this.client.getFF8CardRight(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
         int x = positionX;
         int y = positionY+1;
         String key=Integer.toString(x).concat(Integer.toString(y));
         if (this.client.getFF8CardLeft(this.game.getUUID()).get(key)!=null){
-            int card_valueLeft=this.client.getFF8CardLeft(this.game.getUUID()).get(key);
+            int cardValueLeft=this.client.getFF8CardLeft(this.game.getUUID()).get(key);
             if (!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())){
-                if (card_value > card_valueLeft){
+                if (cardValueRight > cardValueLeft){
                     return true;
                 }else {
                     return false;
@@ -1027,15 +1056,16 @@
         }
         return false;
     }
+
     public boolean checkTop(int positionX,int positionY) throws RemoteException {
-        int card_currentTopvalue=this.client.getFF8CardUp(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+        int cardValueTop=this.client.getFF8CardUp(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
         int x = positionX-1;
         int y = positionY;
         String key=Integer.toString(x).concat(Integer.toString(y));
         if (this.client.getFF8CardDown(this.game.getUUID()).get(key)!=null){
-            int card_topDownvalue = this.client.getFF8CardDown(this.game.getUUID()).get(key);
+            int cardValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(key);
             if (!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())){
-                if (card_currentTopvalue > card_topDownvalue){
+                if (cardValueTop > cardValueDown){
                     return true;
                 }else {
                     return false;
@@ -1046,31 +1076,14 @@
     }
 
     public boolean checkLeft(int positionX,int positionY) throws RemoteException {
-        int card_currentLeft=this.client.getFF8CardLeft(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+        int cardValueLeft=this.client.getFF8CardLeft(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
         int x = positionX;
         int y = positionY-1;
         String key=Integer.toString(x).concat(Integer.toString(y));
         if (this.client.getFF8CardRight(this.game.getUUID()).get(key)!=null){
-            int card_leftRightvalue = this.client.getFF8CardRight(this.game.getUUID()).get(key);
+            int cardValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(key);
             if (!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())){
-                if (card_currentLeft > card_leftRightvalue){
-                    return true;
-                }else {
-                    return false;
-                }
-            }
-        }
-        return false;
-    }
-    public boolean checkDown(int positionX, int positionY) throws RemoteException {
-        int card_currentDownvalue=this.client.getFF8CardDown(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
-        int x = positionX+1;
-        int y = positionY;
-        String key = Integer.toString(x).concat(Integer.toString(y));
-        if (this.client.getFF8CardUp(this.game.getUUID()).get(key)!=null){
-            int card_downTopvalue = this.client.getFF8CardUp(this.game.getUUID()).get(key);
-            if(!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())) {
-                if (card_currentDownvalue > card_downTopvalue){
+                if (cardValueLeft > cardValueRight){
                     return true;
                 }else {
                     return false;
@@ -1080,4 +1093,22 @@
         return false;
     }
 
+    public boolean checkDown(int positionX, int positionY) throws RemoteException {
+        int cardValueDown=this.client.getFF8CardDown(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+        int x = positionX+1;
+        int y = positionY;
+        String key = Integer.toString(x).concat(Integer.toString(y));
+        if (this.client.getFF8CardUp(this.game.getUUID()).get(key)!=null){
+            int cardValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(key);
+            if(!this.client.getFF8CardOwner(this.game.getUUID()).get(key).equals(this.client.getClientPseudo())) {
+                if (cardValueDown > cardValueTop){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
+        }
+        return false;
     }
+
+}

@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<!-- Import part -->
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.shape.Rectangle?>
-
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.paint.Color?>
-<BorderPane id="BorderPane" prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="fr.playcards.cardgame.FF8TripleTriadeController">
+
+<!-- Create 3 part : left, center and right -->
+<BorderPane id="BorderPane" prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.playcards.cardgame.FF8TripleTriadeController">
     <left>
+        <!-- One column -->
         <AnchorPane id="AnchorPane">
+            <!-- Each button is Player 1 cards images -->
             <Button AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" onAction="#P1SelectC1">
                 <graphic>
                     <ImageView fx:id="Player1_Card1"/>
@@ -42,7 +39,9 @@
                     <ImageView fx:id="Player1_Card5"/>
                 </graphic>
             </Button>
+            <!-- Display Player 1 name at bottom -->
             <Label fx:id="Player1_Pseudo" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="10"/>
+            <!-- Display his corresponding color pawn as Color Circle -->
             <Circle AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="0" radius="15">
                 <fill>
                     <Color red="0.0" green="0.0" blue="1.0"/>
@@ -51,11 +50,16 @@
         </AnchorPane>
     </left>
     <center>
+        <!-- Align element in one column -->
         <VBox spacing="20.0">
+            <!-- Align element in one line -->
             <HBox alignment="CENTER" spacing="20.0">
+                <!-- Create 3 part : left, center and right -->
                 <BorderPane>
                     <left>
+                        <!-- One column -->
                         <AnchorPane>
+                            <!-- Each button is the first displaying card column associated with his owner's pawn -->
                             <Button AnchorPane.topAnchor="150" onAction="#displayC11">
                                 <graphic>
                                     <ImageView fx:id="Empty_Card11"/>
@@ -77,7 +81,9 @@
                         </AnchorPane>
                     </left>
                     <center>
+                        <!-- One column -->
                         <AnchorPane>
+                            <!-- Each button is the second displaying card column associated with his owner's pawn -->
                             <Button AnchorPane.topAnchor="150" onAction="#displayC12">
                                 <graphic>
                                     <ImageView fx:id="Empty_Card12"/>
@@ -99,7 +105,9 @@
                         </AnchorPane>
                     </center>
                     <right>
+                        <!-- One column -->
                         <AnchorPane>
+                            <!-- Each button is the third displaying card column associated with his owner's pawn -->
                             <Button AnchorPane.topAnchor="150" onAction="#displayC13">
                                 <graphic>
                                     <ImageView fx:id="Empty_Card13"/>
@@ -128,7 +136,9 @@
         </VBox>
     </center>
     <right>
+        <!-- One column -->
         <AnchorPane id="AnchorPane">
+            <!-- Each button is Player 2 cards images -->
             <Button AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" onAction="#P2SelectC1">
                 <graphic>
                     <ImageView fx:id="Player2_Card1"/>
@@ -154,7 +164,9 @@
                     <ImageView fx:id="Player2_Card5"/>
                 </graphic>
             </Button>
+            <!-- Display Player 2 name at bottom -->
             <Label fx:id="Player2_Pseudo" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="10"/>
+            <!-- Display his corresponding color pawn as Color Circle -->
             <Circle AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="0" radius="15">
                 <fill>
                     <Color red="1.0" green="0.0" blue="0.0"/>
@@ -162,4 +174,6 @@
             </Circle>
         </AnchorPane>
     </right>
+
+    <!-- TODO : Add CSS file to have a better frame -->
 </BorderPane>
