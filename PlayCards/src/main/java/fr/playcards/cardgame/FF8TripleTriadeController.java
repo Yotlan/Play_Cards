@@ -7,7 +7,6 @@
     import javafx.application.Platform;
     import javafx.fxml.FXML;
     import javafx.scene.control.Alert;
-    import javafx.scene.control.Button;
     import javafx.scene.control.Label;
     import javafx.scene.image.Image;
     import javafx.scene.image.ImageView;
@@ -190,7 +189,7 @@
                     P2CardImage.get(i).setImage(image);
                 }
             }
-            Map<String, String> imageMap = this.client.getFF8Card(this.UUID);
+            Map<String, String> imageMap = this.client.getFF8CardName(this.UUID);
             Map<String, String> cardOwner = this.client.getFF8CardOwner(this.UUID);
             Platform.runLater(() -> {
                 try {
@@ -493,7 +492,7 @@
                 playerID=2;
             }
             //condition : a space is not occuped by a card AND player played is round of this player
-            if ((this.client.getFF8Card(this.UUID).get("11") == null) && (playerID==this.client.getMainServer().getTurn(this.game.getUUID()))){
+            if ((this.client.getFF8CardName(this.UUID).get("11") == null) && (playerID==this.client.getMainServer().getTurn(this.game.getUUID()))){
                 this.Empty_Card11.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard11(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -547,7 +546,7 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID = 2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("21") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("21") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
                 this.Empty_Card21.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard21(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -599,7 +598,7 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("31") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("31") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
                 this.Empty_Card31.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard31(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -652,7 +651,7 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("12") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("12") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
                 this.Empty_Card12.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard12(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -704,7 +703,7 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("22") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("22") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
                 this.Empty_Card22.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard22(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -756,7 +755,7 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if((this.client.getFF8Card(this.UUID).get("32") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if((this.client.getFF8CardName(this.UUID).get("32") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
                 this.Empty_Card32.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard32(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -808,7 +807,7 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("13") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("13") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
                 this.Empty_Card13.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard13(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -860,7 +859,7 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("23") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("23") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
                 this.Empty_Card23.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard23(SelectedCardEntity,this.game.getUUID(),this.client);
@@ -912,7 +911,7 @@
             } else if (this.client.getClientPseudo().equals(this.game.getPlayer2Pseudo())) {
                 playerID=2;
             }
-            if ((this.client.getFF8Card(this.UUID).get("33") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
+            if ((this.client.getFF8CardName(this.UUID).get("33") == null) && playerID==this.client.getMainServer().getTurn(this.game.getUUID())){
                 this.Empty_Card33.setImage(this.SelectedCard.getImage());
                 this.SelectedCardEntity.setOwner((Client) this.client);
                 this.client.getMainServer().displayCard33(SelectedCardEntity,this.game.getUUID(),this.client);

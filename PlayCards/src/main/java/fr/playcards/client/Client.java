@@ -1,9 +1,8 @@
 package fr.playcards.client;
 
-import fr.playcards.cardgame.card.Card;
+//Import part
 import fr.playcards.server.IServer;
 import fr.playcards.room.IRoom;
-
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -13,11 +12,9 @@ import java.util.List;
 import java.util.Map;
 
 public class Client implements IClient {
-
     public String clientPseudoName;
     public List<IRoom> observableRoomList = new ArrayList<>();
     public IServer mainServer;
-
     public Map<String,String> FF8CardName = new HashMap<>();
     public Map<String,Integer> FF8CardUp = new HashMap<>();
     public Map<String,Integer> FF8CardRight = new HashMap<>();
@@ -27,10 +24,11 @@ public class Client implements IClient {
 
     public Client() {
         try {
+            //Connect client to the server
             Registry registry = LocateRegistry.getRegistry(1099);
             mainServer = (IServer) registry.lookup("play-cards/1099/connecting");
             this.observableRoomList = mainServer.getObservableRoomList();
-            this.clientPseudoName="unkown";
+            this.clientPseudoName="N/A";
         } catch (Exception e) {
             System.out.println("Client Constructor Error : "+e);
         }
@@ -48,14 +46,13 @@ public class Client implements IClient {
         refreshRoom();
         return this.observableRoomList;
     }
-
     public IServer getMainServer() {
         return this.mainServer;
     }
 
     public void refreshDisplayCard() {
         try{
-            this.FF8CardName = this.mainServer.getFF8Card();
+            this.FF8CardName = this.mainServer.getFF8CardName();
             this.FF8CardUp = this.mainServer.getFF8CardUp();
             this.FF8CardRight = this.mainServer.getFF8CardRight();
             this.FF8CardDown = this.mainServer.getFF8CardDown();
@@ -69,13 +66,11 @@ public class Client implements IClient {
     public String getClientPseudo(){
         return this.clientPseudoName;
     }
-
-
     public void setClientPseudo(String pseudo) {
         this.clientPseudoName=pseudo;
     }
 
-    public Map<String, String> getFF8Card(String UUID) {
+    public Map<String, String> getFF8CardName(String UUID) {
         refreshDisplayCard();
         Map<String, String> returnedMap = new HashMap<>();
         returnedMap.put("11",this.FF8CardName.get(UUID+"#11"));
@@ -89,7 +84,6 @@ public class Client implements IClient {
         returnedMap.put("33",this.FF8CardName.get(UUID+"#33"));
         return returnedMap;
     }
-
     public Map<String,Integer> getFF8CardUp(String UUID) throws RemoteException{
         refreshDisplayCard();
         Map<String, Integer> returnedMap = new HashMap<>();

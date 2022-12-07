@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- Import part -->
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
-
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="fr.playcards.PlayCardsController">
+
+<!-- Align element in one column -->
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml" fx:controller="fr.playcards.PlayCardsController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
+    <!-- Player pseudo input field -->
     <Label fx:id="pseudo" text="Player Username"/>
     <TextField fx:id="playerPseudo"/>
+
+    <!-- Choice box field to choose the game we want to create -->
     <ChoiceBox fx:id="cardGameChoiceBox" value="FF8TripleTriade">
         <items>
             <FXCollections fx:factory="observableArrayList">
@@ -30,6 +32,8 @@
             </FXCollections>
         </items>
     </ChoiceBox>
+
+    <!-- Table with all created room -->
     <TableView fx:id="roomTable">
         <columns>
             <TableColumn fx:id="roomColumn" text="Room" />
@@ -40,5 +44,9 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
         </columnResizePolicy>
     </TableView>
+
+    <!-- Button who create a room and add it to the table above -->
     <Button text="Create Room" onAction="#onCreateButtonClick"/>
+
+    <!-- TODO : Add CSS file to have a better frame -->
 </VBox>

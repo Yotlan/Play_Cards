@@ -1,20 +1,39 @@
 package fr.playcards.room;
 
+//Import part
 import fr.playcards.cardgame.CardGame;
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+/*
+@author Yotlan LE CROM
+
+This interface have for goal to extends Remote interface to be able to sharing this object.
+ */
+
 public interface IRoom extends Remote {
 
-    public void connect(String pseudo) throws RemoteException;
+    /*
+    @param String pseudo
 
-    public String getRoom() throws RemoteException;
+    @throws RemoteException
 
-    public String getCardgame() throws RemoteException;
+    This method have for goal to connect the client with the name pseudo to the current room, and so to the current card
+    game.
+     */
 
-    public Integer getNbplayer() throws RemoteException;
+    void connect(String pseudo) throws RemoteException;
 
-    public CardGame getCurrentCardGame() throws RemoteException;
+    //Getter room's information method
+    /*
+    @throws RemoteException
+
+    These methods return room's information.
+     */
+
+    String getRoom() throws RemoteException;
+    String getCardGame() throws RemoteException;
+    Integer getNbPlayer() throws RemoteException;
+    CardGame getCurrentCardGame() throws RemoteException;
 
 }
