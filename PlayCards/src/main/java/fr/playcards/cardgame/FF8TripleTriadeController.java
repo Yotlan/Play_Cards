@@ -1250,85 +1250,159 @@ public class FF8TripleTriadeController implements CardGameController{
         int positionNumeric_x = Integer.parseInt(String.valueOf(position.charAt(0)));
         int positionNumeric_y = Integer.parseInt(String.valueOf(position.charAt(1)));
 
-        //Check if we can flip the card at the right of this card
-        if (positionNumeric_y<3){
-            turnRight=this.checkRight(positionNumeric_x,positionNumeric_y);
-        }
-        //Check if we can flip the card at the left of this card
-        if (positionNumeric_y>1){
-            turnLeft=this.checkLeft(positionNumeric_x,positionNumeric_y);
-        }
+        if(this.checkSame(positionNumeric_x,positionNumeric_y)){
+            //Same rule : called again Flip rule
+            if (positionNumeric_y<3){
+                turnRight=true;
+            }
+            if (positionNumeric_y>1){
+                turnLeft=true;
+            }
+            if (positionNumeric_x>1){
+                turnTop=true;
+            }
+            if (positionNumeric_x<3){
+                turnDown=true;
+            }
 
-        //Check if we can flip the card above this card
-        if (positionNumeric_x>1){
-            turnTop=this.checkTop(positionNumeric_x,positionNumeric_y);
-        }
-
-        //Check if we can flip the card at the bottom of this card
-        if (positionNumeric_x<3){
-            turnDown=this.checkDown(positionNumeric_x,positionNumeric_y);
-        }
-
-        //Check if we can flip a card around this card
-        if (turnRight
-                || turnLeft
-                || turnDown
-                || turnTop
-        ){
             if (turnRight){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)));
                 y = Integer.parseInt(String.valueOf(position.charAt(1)))+1;
 
-                //Combo rule : called again Flip rule
-                if(!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))){
-                    visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
-                    flipRule(Integer.toString(x).concat(Integer.toString(y)),visitedCard);
-                }
+                if(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))!=null) {
+                    if (!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))) {
+                        visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                        flipRule(Integer.toString(x).concat(Integer.toString(y)), visitedCard);
+                    }
 
-                //Send update to the server to spread it to all client
-                this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
+                    //Send update to the server to spread it to all client
+                    this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) + Integer.toString((y)), this.client.getClientPseudo());
+                }
             }
             if (turnLeft){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)) );
                 y = Integer.parseInt(String.valueOf(position.charAt(1)))-1;
 
-                //Combo rule : called again Flip rule
-                if(!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))){
-                    visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
-                    flipRule(Integer.toString(x).concat(Integer.toString(y)),visitedCard);
-                }
+                if(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))!=null) {
+                    if (!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))) {
+                        visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                        flipRule(Integer.toString(x).concat(Integer.toString(y)), visitedCard);
+                    }
 
-                //Send update to the server to spread it to all client
-                this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
+                    //Send update to the server to spread it to all client
+                    this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) + Integer.toString((y)), this.client.getClientPseudo());
+                }
             }
             if (turnTop){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)))-1;
                 y = Integer.parseInt(String.valueOf(position.charAt(1)));
 
-                //Combo rule : called again Flip rule
-                if(!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))){
-                    visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
-                    flipRule(Integer.toString(x).concat(Integer.toString(y)),visitedCard);
-                }
+                if(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))!=null) {
+                    if (!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))) {
+                        visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                        flipRule(Integer.toString(x).concat(Integer.toString(y)), visitedCard);
+                    }
 
-                //Send update to the server to spread it to all client
-                this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
+                    //Send update to the server to spread it to all client
+                    this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) + Integer.toString((y)), this.client.getClientPseudo());
+                }
             }
             if (turnDown){
                 x = Integer.parseInt(String.valueOf(position.charAt(0)))+1;
                 y = Integer.parseInt(String.valueOf(position.charAt(1)));
 
-                //Combo rule : called again Flip rule
-                if(!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))){
-                    visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
-                    flipRule(Integer.toString(x).concat(Integer.toString(y)),visitedCard);
-                }
+                if(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))!=null) {
+                    if (!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))) {
+                        visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                        flipRule(Integer.toString(x).concat(Integer.toString(y)), visitedCard);
+                    }
 
-                //Send update to the server to spread it to all client
-                this.client.getMainServer().setFF8CardOwner(this.game.getUUID(),Integer.toString(x) +Integer.toString((y)),this.client.getClientPseudo());
+                    //Send update to the server to spread it to all client
+                    this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) + Integer.toString((y)), this.client.getClientPseudo());
+                }
+            }
+        }else {
+
+            //Check if we can flip the card at the right of this card
+            if (positionNumeric_y < 3) {
+                turnRight = this.checkRight(positionNumeric_x, positionNumeric_y);
+            }
+
+            //Check if we can flip the card at the left of this card
+            if (positionNumeric_y > 1) {
+                turnLeft = this.checkLeft(positionNumeric_x, positionNumeric_y);
+            }
+
+            //Check if we can flip the card above this card
+            if (positionNumeric_x > 1) {
+                turnTop = this.checkTop(positionNumeric_x, positionNumeric_y);
+            }
+
+            //Check if we can flip the card at the bottom of this card
+            if (positionNumeric_x < 3) {
+                turnDown = this.checkDown(positionNumeric_x, positionNumeric_y);
+            }
+
+            //Check if we can flip a card around this card
+            if (turnRight
+                    || turnLeft
+                    || turnDown
+                    || turnTop
+            ) {
+                if (turnRight) {
+                    x = Integer.parseInt(String.valueOf(position.charAt(0)));
+                    y = Integer.parseInt(String.valueOf(position.charAt(1))) + 1;
+
+                    //Combo rule : called again Flip rule
+                    if (!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))) {
+                        visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                        flipRule(Integer.toString(x).concat(Integer.toString(y)), visitedCard);
+                    }
+
+                    //Send update to the server to spread it to all client
+                    this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) + Integer.toString((y)), this.client.getClientPseudo());
+                }
+                if (turnLeft) {
+                    x = Integer.parseInt(String.valueOf(position.charAt(0)));
+                    y = Integer.parseInt(String.valueOf(position.charAt(1))) - 1;
+
+                    //Combo rule : called again Flip rule
+                    if (!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))) {
+                        visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                        flipRule(Integer.toString(x).concat(Integer.toString(y)), visitedCard);
+                    }
+
+                    //Send update to the server to spread it to all client
+                    this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) + Integer.toString((y)), this.client.getClientPseudo());
+                }
+                if (turnTop) {
+                    x = Integer.parseInt(String.valueOf(position.charAt(0))) - 1;
+                    y = Integer.parseInt(String.valueOf(position.charAt(1)));
+
+                    //Combo rule : called again Flip rule
+                    if (!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))) {
+                        visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                        flipRule(Integer.toString(x).concat(Integer.toString(y)), visitedCard);
+                    }
+
+                    //Send update to the server to spread it to all client
+                    this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) + Integer.toString((y)), this.client.getClientPseudo());
+                }
+                if (turnDown) {
+                    x = Integer.parseInt(String.valueOf(position.charAt(0))) + 1;
+                    y = Integer.parseInt(String.valueOf(position.charAt(1)));
+
+                    //Combo rule : called again Flip rule
+                    if (!(visitedCard.contains(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y)))))) {
+                        visitedCard.add(this.client.getFF8CardName(this.game.getUUID()).get(Integer.toString(x).concat(Integer.toString(y))));
+                        flipRule(Integer.toString(x).concat(Integer.toString(y)), visitedCard);
+                    }
+
+                    //Send update to the server to spread it to all client
+                    this.client.getMainServer().setFF8CardOwner(this.game.getUUID(), Integer.toString(x) + Integer.toString((y)), this.client.getClientPseudo());
+                }
             }
         }
-
     }
 
     /*
@@ -1428,6 +1502,827 @@ public class FF8TripleTriadeController implements CardGameController{
                 }else {
                     return false;
                 }
+            }
+        }
+        return false;
+    }
+    public boolean checkSame(int positionX, int positionY) throws RemoteException {
+        if(positionX == 2 && positionY == 2) {
+            int cardValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+            int cardValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+            int cardValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+            int cardValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+            String keyR = Integer.toString(positionX).concat(Integer.toString(positionY + 1));
+            String keyT = Integer.toString(positionX - 1).concat(Integer.toString(positionY));
+            String keyL = Integer.toString(positionX).concat(Integer.toString(positionY - 1));
+            String keyD = Integer.toString(positionX + 1).concat(Integer.toString(positionY));
+
+            //Check if cards around exist
+            if ((this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                    && this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null)
+                    || (this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                    && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null)
+                    || (this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                    && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null)
+                    || (this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                    && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null)
+                    || (this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                    && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null)
+                    || (this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                    && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null)
+            ) {
+                if(this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                ) {
+                    int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                    int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                    int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+                    int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueTop == cardAroundValueDown && cardValueRight == cardAroundValueLeft)
+                                || (cardValueTop == cardAroundValueDown && cardValueDown == cardAroundValueTop)
+                                || (cardValueTop == cardAroundValueDown && cardValueLeft == cardAroundValueRight)
+                                || (cardValueRight == cardAroundValueLeft && cardValueDown == cardAroundValueTop)
+                                || (cardValueRight == cardAroundValueLeft && cardValueLeft == cardAroundValueRight)
+                                || (cardValueDown == cardAroundValueTop && cardValueLeft == cardAroundValueRight)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }else if(this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                ){
+                    int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                    int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                    int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueRight == cardAroundValueLeft && cardValueDown == cardAroundValueTop)
+                                || (cardValueRight == cardAroundValueLeft && cardValueLeft == cardAroundValueRight)
+                                || (cardValueDown == cardAroundValueTop && cardValueLeft == cardAroundValueRight)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }else if(this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                ){
+                    int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                    int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                    int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueTop == cardAroundValueDown && cardValueDown == cardAroundValueTop)
+                                || (cardValueTop == cardAroundValueDown && cardValueLeft == cardAroundValueRight)
+                                || (cardValueDown == cardAroundValueTop && cardValueLeft == cardAroundValueRight)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }else if(this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                ){
+                    int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                    int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+                    int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueTop == cardAroundValueDown && cardValueRight == cardAroundValueLeft)
+                                || (cardValueTop == cardAroundValueDown && cardValueLeft == cardAroundValueRight)
+                                || (cardValueRight == cardAroundValueLeft && cardValueLeft == cardAroundValueRight)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }else if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                ){
+                    int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                    int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+                    int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueTop == cardAroundValueDown && cardValueRight == cardAroundValueLeft)
+                                || (cardValueTop == cardAroundValueDown && cardValueDown == cardAroundValueTop)
+                                || (cardValueRight == cardAroundValueLeft && cardValueDown == cardAroundValueTop)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }else if(this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                ){
+                    int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                    int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueDown == cardAroundValueTop && cardValueLeft == cardAroundValueRight)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }else if(this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                ){
+                    int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                    int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueRight == cardAroundValueLeft && cardValueLeft == cardAroundValueRight)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }else if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                ){
+                    int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                    int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueRight == cardAroundValueLeft && cardValueDown == cardAroundValueTop)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }else if(this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                ){
+                    int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                    int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueTop == cardAroundValueDown && cardValueLeft == cardAroundValueRight)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }else if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                ){
+                    int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                    int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueTop == cardAroundValueDown && cardValueDown == cardAroundValueTop)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }else if(this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                ){
+                    int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+                    int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueTop == cardAroundValueDown && cardValueRight == cardAroundValueLeft)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return false;
+        }else if(positionX == 1){
+            if(positionY == 1){
+                int cardValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                String keyR = Integer.toString(positionX).concat(Integer.toString(positionY + 1));
+                String keyD = Integer.toString(positionX + 1).concat(Integer.toString(positionY));
+
+                //Check if cards around exist
+                if ((this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null)
+                ) {
+                    int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                    int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueRight == cardAroundValueLeft && cardValueDown == cardAroundValueTop)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+                return false;
+            }else if(positionY == 3){
+                int cardValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                String keyL = Integer.toString(positionX).concat(Integer.toString(positionY - 1));
+                String keyD = Integer.toString(positionX + 1).concat(Integer.toString(positionY));
+
+                //Check if cards around exist
+                if ((this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null)
+                ) {
+                    int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                    int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueDown == cardAroundValueTop && cardValueLeft == cardAroundValueRight)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+                return false;
+            }else{
+                int cardValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                String keyR = Integer.toString(positionX).concat(Integer.toString(positionY + 1));
+                String keyL = Integer.toString(positionX).concat(Integer.toString(positionY - 1));
+                String keyD = Integer.toString(positionX + 1).concat(Integer.toString(positionY));
+
+                //Check if cards around exist
+                if ((this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null)
+                        || (this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null)
+                        || (this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null)
+                ) {
+                    if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                            && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                            && this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                    ) {
+                        int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                        int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                        int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                                || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                                || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueRight == cardAroundValueLeft && cardValueDown == cardAroundValueTop)
+                                    || (cardValueRight == cardAroundValueLeft && cardValueLeft == cardAroundValueRight)
+                                    || (cardValueDown == cardAroundValueTop && cardValueLeft == cardAroundValueRight)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                            && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                    ){
+                        int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                        int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueRight == cardAroundValueLeft && cardValueDown == cardAroundValueTop)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                            && this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                    ){
+                        int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                        int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueDown == cardAroundValueTop && cardValueLeft == cardAroundValueRight)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                            && this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                    ){
+                        int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                        int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueRight == cardAroundValueLeft && cardValueLeft == cardAroundValueRight)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                return false;
+            }
+        }else if(positionX == 3){
+            if(positionY == 1){
+                int cardValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                String keyR = Integer.toString(positionX).concat(Integer.toString(positionY + 1));
+                String keyT = Integer.toString(positionX - 1).concat(Integer.toString(positionY));
+
+                //Check if cards around exist
+                if ((this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null)
+                ) {
+                    int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+                    int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueTop == cardAroundValueDown && cardValueRight == cardAroundValueLeft)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+                return false;
+            }else if(positionY == 3){
+                int cardValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                String keyT = Integer.toString(positionX - 1).concat(Integer.toString(positionY));
+                String keyL = Integer.toString(positionX).concat(Integer.toString(positionY - 1));
+
+                //Check if cards around exist
+                if ((this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null)
+                ) {
+                    int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                    int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                    //Check if cards around are not my card
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                    ) {
+
+                        //Check if we can flip this card
+                        if ((cardValueTop == cardAroundValueDown && cardValueLeft == cardAroundValueRight)
+                        ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+                return false;
+            }else{
+                int cardValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                String keyR = Integer.toString(positionX).concat(Integer.toString(positionY + 1));
+                String keyT = Integer.toString(positionX - 1).concat(Integer.toString(positionY));
+                String keyL = Integer.toString(positionX).concat(Integer.toString(positionY - 1));
+
+                //Check if cards around exist
+                if ((this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null)
+                        || (this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null)
+                        || (this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null)
+                ) {
+                    if(this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                            && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                            && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                    ) {
+                        int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                        int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+                        int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
+                                || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                                || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueTop == cardAroundValueDown && cardValueRight == cardAroundValueLeft)
+                                    || (cardValueTop == cardAroundValueDown && cardValueLeft == cardAroundValueRight)
+                                    || (cardValueRight == cardAroundValueLeft && cardValueLeft == cardAroundValueRight)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                            && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                    ){
+                        int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                        int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueRight == cardAroundValueLeft && cardValueLeft == cardAroundValueRight)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                            && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                    ){
+                        int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                        int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueTop == cardAroundValueDown && cardValueLeft == cardAroundValueRight)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                            && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                    ){
+                        int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+                        int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueTop == cardAroundValueDown && cardValueRight == cardAroundValueLeft)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                return false;
+            }
+        }else{
+            if(positionY == 1){
+                int cardValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                String keyR = Integer.toString(positionX).concat(Integer.toString(positionY + 1));
+                String keyT = Integer.toString(positionX - 1).concat(Integer.toString(positionY));
+                String keyD = Integer.toString(positionX + 1).concat(Integer.toString(positionY));
+
+                //Check if cards around exist
+                if ((this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null)
+                        || (this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null)
+                        || (this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                        && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null)
+                ) {
+                    if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                            && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                            && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                    ) {
+                        int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                        int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+                        int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
+                                || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                                || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueTop == cardAroundValueDown && cardValueRight == cardAroundValueLeft)
+                                    || (cardValueTop == cardAroundValueDown && cardValueDown == cardAroundValueTop)
+                                    || (cardValueRight == cardAroundValueLeft && cardValueDown == cardAroundValueTop)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                            && this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                    ){
+                        int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                        int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueRight == cardAroundValueLeft && cardValueDown == cardAroundValueTop)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                            && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                    ){
+                        int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                        int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueTop == cardAroundValueDown && cardValueDown == cardAroundValueTop)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardLeft(this.game.getUUID()).get(keyR) != null
+                            && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                    ){
+                        int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
+                        int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueTop == cardAroundValueDown && cardValueRight == cardAroundValueLeft)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                return false;
+            }else if(positionY == 3){
+                int cardValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                int cardValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(Integer.toString(positionX).concat(Integer.toString(positionY)));
+                String keyT = Integer.toString(positionX - 1).concat(Integer.toString(positionY));
+                String keyL = Integer.toString(positionX).concat(Integer.toString(positionY - 1));
+                String keyD = Integer.toString(positionX + 1).concat(Integer.toString(positionY));
+
+                //Check if cards around exist
+                if ((this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null)
+                        || (this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null)
+                        || (this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                        && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null)
+                ) {
+                    if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                            && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                            && this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                    ) {
+                        int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                        int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                        int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                                || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                                || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueTop == cardAroundValueDown && cardValueDown == cardAroundValueTop)
+                                    || (cardValueTop == cardAroundValueDown && cardValueLeft == cardAroundValueRight)
+                                    || (cardValueDown == cardAroundValueTop && cardValueLeft == cardAroundValueRight)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                            && this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                    ){
+                        int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+                        int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueTop == cardAroundValueDown && cardValueDown == cardAroundValueTop)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardUp(this.game.getUUID()).get(keyD) != null
+                            && this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                    ){
+                        int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                        int cardAroundValueTop = this.client.getFF8CardUp(this.game.getUUID()).get(keyD);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueDown == cardAroundValueTop && cardValueLeft == cardAroundValueRight)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }else if(this.client.getFF8CardDown(this.game.getUUID()).get(keyT) != null
+                            && this.client.getFF8CardRight(this.game.getUUID()).get(keyL) != null
+                    ){
+                        int cardAroundValueRight = this.client.getFF8CardRight(this.game.getUUID()).get(keyL);
+                        int cardAroundValueDown = this.client.getFF8CardDown(this.game.getUUID()).get(keyT);
+
+                        //Check if cards around are not my card
+                        if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                                && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
+                        ) {
+
+                            //Check if we can flip this card
+                            if ((cardValueTop == cardAroundValueDown && cardValueLeft == cardAroundValueRight)
+                            ) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                return false;
             }
         }
         return false;

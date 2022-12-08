@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c60cd9be-e031-48b3-be66-481e16545c36" name="Changes" comment="Totally functionnal UI for FF8 Triple Triade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/FF8TripleTriadeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/FF8Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/cardgame/card/FF8Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/client/IClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/client/IClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/server/IServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/server/IServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/playcards/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/playcards/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
