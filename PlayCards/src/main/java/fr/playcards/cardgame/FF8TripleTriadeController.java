@@ -1649,9 +1649,9 @@ public class FF8TripleTriadeController implements CardGameController{
                     int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
 
                     //Check if cards around are not my card
-                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
                             && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
-                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
                             && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
                             || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
                             && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
@@ -2471,9 +2471,9 @@ public class FF8TripleTriadeController implements CardGameController{
                     int cardAroundValueLeft = this.client.getFF8CardLeft(this.game.getUUID()).get(keyR);
 
                     //Check if cards around are not my card
-                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                    if ((!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
                             && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo()))
-                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyT).equals(this.client.getClientPseudo())
+                            || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyD).equals(this.client.getClientPseudo())
                             && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
                             || (!this.client.getFF8CardOwner(this.game.getUUID()).get(keyR).equals(this.client.getClientPseudo())
                             && !this.client.getFF8CardOwner(this.game.getUUID()).get(keyL).equals(this.client.getClientPseudo()))
