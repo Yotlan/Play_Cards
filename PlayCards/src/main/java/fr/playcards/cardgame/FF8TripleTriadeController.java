@@ -94,7 +94,8 @@ public class FF8TripleTriadeController implements CardGameController{
     }
 
     /*
-    This method initialize all the information we can have to the controller of FF8 Triple Triade game.
+    This method initialize all the information we can have to the controller of FF8 Triple Triade game. This method is
+    synchronized to avoid load and display error.
      */
 
     @FXML
@@ -170,6 +171,7 @@ public class FF8TripleTriadeController implements CardGameController{
         this.client = client;
     }
 
+    //This method is synchronized to avoid load and display error.
     public synchronized void refresh(){
         try {
 
@@ -1235,10 +1237,10 @@ public class FF8TripleTriadeController implements CardGameController{
     @throws RemoteException
 
     This method is called when a card is display somewhere on the board, so when we need to check if the card around can
-    be flip or not
+    be flip or not. This method is synchronized to avoid load and display error.
      */
 
-    public synchronized void flipRule(String position, List<String> visitedCard) throws RemoteException {
+    public synchronized void flipRule(String position, List<String> visitedCard) throws RemoteException, InterruptedException {
 
         //Initialize turn and position
         boolean turnRight=false;

@@ -29,7 +29,7 @@ public interface IServer extends Serializable, Remote {
     This method is called by PlayCardsController and create a room in the server who spread the update to all clients.
      */
 
-    void createRoom(CardGame game, IClient client) throws RemoteException;
+    void createRoom(CardGame game, IClient client) throws RemoteException, InterruptedException;
 
     /*
     @throws RemoteException
@@ -64,7 +64,7 @@ public interface IServer extends Serializable, Remote {
     to the first player who join the room.
      */
 
-    void initTurn(String UUID) throws RemoteException;
+    void initTurn(String UUID) throws RemoteException, InterruptedException;
 
     /*
     @param String UUID
@@ -75,7 +75,7 @@ public interface IServer extends Serializable, Remote {
     player 2 to the player 1 in the UUID game.
      */
 
-    void switchTurn(String UUID) throws RemoteException;
+    void switchTurn(String UUID) throws RemoteException, InterruptedException;
 
     /*
     @param String UUID
@@ -100,15 +100,15 @@ public interface IServer extends Serializable, Remote {
     displaying card to all clients who're in the UUID game !
      */
 
-    void displayCard11(Card card, String UUID,IClient client) throws RemoteException;
-    void displayCard21(Card card, String UUID,IClient client) throws RemoteException;
-    void displayCard31(Card card, String UUID,IClient client) throws RemoteException;
-    void displayCard12(Card card, String UUID,IClient client) throws RemoteException;
-    void displayCard22(Card card, String UUID,IClient client) throws RemoteException;
-    void displayCard32(Card card, String UUID,IClient client) throws RemoteException;
-    void displayCard13(Card card, String UUID,IClient client) throws RemoteException;
-    void displayCard23(Card card, String UUID,IClient client) throws RemoteException;
-    void displayCard33(Card card, String UUID,IClient client) throws RemoteException;
+    void displayCard11(Card card, String UUID,IClient client) throws RemoteException, InterruptedException;
+    void displayCard21(Card card, String UUID,IClient client) throws RemoteException, InterruptedException;
+    void displayCard31(Card card, String UUID,IClient client) throws RemoteException, InterruptedException;
+    void displayCard12(Card card, String UUID,IClient client) throws RemoteException, InterruptedException;
+    void displayCard22(Card card, String UUID,IClient client) throws RemoteException, InterruptedException;
+    void displayCard32(Card card, String UUID,IClient client) throws RemoteException, InterruptedException;
+    void displayCard13(Card card, String UUID,IClient client) throws RemoteException, InterruptedException;
+    void displayCard23(Card card, String UUID,IClient client) throws RemoteException, InterruptedException;
+    void displayCard33(Card card, String UUID,IClient client) throws RemoteException, InterruptedException;
 
     /*
     @param String UUID
@@ -120,7 +120,7 @@ public interface IServer extends Serializable, Remote {
     are a list of all client who're in the UUID game.
      */
 
-    void initFF8GameClientList(String UUID, IClient client) throws RemoteException;
+    void initFF8GameClientList(String UUID, IClient client) throws RemoteException, InterruptedException;
 
     /*
     @param String UUID
@@ -158,6 +158,6 @@ public interface IServer extends Serializable, Remote {
     by his new owner.
      */
 
-    boolean setFF8CardOwner(String UUID,String position, String newOwner) throws RemoteException;
+    boolean setFF8CardOwner(String UUID,String position, String newOwner) throws RemoteException, InterruptedException;
 
 }
