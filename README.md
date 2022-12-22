@@ -56,8 +56,6 @@ Rules will be applied :
 
 4. *Rule Combo* : Cards turned over using Same or Plus turn over adjacent cards in Combo.
 
-NB: In our version, their is only rule Flip and combo (with flip) is applied.
-
 To win, a majority of the total ten cards played (including the one card not played) must be of the player's card color.
 
 
