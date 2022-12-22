@@ -82,5 +82,8 @@ To win, a majority of the total ten cards played (including the one card not pla
 
 ## Koi Koi Wars (TODO)
 
-## Reference :
+## References
+
 - Triple Triad FF8 Rules : https://finalfantasy.fandom.com/wiki/Triple_Triad_(Final_Fantasy_VIII)
+- Final Fantasy VIII video game
+- Final Fantasy VIII Remastered video game
