@@ -29,7 +29,7 @@ Card games who're available is presented bellow :
 3. When User click on create room, a game room will be created with the game that user has chosen in step 2.
 4. User can join the play card game room with the botton Join. 
 
-### Triple Triade FF8
+## Triple Triade FF8
 A card game, that need 2 players. Each player have 5 cards. There is a game-board 3x3 (shared object between 2 players). each card has 4 values, whose values are positioned across.It's a game played round by round, each round a player can put a card to game-board, this card will be colored with the color of player. After each round, there are some rules will be applied. 
 Rules will be applied : 
 
@@ -61,11 +61,11 @@ NB: In our version, their is only rule Flip and combo (with flip) is applied.
 To win, a majority of the total ten cards played (including the one card not played) must be of the player's card color.
 
 
-### Triple Triade FF14 (TODO)
+## Triple Triade FF14 (TODO)
 
-### Koi Koi Wars (TODO)
+## Koi Koi Wars (TODO)
 
 
-### Reference :
+## Reference :
 - Triple Triade Rules FF8, https://game8.co/games/Final_Fantasy_VIII/archives/270175#hm_1
 - Triple Triade Rules FF8, https://finalfantasy.fandom.com/wiki/Triple_Triad_(Final_Fantasy_VIII)
