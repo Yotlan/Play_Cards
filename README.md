@@ -13,9 +13,9 @@ In this project, you can connect to the main server and you can decide to create
 ### CARDS GAMES AVAILABLE
 
 Card games who're available is presented bellow :
-- Triple Triade FF8
-- Triple Triade FF14 (TODO)
-- Koi Koi Wars (TODO)
+- [Triple Triade FF8](#Triple-Triade-FF8)
+- [Triple Triade FF14](#triple-triade-ff14-todo) (TODO)
+- [Koi Koi Wars](#koi-koi-wars-todo) (TODO)
 - *More to come*
 
 ### How to work Play cards game ? 
@@ -65,7 +65,6 @@ To win, a majority of the total ten cards played (including the one card not pla
 
 ### Koi Koi Wars (TODO)
 
-###  *More to come*
 
 ### Reference :
 - Triple Triade Rules FF8, https://game8.co/games/Final_Fantasy_VIII/archives/270175#hm_1
