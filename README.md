@@ -43,7 +43,7 @@ Rules will be applied :
     - 1 (card A above) == 1 (card B below) 
     - 2 (card A left)== 2 (card C right)
 
-  Thus rule will change the color of card B and card C to opposite color.  
+    Thus rule will change the color of card B and card C to opposite color.  
 
 3. *Rule Plus* : means that cards adding to the same value, on more than 2 adjacent sides are turned over.
 
@@ -52,7 +52,7 @@ Rules will be applied :
     - 2+3 (card A left ,card C right)
     - 1+4 == 2+3
   
-  Thus rule will change the color of card B and card C to opposite color. 
+    Thus rule will change the color of card B and card C to opposite color. 
 
 4. *Rule Combo* : Cards turned over using Same or Plus turn over adjacent cards in Combo.
 
