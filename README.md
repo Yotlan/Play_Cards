@@ -30,7 +30,7 @@ Card games who're available is presented bellow :
 4. User can join the play card game room with the botton Join. 
 
 ### Triple Triade FF8
-A card game, that need 2 players. Each player have 5 cards. There is a game-board 3x3 (shared object between 2 players). each card has 4 values, whose values are positioned ***??across??*** them.It's a game round by round, each round a player can put a card to game-board. After each round, there are some rules will be applied. 
+A card game, that need 2 players. Each player have 5 cards. There is a game-board 3x3 (shared object between 2 players). each card has 4 values, whose values are positioned across.It's a game played round by round, each round a player can put a card to game-board, this card will be colored with the color of player. After each round, there are some rules will be applied. 
 Rules will be applied : 
 
 1. *Rule flip* : when a card A is put, and there is a card B of opponent next to A : Card A can be above/left/below/right to B. Card A must compare B with the position of card B relative to card A. When this compare proves that card A is superior, card B will be colored with the color of opponent. If card A is left to the card B, right value of card A must compare with left value of card B, otherwise the reverse. If card A is above card B, below value of card A must compare with above value of card B, otherwise the reverse. This compare 
@@ -58,6 +58,15 @@ Rules will be applied :
 
 NB: In our version, their is only rule Flip and combo (with flip) is applied.
 
+To win, a majority of the total ten cards played (including the one card not played) must be of the player's card color.
 
-Reference :
+
+### Triple Triade FF14 (TODO)
+
+### Koi Koi Wars (TODO)
+
+###  *More to come*
+
+### Reference :
 - Triple Triade Rules FF8, https://game8.co/games/Final_Fantasy_VIII/archives/270175#hm_1
+- Triple Triade Rules FF8, https://finalfantasy.fandom.com/wiki/Triple_Triad_(Final_Fantasy_VIII)
